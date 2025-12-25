@@ -1,0 +1,7 @@
+{
+  "name": "Pure Food Mart - Inventory Management System",
+  "description": "A professional-grade inventory management system with stock operations, automated valuation using weighted average cost, multi-warehouse support, and real-time dashboard analytics.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
