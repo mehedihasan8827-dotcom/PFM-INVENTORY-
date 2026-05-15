@@ -1,701 +1,882 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>রাজশাহীর প্রিমিয়াম হিমসাগর আম — Pure Food Mart</title>
-  <meta name="description" content="রাজশাহীর সেরা হিমসাগর আম। সরাসরি বাগান থেকে আপনার দরজায়। ১০০% প্রাকৃতিক।"/>
-  <meta property="og:title" content="রাজশাহীর প্রিমিয়াম হিমসাগর আম — Pure Food Mart"/>
-  <meta property="og:description" content="মিষ্টি, রসালো হিমসাগর আম। সরাসরি বাগান থেকে। ক্যাশ অন ডেলিভারি।"/>
-  <meta property="og:type" content="product"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@700;800;900&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>রাজশাহীর প্রিমিয়াম হিমসাগর আম — Pure Food Mart</title>
+<meta name="description" content="রাজশাহীর সেরা হিমসাগর আম। সরাসরি বাগান থেকে আপনার দরজায়। ১০০% প্রাকৃতিক।"/>
+<meta property="og:title" content="রাজশাহীর প্রিমিয়াম হিমসাগর আম — Pure Food Mart"/>
+<meta property="og:description" content="মিষ্টি, রসালো হিমসাগর আম। ক্যাশ অন ডেলিভারি।"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@700;800;900&display=swap" rel="stylesheet"/>
 
-  <style>
-    /* ─── TOKENS ─────────────────────────────────── */
-    :root{
-      --green:   #1E7B34;
-      --yellow:  #FFD100;
-      --white:   #FFFFFF;
-      --bg:      #F0F0EC;
-      --text:    #1A1A1A;
-      --muted:   #666666;
-      --border:  #D4D4D4;
-      --red:     #D32F2F;
-      --font:    'Hind Siliguri','Noto Sans Bengali',sans-serif;
-      --r:       8px;
-    }
+<style>
+/* ── TOKENS ── */
+:root{
+  --grn:#1A7A30;
+  --grn2:#19A337;
+  --org:#F5A623;
+  --yel:#FFD100;
+  --bg:#EFEFEB;
+  --wht:#FFFFFF;
+  --txt:#1A1A1A;
+  --mut:#666;
+  --bdr:#D0D0D0;
+  --red:#D32F2F;
+  --fn:'Hind Siliguri','Noto Sans Bengali',sans-serif;
+  --fnh:'Noto Sans Bengali','Hind Siliguri',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fn);background:var(--bg);color:var(--txt);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button,input{font-family:var(--fn)}
 
-    /* ─── RESET ──────────────────────────────────── */
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
-    img{max-width:100%;display:block}
-    a{text-decoration:none;color:inherit}
-    ul{list-style:none}
-    button,input,textarea{font-family:var(--font)}
+/* ── LAYOUT ── */
+.W{width:100%;max-width:560px;margin:0 auto;padding:0 20px}
+.sec-w{background:var(--wht);padding:50px 0}
+.sec-g{background:var(--bg);padding:50px 0}
 
-    /* ─── LAYOUT ─────────────────────────────────── */
-    .wrap{width:100%;max-width:540px;margin:0 auto;padding:0 18px}
-    .sec{padding:44px 0}
-    .sec--white{background:#fff}
-    .sec--gray{background:var(--bg)}
+/* ── SECTION HEADING (black + green) ── */
+.SH{
+  font-family:var(--fnh);
+  font-size:2.25rem;
+  font-weight:900;
+  line-height:1.25;
+  text-align:center;
+  margin-bottom:26px;
+  color:var(--txt);
+  letter-spacing:-.01em;
+}
+.SH .g{color:var(--grn)}
 
-    /* ─── SECTION HEADING (black + green) ────────── */
-    .sh{font-size:1.85rem;font-weight:700;line-height:1.2;margin-bottom:24px;text-align:center;font-family:var(--font)}
-    .sh .g{color:var(--green)}
+/* ── CTA BUTTON ── */
+.BTN{
+  display:block;
+  background:var(--yel);
+  color:#111;
+  font-family:var(--fnh);
+  font-size:1.2rem;
+  font-weight:800;
+  padding:16px 36px;
+  border-radius:8px;
+  text-align:center;
+  border:none;cursor:pointer;
+  transition:filter .15s;
+  letter-spacing:.01em;
+  line-height:1.3;
+}
+.BTN:hover{filter:brightness(.92)}
+.BTN-c{max-width:240px;margin:0 auto}
 
-    /* ─── CTA BUTTON ─────────────────────────────── */
-    .btn{
-      display:block;
-      background:var(--yellow);
-      color:var(--text);
-      font-family:var(--font);
-      font-size:1.15rem;
-      font-weight:700;
-      padding:15px 36px;
-      border-radius:var(--r);
-      text-align:center;
-      border:none;
-      cursor:pointer;
-      transition:opacity .15s;
-      text-decoration:none;
-    }
-    .btn:hover{opacity:.87}
-    .btn--sm{max-width:240px;margin:0 auto}
 
-    /* ═══════════════════════════════════════════════
-       HERO
-    ═══════════════════════════════════════════════ */
-    .hero{
-      position:relative;
-      min-height:100svh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:60px 18px 52px;
-      text-align:center;
-      overflow:hidden;
-    }
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  padding:60px 20px 56px;
+  text-align:center;
+  overflow:hidden;
+}
 
-    /* SVG forest background */
-    .hero-bg{
-      position:absolute;
-      inset:0;
-      z-index:0;
-    }
-    .hero-bg svg{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
+/* ── Background layers ── */
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    linear-gradient(180deg,
+      #040B03 0%,
+      #091608 15%,
+      #102010 30%,
+      #183018 48%,
+      #102010 65%,
+      #060E05 82%,
+      #020603 100%
+    );
+}
+/* atmosphere glow */
+.hero-bg::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% 35%,rgba(28,58,18,.9) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 40% at 15% 70%,rgba(8,18,6,.8) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 40% at 85% 65%,rgba(8,18,6,.8) 0%,transparent 55%);
+}
+/* ground fade */
+.hero-bg::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:32%;
+  background:linear-gradient(180deg,transparent 0%,#020604 100%);
+}
 
-    /* Overlay gradient on top of SVG */
-    .hero-overlay{
-      position:absolute;
-      inset:0;
-      z-index:1;
-      background:
-        linear-gradient(to bottom,
-          rgba(4,12,4,.55) 0%,
-          rgba(6,16,6,.30) 35%,
-          rgba(4,12,4,.45) 70%,
-          rgba(2,8,2,.70) 100%
-        );
-    }
+/* SVG forest */
+.hero-trees{position:absolute;inset:0;z-index:1;overflow:hidden}
+.hero-trees svg{width:100%;height:100%;position:absolute;inset:0}
 
-    .hero-inner{position:relative;z-index:2;max-width:420px;margin:0 auto}
+/* dark overlay */
+.hero-ov{
+  position:absolute;inset:0;z-index:2;
+  background:rgba(0,0,0,.12);
+}
 
-    /* Mango SVG logo */
-    .hero-logo{margin-bottom:14px;display:flex;justify-content:center}
-    .hero-logo svg{width:64px;height:64px;filter:drop-shadow(0 3px 12px rgba(0,0,0,.6))}
+.hero-in{position:relative;z-index:3;max-width:420px;margin:0 auto}
 
-    /* Heading — 3 colored lines with dark stroke */
-    .hero-h1{
-      font-size:clamp(2.2rem,9vw,3rem);
-      font-weight:800;
-      line-height:1.1;
-      margin-bottom:14px;
-      font-family:'Noto Sans Bengali','Hind Siliguri',sans-serif;
-    }
-    .hero-h1 .line-green{
-      display:block;
-      color:#5EF07A;
-      -webkit-text-stroke:1.5px #041004;
-      text-shadow:0 2px 10px rgba(0,0,0,.7);
-    }
-    .hero-h1 .line-orange{
-      color:#F5A623;
-      -webkit-text-stroke:1.5px #2A0D00;
-      text-shadow:0 2px 10px rgba(0,0,0,.7);
-    }
-    .hero-h1 .line-white{
-      color:#FFFFFF;
-      -webkit-text-stroke:1.5px #050505;
-      text-shadow:0 2px 10px rgba(0,0,0,.8);
-    }
+/* Mango logo icon */
+.hero-logo{margin-bottom:18px;display:flex;justify-content:center}
+.hero-logo svg{width:72px;height:72px;filter:drop-shadow(0 4px 16px rgba(0,0,0,.8))}
 
-    .hero-stars{color:#FFD100;font-size:1.5rem;letter-spacing:4px;margin-bottom:6px}
+/* ── HEADING — colored background boxes ── */
+.hero-h1{
+  font-family:var(--fnh);
+  font-weight:900;
+  line-height:1.18;
+  margin-bottom:16px;
+  text-align:center;
+}
+/* Line 1 — green background box */
+.h-line1{
+  display:block;
+  margin-bottom:8px;
+}
+.h-line1 .box{
+  display:inline;
+  font-size:clamp(3rem,12vw,3.9rem);
+  background:#1A8B32;
+  color:#FFF;
+  padding:5px 16px 10px;
+  border-radius:10px;
+  -webkit-box-decoration-break:clone;
+  box-decoration-break:clone;
+  line-height:1.3;
+}
+/* Line 2 — orange box + plain white text */
+.h-line2{
+  display:block;
+  font-size:clamp(2.7rem,11vw,3.6rem);
+}
+.h-line2 .box-o{
+  display:inline;
+  background:var(--org);
+  color:#FFF;
+  padding:5px 14px 10px;
+  border-radius:10px;
+  -webkit-box-decoration-break:clone;
+  box-decoration-break:clone;
+  line-height:1.3;
+}
+.h-line2 .plain{
+  color:#FFF;
+  text-shadow:0 2px 14px rgba(0,0,0,.95),0 0 4px rgba(0,0,0,1);
+  margin-left:8px;
+}
 
-    .hero-tree-emoji{font-size:1.6rem;margin-bottom:14px;display:block}
+.hero-stars{color:#FFD100;font-size:1.7rem;letter-spacing:6px;margin:12px 0 10px;display:block}
 
-    /* Info box (cream) */
-    .hero-box{
-      background:#FFF8E7;
-      border-radius:12px;
-      padding:13px 20px;
-      margin:0 auto 18px;
-      max-width:340px;
-      box-shadow:0 2px 16px rgba(0,0,0,.25);
-    }
-    .hero-box strong{display:block;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:3px}
-    .hero-box span{font-size:.88rem;color:#444;line-height:1.5}
+.hero-palm{font-size:2rem;display:block;margin-bottom:16px}
 
-    .hero-desc{color:rgba(255,255,255,.90);font-size:.9rem;line-height:1.7;margin-bottom:10px}
-    .hero-desc strong{color:#fff}
+/* Info box cream */
+.hero-box{
+  background:#FFF8E7;
+  border-radius:16px;
+  padding:16px 24px;
+  margin:0 auto 20px;
+  max-width:340px;
+  box-shadow:0 6px 24px rgba(0,0,0,.35);
+}
+.hero-box strong{
+  display:block;
+  font-size:1.05rem;font-weight:800;
+  color:var(--txt);margin-bottom:4px;
+  font-family:var(--fnh);
+}
+.hero-box span{font-size:.9rem;color:#555;line-height:1.55}
 
-    .hero-arrow{color:#fff;font-size:1.6rem;display:block;margin:8px 0 20px;
-      animation:bounce 1.6s ease infinite}
-    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.hero-desc{
+  color:rgba(255,255,255,.92);
+  font-size:.94rem;line-height:1.75;
+  margin-bottom:12px;
+  text-shadow:0 1px 8px rgba(0,0,0,.85);
+}
 
-    .hero .btn{max-width:240px;margin:0 auto;font-size:1.2rem;padding:16px 28px;border-radius:10px}
+.hero-arr{
+  color:#fff;font-size:2rem;
+  display:block;margin:8px 0 22px;
+  animation:bnc 1.7s ease infinite;
+  text-shadow:0 2px 10px rgba(0,0,0,.7);
+}
+@keyframes bnc{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 
-    /* ═══════════════════════════════════════════════
-       WHY US
-    ═══════════════════════════════════════════════ */
-    .why-photo{
-      width:100%;
-      border-radius:14px;
-      overflow:hidden;
-      margin:0 0 22px;
-      aspect-ratio:4/3;
-      background:linear-gradient(135deg,#C8F0A0,#5BA830,#2D5016);
-      display:flex;align-items:center;justify-content:center;
-      font-size:5rem;
-    }
-    .why-body{font-size:.96rem;color:var(--text);text-align:center;line-height:1.85;margin-bottom:8px}
-    .why-expert{
-      text-align:center;
-      font-size:1.55rem;
-      font-weight:700;
-      color:var(--green);
-      font-style:italic;
-      margin:26px 0 10px;
-    }
-    .why-expert-body{font-size:.93rem;color:var(--muted);text-align:center;line-height:1.75;margin-bottom:28px}
+.hero .BTN{max-width:220px;margin:0 auto;font-size:1.25rem;padding:17px 30px}
 
-    /* ═══════════════════════════════════════════════
-       REVIEWS
-    ═══════════════════════════════════════════════ */
-    .reviews-sec{background:#fff;padding:44px 0;border-top:1px solid #EBEBEB}
 
-    .review-list{margin:20px 0 32px}
+/* ══════════════════════════════════════
+   WHY US
+══════════════════════════════════════ */
+.why-photo{
+  width:100%;border-radius:14px;
+  aspect-ratio:4/3;
+  margin:0 0 24px;
+  overflow:hidden;
+  position:relative;
+  background:#1A3510;
+}
+/* CSS farm/orchard illustration */
+.why-photo::before{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,#87CEAB 0%,#5BAD70 30%,#3D8A4E 55%,#2A6035 75%,#1A3B20 100%);
+}
+.why-photo::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:45%;
+  background:linear-gradient(180deg,transparent,rgba(15,40,12,.75));
+}
+.why-photo-inner{
+  position:relative;z-index:1;
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+}
+.why-photo-inner svg{width:100%;height:100%;position:absolute;inset:0}
 
-    .review-item{
-      display:flex;gap:14px;align-items:flex-start;
-      padding:18px 0;
-      border-bottom:1px solid #EBEBEB;
-    }
-    .review-item:first-child{border-top:1px solid #EBEBEB}
+.why-txt{font-size:.97rem;color:var(--txt);text-align:center;line-height:1.9;margin-bottom:8px}
+.why-sub{
+  text-align:center;
+  font-size:1.8rem;font-weight:900;
+  color:var(--grn);font-style:italic;
+  margin:28px 0 12px;
+  font-family:var(--fnh);
+}
+.why-sub2{font-size:.95rem;color:var(--mut);text-align:center;line-height:1.8;margin-bottom:30px}
 
-    .r-avatar{
-      width:54px;height:54px;border-radius:50%;flex-shrink:0;
-      background:linear-gradient(135deg,#2D7A3A,#5EAC4A);
-      display:flex;align-items:center;justify-content:center;
-      font-size:1.2rem;font-weight:700;color:#fff;
-      overflow:hidden;
-    }
 
-    .r-body{flex:1;min-width:0}
+/* ══════════════════════════════════════
+   REVIEWS
+══════════════════════════════════════ */
+.reviews{background:var(--wht);padding:50px 0;border-top:1px solid #E8E8E8}
 
-    .r-head{
-      display:flex;align-items:flex-start;
-      justify-content:space-between;
-      gap:6px;
-      margin-bottom:5px;
-    }
-    .r-meta{}
-    .r-name{font-weight:700;font-size:1rem;color:var(--text)}
-    .r-city{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:3px;margin-top:1px}
-    .r-stars{color:#FFD100;font-size:.9rem;letter-spacing:1px;flex-shrink:0;padding-top:2px}
-    .r-text{font-size:.9rem;color:#333;line-height:1.7}
+.rv-list{margin:24px 0 34px}
 
-    /* ═══════════════════════════════════════════════
-       FAQ
-    ═══════════════════════════════════════════════ */
-    .faq-sec{background:var(--bg);padding:44px 0}
-    .faq-sub{text-align:center;color:var(--muted);font-size:.88rem;margin-top:-18px;margin-bottom:28px}
+.rv-item{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:20px 0;
+  border-bottom:1px solid #EBEBEB;
+}
+.rv-item:first-child{border-top:1px solid #EBEBEB}
 
-    .faq-list{display:flex;flex-direction:column;gap:8px;margin-bottom:32px}
+.rv-av{
+  width:58px;height:58px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;font-weight:800;color:#fff;
+  font-family:var(--fnh);
+  overflow:hidden;
+  position:relative;
+}
+.rv-av::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  box-shadow:inset 0 2px 8px rgba(0,0,0,.25);
+}
 
-    .faq-item{background:#fff;border:1px solid #D8D8D8;border-radius:var(--r);overflow:hidden}
+.rv-body{flex:1;min-width:0}
+.rv-top{
+  display:flex;align-items:flex-start;
+  justify-content:space-between;gap:4px;
+  margin-bottom:5px;
+}
+.rv-name{font-weight:700;font-size:1rem;color:var(--txt);line-height:1.2;font-family:var(--fnh)}
+.rv-city{font-size:.8rem;color:var(--mut);display:flex;align-items:center;gap:3px;margin-top:3px}
+.rv-stars{color:#FFD100;font-size:.92rem;letter-spacing:1px;flex-shrink:0;margin-top:2px}
+.rv-txt{font-size:.9rem;color:#333;line-height:1.75}
 
-    .faq-cb{display:none}
 
-    .faq-q{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:15px 18px;
-      font-size:.96rem;font-weight:600;color:var(--text);
-      cursor:pointer;user-select:none;gap:10px;
-      transition:color .2s;
-    }
+/* ══════════════════════════════════════
+   FAQ
+══════════════════════════════════════ */
+.faq{background:var(--bg);padding:50px 0}
+.faq-sub{text-align:center;color:var(--mut);font-size:.92rem;margin-top:-20px;margin-bottom:30px}
 
-    .faq-ico{
-      font-size:1.1rem;color:var(--muted);
-      transition:transform .3s;flex-shrink:0;
-      font-style:normal;
-    }
-    .faq-cb:checked ~ .faq-q .faq-ico{transform:rotate(180deg)}
-    .faq-cb:checked ~ .faq-q{color:var(--green)}
+.faq-list{display:flex;flex-direction:column;gap:8px;margin-bottom:34px}
 
-    .faq-a{
-      max-height:0;overflow:hidden;
-      font-size:.89rem;color:#444;line-height:1.75;
-      transition:max-height .35s ease,padding .25s;
-    }
-    .faq-cb:checked ~ .faq-a{max-height:400px;padding:0 18px 16px}
+.faq-item{
+  background:var(--wht);
+  border:1px solid #CCCCCC;
+  border-radius:8px;
+  overflow:hidden;
+}
 
-    /* ═══════════════════════════════════════════════
-       ORDER SECTION
-    ═══════════════════════════════════════════════ */
-    .order-sec{background:var(--bg);padding:0 0 60px}
+.faq-cb{display:none}
 
-    .order-h{
-      font-size:1.85rem;font-weight:700;text-align:center;
-      padding:32px 18px 22px;line-height:1.25;
-      font-family:var(--font);
-    }
-    .order-h .g{color:var(--green)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 18px;
+  font-size:.97rem;font-weight:600;color:var(--txt);
+  cursor:pointer;user-select:none;gap:12px;
+  transition:color .2s;
+}
+.faq-ico{
+  font-size:1.2rem;color:var(--mut);
+  transition:transform .3s;flex-shrink:0;
+  display:inline-block;
+  transform:rotate(180deg); /* closed = ∧ (up) */
+}
+/* open = ∨ (down) */
+.faq-cb:checked ~ .faq-q .faq-ico{transform:rotate(0deg)}
+.faq-cb:checked ~ .faq-q{color:var(--grn)}
 
-    /* Products label */
-    .prod-label{font-size:.88rem;font-weight:700;color:var(--green);margin-bottom:10px}
+.faq-ans{
+  max-height:0;overflow:hidden;
+  font-size:.9rem;color:#444;line-height:1.8;
+  transition:max-height .35s ease,padding .25s;
+}
+.faq-cb:checked ~ .faq-ans{max-height:400px;padding:0 18px 18px}
 
-    /* Product rows card */
-    .prod-card{
-      background:#fff;
-      border:1px solid #D0D0D0;
-      border-radius:var(--r);
-      overflow:hidden;
-      margin-bottom:28px;
-    }
 
-    .prod-row{
-      display:grid;
-      grid-template-columns:28px 68px 1fr auto auto;
-      align-items:center;
-      gap:10px;
-      padding:13px 14px;
-      border-bottom:1px solid #EBEBEB;
-    }
-    .prod-row:last-child{border-bottom:none}
+/* ══════════════════════════════════════
+   ORDER SECTION
+══════════════════════════════════════ */
+.order-sec{background:var(--bg);padding:0 0 64px}
 
-    /* Checkbox */
-    .p-check{
-      width:24px;height:24px;border-radius:4px;
-      border:2px solid #BBBBBB;
-      background:#fff;
-      display:flex;align-items:center;justify-content:center;
-      cursor:pointer;flex-shrink:0;transition:all .15s;
-      font-size:.85rem;font-weight:700;color:transparent;
-    }
-    .p-check.on{background:var(--green);border-color:var(--green);color:#fff}
+.order-h{
+  font-family:var(--fnh);
+  font-size:2.2rem;font-weight:900;
+  text-align:center;
+  padding:36px 20px 24px;
+  line-height:1.25;color:var(--txt);
+  letter-spacing:-.01em;
+}
+.order-h .g{color:var(--grn)}
 
-    /* Product image */
-    .p-img{
-      width:68px;height:68px;border-radius:8px;flex-shrink:0;
-      background:linear-gradient(135deg,#FFE066,#FF8C00);
-      display:flex;align-items:center;justify-content:center;
-      font-size:2rem;overflow:hidden;
-    }
+/* Your Products label */
+.prod-lbl{
+  font-size:.9rem;font-weight:700;
+  color:var(--grn);
+  margin-bottom:14px;
+  font-family:var(--fnh);
+}
 
-    .p-name{font-size:.92rem;font-weight:600;color:var(--text);line-height:1.35}
+/* Product card */
+.prod-card{
+  background:var(--wht);
+  border:1.5px solid #CCCCCC;
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:30px;
+}
 
-    /* Qty stepper */
-    .qty{
-      display:flex;flex-direction:column;align-items:center;
-      border:1px solid #CCCCCC;border-radius:6px;overflow:hidden;
-      flex-shrink:0;
-    }
-    .q-btn{
-      width:34px;height:27px;background:#F2F2F2;border:none;
-      font-size:1rem;font-weight:700;color:#555;
-      display:flex;align-items:center;justify-content:center;
-      cursor:pointer;transition:background .1s;
-    }
-    .q-btn:hover{background:#E5E5E5}
-    .q-val{
-      width:34px;height:30px;
-      text-align:center;font-size:.93rem;font-weight:700;
-      border-top:1px solid #CCCCCC;border-bottom:1px solid #CCCCCC;
-      display:flex;align-items:center;justify-content:center;
-      color:var(--text);
-    }
+.prod-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 14px;
+  border-bottom:1px solid #EBEBEB;
+}
+.prod-row:last-child{border-bottom:none}
 
-    .p-price{font-size:.93rem;font-weight:600;color:var(--text);min-width:52px;text-align:right;flex-shrink:0}
+/* Checkbox */
+.p-ck{
+  width:28px;height:28px;
+  border:1.5px solid #BBBBBB;
+  border-radius:5px;background:var(--wht);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;flex-shrink:0;transition:all .15s;
+  font-size:1rem;color:transparent;
+}
+.p-ck.on{
+  background:var(--grn);
+  border-color:var(--grn);
+  color:#fff;
+  font-weight:700;
+}
 
-    /* Form */
-    .f-title{font-size:1.15rem;font-weight:700;color:var(--green);margin-bottom:16px}
-    .f-group{margin-bottom:16px}
-    .f-label{display:block;font-size:.93rem;font-weight:600;color:var(--text);margin-bottom:6px}
-    .f-label .req{color:var(--red);margin-left:2px}
-    .f-input{
-      display:block;width:100%;
-      padding:14px 13px;
-      border:1.5px solid #CCCCCC;border-radius:6px;
-      font-size:1rem;font-family:var(--font);color:var(--text);
-      background:#fff;outline:none;transition:border-color .15s;
-    }
-    .f-input:focus{border-color:var(--green)}
+/* Product image (CSS illustration) */
+.p-img{
+  width:72px;height:72px;border-radius:8px;flex-shrink:0;
+  overflow:hidden;position:relative;
+}
+.p-img-m{
+  background:linear-gradient(145deg,#5BAD70 0%,#3D8A4E 40%,#2A6035 100%);
+}
+.p-img-m::before{
+  content:'🥭';
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.4rem;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));
+}
+.p-img-b{
+  background:linear-gradient(145deg,#6DBF82 0%,#3D8A4E 40%,#1E5C2A 100%);
+}
+.p-img-b::before{
+  content:'📦';
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.4rem;
+}
 
-    /* Shipping */
-    .ship-title{font-size:1.05rem;font-weight:700;color:var(--green);margin:22px 0 10px}
-    .ship-box{
-      background:#E6E6E2;border-radius:6px;
-      padding:12px 16px;display:flex;justify-content:space-between;align-items:center;
-      font-size:.9rem;color:var(--text);margin-bottom:28px;
-    }
+.p-name{flex:1;font-size:.93rem;font-weight:700;color:var(--txt);line-height:1.4;font-family:var(--fnh)}
 
-    /* Summary */
-    .sum-title{font-size:1.15rem;font-weight:700;color:var(--green);margin-bottom:14px}
+/* Qty stepper (vertical) */
+.qty{
+  display:flex;flex-direction:column;align-items:center;
+  border:1.5px solid #CCCCCC;border-radius:6px;overflow:hidden;flex-shrink:0;
+}
+.q-b{
+  width:38px;height:30px;
+  background:#F5F5F5;border:none;
+  font-size:1.15rem;font-weight:700;color:#444;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:background .1s;line-height:1;
+}
+.q-b:hover{background:#E8E8E8}
+.q-v{
+  width:38px;height:34px;
+  border-top:1px solid #CCCCCC;border-bottom:1px solid #CCCCCC;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.97rem;font-weight:700;color:var(--txt);
+}
 
-    .sum-tbl{width:100%;border-collapse:collapse;margin-bottom:24px}
-    .sum-tbl th{
-      font-size:.8rem;font-weight:600;color:var(--muted);
-      padding-bottom:8px;
-      border-bottom:1px solid #D0D0D0;
-    }
-    .sum-tbl th:last-child{text-align:right}
+/* Price */
+.p-pr{font-size:.97rem;font-weight:700;color:var(--txt);min-width:56px;text-align:right;flex-shrink:0}
 
-    .s-row td{padding:11px 0;border-bottom:1px dashed #DEDEDE;vertical-align:middle}
+/* Form */
+.f-ttl{font-size:1.3rem;font-weight:800;color:var(--grn);margin-bottom:18px;font-family:var(--fnh)}
+.f-g{margin-bottom:18px}
+.f-lbl{display:block;font-size:.96rem;font-weight:700;color:var(--txt);margin-bottom:7px}
+.f-lbl .req{color:var(--red);margin-left:2px}
+.f-inp{
+  display:block;width:100%;
+  padding:16px 14px;
+  border:1.5px solid #CCCCCC;border-radius:6px;
+  font-size:1rem;color:var(--txt);background:var(--wht);
+  outline:none;transition:border-color .15s;
+  font-family:var(--fn);
+}
+.f-inp:focus{border-color:var(--grn)}
 
-    .s-prod-wrap{display:flex;align-items:center;gap:9px}
+/* Shipping */
+.ship-ttl{font-size:1.1rem;font-weight:800;color:var(--grn);margin:24px 0 10px;font-family:var(--fnh)}
+.ship-box{
+  background:#E4E4E0;border-radius:8px;
+  padding:14px 18px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.92rem;color:var(--txt);margin-bottom:30px;
+}
 
-    .s-rm{
-      width:22px;height:22px;border-radius:50%;border:1.5px solid #C0C0C0;
-      background:transparent;font-size:.75rem;color:#888;
-      display:flex;align-items:center;justify-content:center;cursor:pointer;
-      flex-shrink:0;transition:all .15s;
-    }
-    .s-rm:hover{border-color:var(--red);color:var(--red)}
+/* Order summary */
+.sum-ttl{font-size:1.3rem;font-weight:800;color:var(--grn);margin-bottom:16px;font-family:var(--fnh)}
+.sum-tbl{width:100%;border-collapse:collapse;margin-bottom:26px}
+.sum-tbl thead th{
+  font-size:.82rem;font-weight:700;color:var(--mut);
+  padding-bottom:10px;border-bottom:1.5px solid #D0D0D0;
+  text-align:left;
+}
+.sum-tbl thead th:last-child{text-align:right}
 
-    .s-thumb{
-      width:46px;height:46px;border-radius:6px;
-      background:linear-gradient(135deg,#FFE066,#FF8C00);
-      display:flex;align-items:center;justify-content:center;
-      font-size:1.4rem;flex-shrink:0;
-    }
+.s-row td{padding:12px 0;border-bottom:1px dashed #DEDEDE;vertical-align:middle}
 
-    .s-info{}
-    .s-name{font-size:.86rem;font-weight:600;color:var(--green);line-height:1.3}
-    .s-qty{font-size:.78rem;color:var(--muted)}
-    .s-amt{text-align:right;font-size:.93rem;font-weight:700;color:var(--green)}
+.s-prod-w{display:flex;align-items:center;gap:10px}
+.s-rm{
+  width:24px;height:24px;border-radius:50%;
+  border:1.5px solid #C0C0C0;background:transparent;
+  font-size:.8rem;color:#888;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;flex-shrink:0;transition:all .15s;
+}
+.s-rm:hover{border-color:var(--red);color:var(--red)}
+.s-th{
+  width:50px;height:50px;border-radius:6px;
+  overflow:hidden;position:relative;flex-shrink:0;
+}
+.s-th-m{background:linear-gradient(145deg,#5BAD70,#2A6035)}
+.s-th-m::before{content:'🥭';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.s-th-b{background:linear-gradient(145deg,#6DBF82,#1E5C2A)}
+.s-th-b::before{content:'📦';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.s-nm{font-size:.88rem;font-weight:700;color:var(--grn);line-height:1.3;font-family:var(--fnh)}
+.s-qt{font-size:.8rem;color:var(--mut)}
+.s-amt{text-align:right;font-size:.95rem;font-weight:800;color:var(--grn)}
 
-    .s-sub td,.s-ship td{font-size:.88rem;color:var(--muted);padding:7px 0;border-bottom:1px dashed #DEDEDE}
-    .s-sub td:last-child,.s-ship td:last-child{text-align:right;color:var(--green);font-weight:600}
+.s-sub td,.s-ship td{font-size:.9rem;color:var(--mut);padding:9px 0;border-bottom:1px dashed #DEDEDE}
+.s-sub td:last-child,.s-ship td:last-child{text-align:right;color:var(--grn);font-weight:700}
+.s-tot td{font-size:1rem;font-weight:700;color:var(--txt);padding:12px 0}
+.s-tot td:last-child{text-align:right;color:var(--grn);font-size:1.15rem;font-weight:800}
+.s-empty{text-align:center;color:var(--mut);padding:20px 0;font-size:.9rem}
 
-    .s-tot td{font-size:1rem;font-weight:700;color:var(--text);padding:10px 0}
-    .s-tot td:last-child{text-align:right;color:var(--green);font-size:1.1rem}
+/* COD */
+.cod-lbl{font-size:.97rem;font-weight:700;color:var(--txt);margin-bottom:10px}
+.cod-box{
+  background:#E4E4E0;border-radius:8px;
+  padding:14px 18px;font-size:.88rem;color:#555;
+  line-height:1.7;margin-bottom:22px;
+}
 
-    .s-empty{text-align:center;color:var(--muted);font-size:.88rem;padding:18px 0}
+.place-note{font-size:.9rem;font-weight:700;color:var(--grn);text-align:center;margin-bottom:12px}
 
-    /* COD */
-    .cod-lbl{font-size:.96rem;font-weight:600;color:var(--text);margin-bottom:8px}
-    .cod-box{
-      background:#E6E6E2;border-radius:6px;padding:12px 16px;
-      font-size:.87rem;color:#555;line-height:1.65;margin-bottom:20px;
-    }
+.btn-place{
+  display:block;width:100%;
+  background:var(--yel);color:#111;
+  font-family:var(--fnh);font-size:1.15rem;font-weight:900;
+  padding:20px 16px;border-radius:8px;border:none;
+  cursor:pointer;text-align:center;transition:filter .15s;
+  letter-spacing:.01em;
+}
+.btn-place:hover{filter:brightness(.92)}
 
-    .place-note{font-size:.88rem;font-weight:600;color:var(--green);text-align:center;margin-bottom:10px}
+.trust-row{
+  display:flex;justify-content:center;gap:24px;
+  margin-top:14px;font-size:.84rem;color:var(--mut);
+}
+.trust-row span{display:flex;align-items:center;gap:5px}
 
-    .btn-place{
-      display:block;width:100%;
-      background:var(--yellow);color:var(--text);
-      font-size:1.1rem;font-weight:700;
-      padding:17px 16px;border-radius:var(--r);border:none;
-      cursor:pointer;text-align:center;transition:opacity .15s;
-      font-family:var(--font);
-    }
-    .btn-place:hover{opacity:.88}
-
-    .trust-row{
-      display:flex;justify-content:center;gap:22px;
-      margin-top:13px;font-size:.82rem;color:var(--muted);
-    }
-    .trust-row span{display:flex;align-items:center;gap:5px}
-
-    /* ─── RESPONSIVE ──────────────────────────────── */
-    @media(max-width:480px){
-      .wrap{padding:0 14px}
-      .hero{padding:50px 14px 44px}
-      .hero-h1{font-size:2rem}
-      .sh{font-size:1.55rem}
-      .order-h{font-size:1.6rem;padding:26px 14px 18px}
-      .prod-row{gap:8px;padding:11px 10px;grid-template-columns:24px 60px 1fr auto auto}
-      .p-img{width:60px;height:60px;font-size:1.7rem}
-      .p-name{font-size:.85rem}
-    }
-  </style>
+/* ── RESPONSIVE ── */
+@media(max-width:480px){
+  .W{padding:0 16px}
+  .hero{padding:52px 16px 46px}
+  .h-line1 .box{font-size:2.7rem}
+  .h-line2{font-size:2.45rem}
+  .SH{font-size:1.95rem}
+  .order-h{font-size:1.9rem;padding:28px 16px 20px}
+  .prod-row{gap:8px;padding:12px 10px}
+  .p-img{width:64px;height:64px}
+}
+</style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════
+<!-- ══════════════════════════════════════
      HERO
-═══════════════════════════════════════════════ -->
+══════════════════════════════════════ -->
 <section class="hero">
 
-  <!-- SVG Forest Background -->
-  <div class="hero-bg" aria-hidden="true">
-    <svg viewBox="0 0 414 896" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark forest layers -->
+  <div class="hero-bg"></div>
+
+  <!-- SVG palm tree silhouettes (filled) -->
+  <div class="hero-trees">
+    <svg viewBox="0 0 414 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"  stop-color="#050E04"/>
-          <stop offset="40%" stop-color="#0C1E0A"/>
-          <stop offset="75%" stop-color="#162E12"/>
-          <stop offset="100%" stop-color="#060E05"/>
+        <!-- ground gradient -->
+        <linearGradient id="gnd" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0E1E0A" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#020503" stop-opacity="1"/>
         </linearGradient>
-        <radialGradient id="glow" cx="50%" cy="38%" r="55%">
-          <stop offset="0%"   stop-color="#1F4018" stop-opacity="1"/>
-          <stop offset="100%" stop-color="#060E05" stop-opacity="1"/>
-        </radialGradient>
       </defs>
 
-      <!-- Base sky -->
-      <rect width="414" height="896" fill="url(#sky)"/>
-      <rect width="414" height="896" fill="url(#glow)"/>
+      <!-- ═══ LEFT TREES ═══ -->
+      <!-- L1: Tallest palm (foreground) -->
+      <!-- trunk filled shape -->
+      <path d="M18,900 Q22,700 30,530 Q32,510 34,490
+               Q36,510 40,530 Q50,700 56,900 Z" fill="#060E04" opacity=".95"/>
+      <!-- fronds -->
+      <path d="M32,498 Q-8,456 -40,440 Q-10,460 32,505 Z" fill="#09160A"/>
+      <path d="M32,498 Q4,448 -14,432 Q10,454 32,504 Z" fill="#0A1A0B"/>
+      <path d="M32,498 Q14,448 4,432 Q20,455 32,504 Z" fill="#0C1E0D"/>
+      <path d="M32,498 Q48,448 64,438 Q46,454 32,504 Z" fill="#0A1A0B"/>
+      <path d="M32,498 Q64,462 84,456 Q60,462 32,504 Z" fill="#09160A"/>
+      <path d="M32,498 Q56,482 72,480 Q52,480 32,504 Z" fill="#0B1C0C"/>
 
-      <!-- Ground -->
-      <rect x="0" y="680" width="414" height="216" fill="#070E06"/>
+      <!-- L2: Second palm -->
+      <path d="M50,900 Q54,740 60,610 Q62,594 64,574
+               Q66,594 70,610 Q76,740 80,900 Z" fill="#070F05" opacity=".9"/>
+      <path d="M65,580 Q32,548 10,536 Q38,552 65,585 Z" fill="#0A1A0B"/>
+      <path d="M65,580 Q44,540 30,530 Q50,546 65,584 Z" fill="#0C1E0D"/>
+      <path d="M65,580 Q84,540 100,530 Q82,546 65,584 Z" fill="#0A1A0B"/>
+      <path d="M65,580 Q98,560 114,554 Q92,560 65,584 Z" fill="#09160A"/>
 
-      <!-- Pathway (lighter strip going to vanishing point) -->
-      <path d="M180,680 L207,500 L234,680 Z" fill="#1A2E14" opacity=".5"/>
-      <path d="M190,680 L207,540 L224,680 Z" fill="#213A19" opacity=".4"/>
+      <!-- L3: Third palm -->
+      <path d="M82,900 Q85,808 90,740 Q92,726 94,710
+               Q96,726 98,740 Q104,808 108,900 Z" fill="#080F06" opacity=".85"/>
+      <path d="M94,716 Q66,690 50,682 Q72,694 94,720 Z" fill="#0C1E0D"/>
+      <path d="M94,716 Q110,688 124,682 Q106,690 94,720 Z" fill="#0A1A0B"/>
+      <path d="M94,716 Q130,706 144,702 Q116,706 94,720 Z" fill="#09160A"/>
 
-      <!-- Person silhouette in distance -->
-      <ellipse cx="207" cy="508" rx="6" ry="14" fill="#0A1508"/>
-      <path d="M201,516 L207,534 L213,516" stroke="#0A1508" stroke-width="4" fill="none"/>
-      <path d="M204,524 L199,540 M210,524 L215,540" stroke="#0A1508" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- L4: Background small palms -->
+      <path d="M118,900 Q120,840 124,792 Q125,782 126,770
+               Q127,782 129,792 Q132,840 135,900 Z" fill="#090E07" opacity=".8"/>
+      <path d="M126,774 Q104,760 90,754 Q110,763 126,777 Z" fill="#0D1F0E"/>
+      <path d="M126,774 Q142,758 154,754 Q138,762 126,777 Z" fill="#0B1C0C"/>
 
-      <!-- LEFT TREES -->
-      <!-- L1 closest foreground tall -->
-      <path d="M-10,896 Q2,750 18,630 Q22,580 28,520" stroke="#040C03" stroke-width="16" fill="none" stroke-linecap="round"/>
-      <path d="M28,520 Q-30,488 -55,468" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M28,520 Q-10,490 -25,474" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M28,520 Q15,485 8,468" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M28,520 Q45,486 58,472" stroke="#060F05" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M28,520 Q65,500 80,492" stroke="#060F05" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M28,520 Q48,510 62,508" stroke="#060F05" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M148,900 Q149,860 152,826 Q153,818 154,808
+               Q155,818 157,826 Q160,860 161,900 Z" fill="#0A0F08" opacity=".75"/>
+      <path d="M154,812 Q138,802 126,798 Q143,806 154,815 Z" fill="#0E200F"/>
+      <path d="M154,812 Q166,800 176,798 Q162,804 154,815 Z" fill="#0C1D0D"/>
 
-      <!-- L2 -->
-      <path d="M42,896 Q55,780 65,690 Q70,640 74,585" stroke="#060E05" stroke-width="12" fill="none" stroke-linecap="round"/>
-      <path d="M74,585 Q30,560 10,548" stroke="#081208" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M74,585 Q50,555 38,545" stroke="#081208" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M74,585 Q92,553 105,542" stroke="#081208" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M74,585 Q105,568 118,562" stroke="#081208" stroke-width="4" fill="none" stroke-linecap="round"/>
-
-      <!-- L3 -->
-      <path d="M85,896 Q96,800 104,730 Q108,694 112,654" stroke="#070D06" stroke-width="10" fill="none" stroke-linecap="round"/>
-      <path d="M112,654 Q76,634 60,626" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M112,654 Q90,628 80,620" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M112,654 Q130,624 140,614" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M112,654 Q145,642 158,636" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
-
-      <!-- L4 mid-distance -->
-      <path d="M118,896 Q126,820 132,768 Q136,740 140,710" stroke="#080E07" stroke-width="8" fill="none" stroke-linecap="round"/>
-      <path d="M140,710 Q108,694 94,688" stroke="#0B160C" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <path d="M140,710 Q158,690 165,684" stroke="#0B160C" stroke-width="3" fill="none" stroke-linecap="round"/>
-
-      <!-- L5 far -->
-      <path d="M148,896 Q152,838 156,800 Q158,780 160,756" stroke="#0A1209" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M160,756 Q138,744 128,740" stroke="#0D190F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <path d="M160,756 Q172,742 178,738" stroke="#0D190F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-
-      <!-- RIGHT TREES (mirror) -->
-      <!-- R1 closest -->
-      <path d="M424,896 Q412,750 396,630 Q392,580 386,520" stroke="#040C03" stroke-width="16" fill="none" stroke-linecap="round"/>
-      <path d="M386,520 Q446,488 469,468" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M386,520 Q424,490 439,474" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M386,520 Q399,485 406,468" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M386,520 Q369,486 356,472" stroke="#060F05" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M386,520 Q349,500 334,492" stroke="#060F05" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M386,520 Q366,510 352,508" stroke="#060F05" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <!-- ═══ RIGHT TREES ═══ -->
+      <!-- R1: Mirror of L1 -->
+      <path d="M358,900 Q362,700 370,530 Q372,510 374,490
+               Q376,510 380,530 Q388,700 396,900 Z" fill="#060E04" opacity=".95"/>
+      <path d="M376,498 Q416,456 448,440 Q418,460 376,505 Z" fill="#09160A"/>
+      <path d="M376,498 Q404,448 422,432 Q398,454 376,504 Z" fill="#0A1A0B"/>
+      <path d="M376,498 Q394,448 404,432 Q388,455 376,504 Z" fill="#0C1E0D"/>
+      <path d="M376,498 Q360,448 344,438 Q362,454 376,504 Z" fill="#0A1A0B"/>
+      <path d="M376,498 Q344,462 324,456 Q348,462 376,504 Z" fill="#09160A"/>
+      <path d="M376,498 Q352,482 336,480 Q356,480 376,504 Z" fill="#0B1C0C"/>
 
       <!-- R2 -->
-      <path d="M372,896 Q359,780 349,690 Q344,640 340,585" stroke="#060E05" stroke-width="12" fill="none" stroke-linecap="round"/>
-      <path d="M340,585 Q384,560 404,548" stroke="#081208" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M340,585 Q364,555 376,545" stroke="#081208" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M340,585 Q322,553 309,542" stroke="#081208" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M340,585 Q309,568 296,562" stroke="#081208" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M334,900 Q338,740 344,610 Q346,594 348,574
+               Q350,594 354,610 Q360,740 364,900 Z" fill="#070F05" opacity=".9"/>
+      <path d="M349,580 Q382,548 404,536 Q376,552 349,585 Z" fill="#0A1A0B"/>
+      <path d="M349,580 Q370,540 384,530 Q364,546 349,584 Z" fill="#0C1E0D"/>
+      <path d="M349,580 Q330,540 314,530 Q332,546 349,584 Z" fill="#0A1A0B"/>
+      <path d="M349,580 Q316,560 300,554 Q322,560 349,584 Z" fill="#09160A"/>
 
       <!-- R3 -->
-      <path d="M329,896 Q318,800 310,730 Q306,694 302,654" stroke="#070D06" stroke-width="10" fill="none" stroke-linecap="round"/>
-      <path d="M302,654 Q338,634 354,626" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M302,654 Q324,628 334,620" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M302,654 Q284,624 274,614" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M302,654 Q269,642 256,636" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M306,900 Q309,808 314,740 Q316,726 318,710
+               Q320,726 322,740 Q328,808 332,900 Z" fill="#080F06" opacity=".85"/>
+      <path d="M318,716 Q346,690 362,682 Q340,694 318,720 Z" fill="#0C1E0D"/>
+      <path d="M318,716 Q302,688 288,682 Q306,690 318,720 Z" fill="#0A1A0B"/>
+      <path d="M318,716 Q284,706 270,702 Q298,706 318,720 Z" fill="#09160A"/>
 
-      <!-- R4 -->
-      <path d="M296,896 Q288,820 282,768 Q278,740 274,710" stroke="#080E07" stroke-width="8" fill="none" stroke-linecap="round"/>
-      <path d="M274,710 Q306,694 320,688" stroke="#0B160C" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <path d="M274,710 Q256,690 249,684" stroke="#0B160C" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- R4 small -->
+      <path d="M279,900 Q281,840 284,792 Q285,782 286,770
+               Q287,782 289,792 Q292,840 295,900 Z" fill="#090E07" opacity=".8"/>
+      <path d="M286,774 Q308,760 322,754 Q304,763 286,777 Z" fill="#0D1F0E"/>
+      <path d="M286,774 Q270,758 258,754 Q274,762 286,777 Z" fill="#0B1C0C"/>
 
-      <!-- R5 far -->
-      <path d="M266,896 Q262,838 258,800 Q256,780 254,756" stroke="#0A1209" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M254,756 Q276,744 286,740" stroke="#0D190F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <path d="M254,756 Q242,742 236,738" stroke="#0D190F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M253,900 Q254,860 257,826 Q258,818 259,808
+               Q260,818 262,826 Q265,860 266,900 Z" fill="#0A0F08" opacity=".75"/>
+      <path d="M259,812 Q275,802 287,798 Q270,806 259,815 Z" fill="#0E200F"/>
+      <path d="M259,812 Q247,800 237,798 Q251,804 259,815 Z" fill="#0C1D0D"/>
 
-      <!-- Ground foliage at bottom -->
-      <rect x="0" y="830" width="414" height="66" fill="#040B03" opacity=".8"/>
+      <!-- ═══ CENTER elements ═══ -->
+      <!-- Path/road vanishing to center -->
+      <path d="M180,900 L207,650 L234,900 Z" fill="#0F1E0C" opacity=".6"/>
+      <path d="M191,900 L207,700 L223,900 Z" fill="#151E10" opacity=".4"/>
+      <!-- Road highlight -->
+      <path d="M201,900 L207,730 L213,900 Z" fill="#1B2614" opacity=".3"/>
+
+      <!-- Person silhouette (small, center) -->
+      <!-- body -->
+      <ellipse cx="207" cy="640" rx="7" ry="16" fill="#0A1308"/>
+      <!-- head -->
+      <circle cx="207" cy="621" r="6" fill="#0A1308"/>
+      <!-- legs -->
+      <path d="M202,654 Q198,672 195,688 M212,654 Q216,672 219,688"
+            stroke="#080E06" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <!-- arms -->
+      <path d="M201,636 Q195,648 192,656 M213,636 Q219,648 222,656"
+            stroke="#080E06" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+      <!-- Ground dark fill -->
+      <rect x="0" y="840" width="414" height="60" fill="url(#gnd)"/>
+      <rect x="0" y="870" width="414" height="30" fill="#020503" opacity=".9"/>
+
+      <!-- Distant treeline (thin, far away) -->
+      <path d="M0,770 Q40,740 80,760 Q120,740 160,760 Q200,740 240,760
+               Q280,740 320,760 Q360,740 414,755 L414,800 L0,800 Z"
+            fill="#0D1A0A" opacity=".7"/>
     </svg>
   </div>
 
-  <!-- Dark overlay -->
-  <div class="hero-overlay"></div>
+  <div class="hero-ov"></div>
 
   <!-- Content -->
-  <div class="hero-inner">
+  <div class="hero-in">
 
-    <!-- Mango icon SVG -->
+    <!-- Mango SVG icon -->
     <div class="hero-logo">
-      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <!-- Leaf stem -->
-        <path d="M32,6 Q36,2 40,4" stroke="#2D7A3A" stroke-width="2" fill="none"/>
-        <!-- Leaf -->
-        <ellipse cx="40" cy="5" rx="7" ry="4" fill="#3DAA4A" transform="rotate(-30 40 5)"/>
-        <path d="M35,7 Q40,5 44,4" stroke="#2D7A3A" stroke-width="1" fill="none"/>
-        <!-- Mango body (heart/kidney shape) -->
-        <path d="M32,10 Q48,8 54,22 Q60,36 52,48 Q44,60 32,58 Q20,60 12,48 Q4,36 10,22 Q16,8 32,10 Z" fill="#F5A623"/>
-        <!-- Mango shading -->
-        <path d="M32,10 Q44,10 50,22 Q56,34 50,46 Q44,56 36,58" fill="#E8962A" opacity=".5"/>
-        <!-- Mango highlight -->
-        <ellipse cx="24" cy="26" rx="8" ry="12" fill="#FFD100" opacity=".35" transform="rotate(-20 24 26)"/>
-        <!-- Red blush -->
-        <ellipse cx="44" cy="22" rx="8" ry="10" fill="#E05A3A" opacity=".3" transform="rotate(20 44 22)"/>
+      <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+        <!-- stem -->
+        <path d="M36,10 Q40,4 46,6" stroke="#2A7A30" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+        <!-- leaf -->
+        <path d="M37,11 Q46,3 53,7 Q48,14 39,12 Z" fill="#3DBF50"/>
+        <path d="M38,11 Q46,6 50,8" stroke="#2A7A30" stroke-width="1.2" fill="none"/>
+        <!-- mango body -->
+        <path d="M36,14 Q56,12 63,30 Q70,47 62,59 Q54,70 36,68 Q18,70 10,59 Q2,47 9,30 Q16,12 36,14 Z" fill="#F5A623"/>
+        <!-- right side shading -->
+        <path d="M36,14 Q52,15 59,30 Q65,45 58,57 Q52,67 42,68" fill="#E08820" opacity=".5"/>
+        <!-- highlight -->
+        <ellipse cx="26" cy="32" rx="10" ry="14" fill="#FFD96A" opacity=".35" transform="rotate(-15 26 32)"/>
+        <!-- blush -->
+        <ellipse cx="50" cy="26" rx="10" ry="12" fill="#D04530" opacity=".25" transform="rotate(20 50 26)"/>
+        <!-- shine -->
+        <circle cx="22" cy="26" r="4" fill="#fff" opacity=".22"/>
+        <circle cx="25" cy="22" r="2" fill="#fff" opacity=".15"/>
       </svg>
     </div>
 
+    <!-- Heading with colored background boxes -->
     <h1 class="hero-h1">
-      <span class="line-green">রাজশাহীর</span>
-      <span class="line-orange">প্রিমিয়াম</span> <span class="line-white">হিমসাগর আম</span>
+      <span class="h-line1">
+        <span class="box">রাজশাহীর</span>
+      </span>
+      <span class="h-line2">
+        <span class="box-o">প্রিমিয়াম</span><span class="plain"> হিমসাগর আম</span>
+      </span>
     </h1>
 
-    <div class="hero-stars">★★★★★</div>
-
-    <span class="hero-tree-emoji">🌴</span>
+    <span class="hero-stars">★★★★★</span>
+    <span class="hero-palm">🌴</span>
 
     <div class="hero-box">
       <strong>চাঁপাইনবাবগঞ্জের ঐতিহ্য!</strong>
-      <span>Pure Food Mart-এর বিশেষজ্ঞ দলের তত্ত্বাবধানে</span>
+      <span>Pure Food Mart বিশেষজ্ঞ দলের তত্ত্বাবধানে</span>
     </div>
 
     <p class="hero-desc">
       কোনো কৃত্রিমতা, কার্বাইড ছাড়া প্রকৃতির এই দান আমরা<br/>
       শুধু প্রক্রিয়াকরণ শেষে প্যাকেজিং করে আপনার ঠিকানায়<br/>
-      পাঠিয়ে দিবো। <strong>এটি আমাদের ওয়াদা 💛</strong>
+      পাঠিয়ে দিবো। <strong style="color:#fff">এটি আমাদের ওয়াদা 💛</strong>
     </p>
 
-    <span class="hero-arrow">↓</span>
-
-    <a href="#order" class="btn">অর্ডার করুন</a>
+    <span class="hero-arr">↓</span>
+    <a href="#order" class="BTN">অর্ডার করুন</a>
   </div>
 </section>
 
 
-<!-- ═══════════════════════════════════════════════
+<!-- ══════════════════════════════════════
      WHY US
-═══════════════════════════════════════════════ -->
-<section class="sec sec--white">
-  <div class="wrap">
-    <h2 class="sh">কেনো আমাদের <span class="g">আম সেরা?</span></h2>
+══════════════════════════════════════ -->
+<section class="sec-w">
+  <div class="W">
+    <h2 class="SH">কেনো আমাদের <span class="g">আম সেরা?</span></h2>
 
-    <div class="why-photo">🌳</div>
+    <!-- Product/farm photo placeholder -->
+    <div class="why-photo">
+      <div class="why-photo-inner">
+        <svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sky -->
+          <rect width="560" height="420" fill="#87CEAB"/>
+          <rect width="560" height="220" fill="#B0DFC0"/>
+          <!-- Sun -->
+          <circle cx="440" cy="80" r="45" fill="#FFE87A" opacity=".7"/>
+          <!-- Ground / field -->
+          <path d="M0,230 Q140,200 280,220 Q420,240 560,210 L560,420 L0,420 Z" fill="#3A8040"/>
+          <path d="M0,260 Q140,235 280,250 Q420,268 560,242 L560,420 L0,420 Z" fill="#2D6B32"/>
+          <path d="M0,300 Q140,280 280,290 Q420,302 560,285 L560,420 L0,420 Z" fill="#22522A"/>
+          <!-- Mango trees (silhouettes) -->
+          <!-- Tree 1 -->
+          <rect x="68" y="130" width="16" height="110" rx="4" fill="#5B3010"/>
+          <ellipse cx="76" cy="118" rx="55" ry="45" fill="#2D7A20"/>
+          <ellipse cx="56" cy="105" rx="38" ry="32" fill="#39A32C"/>
+          <ellipse cx="96" cy="108" rx="35" ry="30" fill="#35962A"/>
+          <!-- mangoes -->
+          <ellipse cx="62" cy="128" rx="8" ry="10" fill="#F5A623" opacity=".85"/>
+          <ellipse cx="88" cy="120" rx="8" ry="10" fill="#F09A1A" opacity=".85"/>
+          <ellipse cx="72" cy="112" rx="7" ry="9" fill="#F5A623" opacity=".75"/>
+          <!-- Tree 2 -->
+          <rect x="210" y="140" width="14" height="100" rx="4" fill="#5B3010"/>
+          <ellipse cx="217" cy="128" rx="50" ry="42" fill="#2D7A20"/>
+          <ellipse cx="198" cy="116" rx="34" ry="28" fill="#39A32C"/>
+          <ellipse cx="234" cy="118" rx="32" ry="28" fill="#35962A"/>
+          <ellipse cx="204" cy="136" rx="7" ry="9" fill="#F5A623" opacity=".85"/>
+          <ellipse cx="228" cy="130" rx="7" ry="9" fill="#F09A1A" opacity=".85"/>
+          <!-- Tree 3 -->
+          <rect x="368" y="135" width="15" height="105" rx="4" fill="#5B3010"/>
+          <ellipse cx="375" cy="122" rx="52" ry="44" fill="#2D7A20"/>
+          <ellipse cx="354" cy="110" rx="36" ry="30" fill="#39A32C"/>
+          <ellipse cx="394" cy="112" rx="34" ry="30" fill="#35962A"/>
+          <ellipse cx="362" cy="130" rx="7" ry="9" fill="#F5A623" opacity=".85"/>
+          <ellipse cx="386" cy="124" rx="7" ry="9" fill="#F09A1A" opacity=".85"/>
+          <!-- Tree 4 (small, bg) -->
+          <rect x="480" y="160" width="11" height="80" rx="3" fill="#5B3010"/>
+          <ellipse cx="485" cy="152" rx="38" ry="34" fill="#246618"/>
+          <ellipse cx="470" cy="142" rx="26" ry="22" fill="#2D7A20"/>
+          <ellipse cx="498" cy="144" rx="24" ry="22" fill="#2D7A20"/>
+          <ellipse cx="477" cy="158" rx="6" ry="8" fill="#F5A623" opacity=".8"/>
+          <!-- Farm path -->
+          <path d="M240,420 L260,280 L300,280 L320,420 Z" fill="#A07840" opacity=".5"/>
+          <!-- Basket of mangoes (foreground) -->
+          <ellipse cx="280" cy="380" rx="55" ry="25" fill="#8B5E2A"/>
+          <ellipse cx="280" cy="358" rx="52" ry="24" fill="#A07040"/>
+          <ellipse cx="280" cy="348" rx="48" ry="18" fill="#B88040"/>
+          <!-- mangoes in basket -->
+          <ellipse cx="262" cy="342" rx="14" ry="16" fill="#F5A623"/>
+          <ellipse cx="282" cy="338" rx="14" ry="17" fill="#F0A020"/>
+          <ellipse cx="300" cy="342" rx="13" ry="15" fill="#F5A623"/>
+          <ellipse cx="272" cy="330" rx="11" ry="13" fill="#E8951A"/>
+          <ellipse cx="290" cy="328" rx="11" ry="13" fill="#F5A623"/>
+          <!-- green tints on mangoes -->
+          <ellipse cx="258" cy="336" rx="5" ry="6" fill="#3D8B2A" opacity=".4"/>
+          <ellipse cx="298" cy="337" rx="4" ry="5" fill="#3D8B2A" opacity=".35"/>
+        </svg>
+      </div>
+    </div>
 
-    <p class="why-body">
+    <p class="why-txt">
       রাজশাহীর চাঁপাইনবাবগঞ্জ, বাংলাদেশের একটি ঐতিহ্যবাহী অঞ্চল,
       যেখানে প্রাকৃতিকভাবে জন্ম নেয় অসংখ্য আম গাছ। এখানকার মাটি,
       আবহাওয়া এবং পরিবেশ হিমসাগর আমকে করে তোলে স্বাদে ও গুণে অনন্য।
       প্রজন্মের পর প্রজন্ম ধরে এখানকার অভিজ্ঞ কৃষকরা ভোরের সতেজ
       আম সংগ্রহ করে তৈরি করেন এই <strong>প্রিমিয়াম হিমসাগর আম।</strong>
     </p>
-
-    <h3 class="why-expert">পুষ্টিবিদের দৃষ্টিতে</h3>
-    <p class="why-expert-body">
+    <h3 class="why-sub">পুষ্টিবিদের দৃষ্টিতে</h3>
+    <p class="why-sub2">
       প্রাকৃতিক খাবারের মধ্যে লুকিয়ে থাকে আসল পুষ্টি।
       রাজশাহীর হিমসাগর আম সেই পুষ্টির একটি উৎকৃষ্ট উৎস,
       যা স্বাদ ও স্বাস্থ্যের সুন্দর সমন্বয়।
     </p>
-
-    <a href="#order" class="btn btn--sm">অর্ডার করুন</a>
+    <a href="#order" class="BTN BTN-c">অর্ডার করুন</a>
   </div>
 </section>
 
 
-<!-- ═══════════════════════════════════════════════
+<!-- ══════════════════════════════════════
      REVIEWS
-═══════════════════════════════════════════════ -->
-<section class="reviews-sec">
-  <div class="wrap">
-    <a href="#order" class="btn btn--sm" style="margin-bottom:32px">অর্ডার করুন</a>
+══════════════════════════════════════ -->
+<section class="reviews">
+  <div class="W">
+    <a href="#order" class="BTN BTN-c" style="margin-bottom:36px">অর্ডার করুন</a>
+    <h2 class="SH">গ্রাহকদের <span class="g">অভিজ্ঞতা</span></h2>
+    <div class="rv-list">
 
-    <h2 class="sh">গ্রাহকদের <span class="g">অভিজ্ঞতা</span></h2>
-
-    <div class="review-list">
-
-      <div class="review-item">
-        <div class="r-avatar">র</div>
-        <div class="r-body">
-          <div class="r-head">
-            <div class="r-meta">
-              <div class="r-name">রাহেলা বেগম</div>
-              <div class="r-city"><span>📍</span> ঢাকা</div>
+      <div class="rv-item">
+        <!-- Avatar with gradient background mimicking a photo -->
+        <div class="rv-av" style="background:linear-gradient(135deg,#C06B9A,#8B3A6E)">না</div>
+        <div class="rv-body">
+          <div class="rv-top">
+            <div>
+              <div class="rv-name">নাদিয়া নাজনীন</div>
+              <div class="rv-city">📍 পঞ্চগড়</div>
             </div>
-            <div class="r-stars">★★★★★</div>
+            <div class="rv-stars">★★★★★</div>
           </div>
-          <p class="r-text">আমার বাচ্চা এই আম খেতে খুব পছন্দ করেছে। সাধারণত ও বাইরের মিষ্টি জিনিস খেতে চায় না, কিন্তু আপনাদের এই আম ও নিজে থেকেই খেতে চায়। বাচ্চাদের জন্য দারুণ একটা খাবার।</p>
+          <p class="rv-txt">আমার বাচ্চা এই আম খেতে খুব পছন্দ করেছে। সাধারণত ও বাইরের মিষ্টি জিনিস খেতে চায় না, কিন্তু আপনাদের এই আম ও নিজে থেকেই খেতে চায়। আমিও নিশ্চিন্তে দিতে পারছি। বাচ্চাদের জন্য দারুণ একটা খাবার।</p>
         </div>
       </div>
 
-      <div class="review-item">
-        <div class="r-avatar">স</div>
-        <div class="r-body">
-          <div class="r-head">
-            <div class="r-meta">
-              <div class="r-name">সাইফ সরদার</div>
-              <div class="r-city"><span>📍</span> চট্টগ্রাম</div>
+      <div class="rv-item">
+        <div class="rv-av" style="background:linear-gradient(135deg,#4A90D9,#2A5FA0)">সা</div>
+        <div class="rv-body">
+          <div class="rv-top">
+            <div>
+              <div class="rv-name">সাইফ সরদার</div>
+              <div class="rv-city">📍 ঢাকা</div>
             </div>
-            <div class="r-stars">★★★★★</div>
+            <div class="rv-stars">★★★★★</div>
           </div>
-          <p class="r-text">হিমসাগর আমের স্বাদটা একদম ছোটবেলার কথা মনে করিয়ে দিলো। আমটা খুব ফ্রেশ আর কোনো কার্বাইডের গন্ধ নেই। Pure Food Mart কে ধন্যবাদ এতো খাঁটি একটা জিনিস দেওয়ার জন্য।</p>
+          <p class="rv-txt">হিমসাগর আমের স্বাদটা একদম ছোটবেলার কথা মনে করিয়ে দিলো। আমটা খুব ফ্রেশ আর কোনো কার্বাইডের গন্ধ নেই। Pure Food Mart কে ধন্যবাদ এতো খাঁটি একটা জিনিস দেওয়ার জন্য।</p>
         </div>
       </div>
 
-      <div class="review-item">
-        <div class="r-avatar">আ</div>
-        <div class="r-body">
-          <div class="r-head">
-            <div class="r-meta">
-              <div class="r-name">আহসান জুয়েল</div>
-              <div class="r-city"><span>📍</span> রাজশাহী</div>
+      <div class="rv-item">
+        <div class="rv-av" style="background:linear-gradient(135deg,#E8822A,#B05010)">আহ</div>
+        <div class="rv-body">
+          <div class="rv-top">
+            <div>
+              <div class="rv-name">আহসান জুয়েল</div>
+              <div class="rv-city">📍 কিশোরগঞ্জ</div>
             </div>
-            <div class="r-stars">★★★★★</div>
+            <div class="rv-stars">★★★★★</div>
           </div>
-          <p class="r-text">হিমসাগর আমের আসল স্বাদটা অনেকদিন পর পেলাম। কোনো রকম ভেজাল নেই, একদম নাচারাল ফ্লেভার। যারা খাঁটি হিমসাগর আম খুঁজছেন তারা নিশ্চিন্তে নিতে পারেন।</p>
+          <p class="rv-txt">হিমসাগর আমের আসল স্বাদটা অনেকদিন পর পেলাম। কোনো রকম ভেজাল নেই, একদম ন্যাচারাল ফ্লেভার। যারা খাঁটি আম খুঁজছেন তারা নিশ্চিন্তে নিতে পারেন। বিশেষ করে পরিবারের সাথে এর স্বাদটা পুরো ঘর মৌমৌ করে।</p>
         </div>
       </div>
 
     </div>
-
-    <a href="#order" class="btn btn--sm">অর্ডার করুন</a>
+    <a href="#order" class="BTN BTN-c">অর্ডার করুন</a>
   </div>
 </section>
 
 
-<!-- ═══════════════════════════════════════════════
+<!-- ══════════════════════════════════════
      FAQ
-═══════════════════════════════════════════════ -->
-<section class="faq-sec">
-  <div class="wrap">
-    <h2 class="sh">সাধারণ <span class="g">জিজ্ঞাসা</span></h2>
+══════════════════════════════════════ -->
+<section class="faq">
+  <div class="W">
+    <h2 class="SH">সাধারণ <span class="g">জিজ্ঞাসা</span></h2>
     <p class="faq-sub">আপনার প্রশ্নের উত্তর</p>
 
     <div class="faq-list">
@@ -704,11 +885,11 @@
         <input class="faq-cb" type="checkbox" id="f1" checked/>
         <label class="faq-q" for="f1">
           আমে কি চিনি বা রং মেশানো থাকে?
-          <i class="faq-ico">▼</i>
+          <i class="faq-ico">∨</i>
         </label>
-        <div class="faq-a">
+        <div class="faq-ans">
           একদমই না। আমাদের আম ১০০% গাছে পাকানো হিমসাগর।
-          কোনো কৃত্রিম রং, চিনি বা রিপেনিং এজেন্ট ব্যবহার করা হয় না। এটি আমাদের প্রতিশ্রুতি।
+          কোনো কৃত্রিম রং, চিনি বা রিপেনিং এজেন্ট ব্যবহার করা হয় না।
         </div>
       </div>
 
@@ -716,10 +897,10 @@
         <input class="faq-cb" type="checkbox" id="f2"/>
         <label class="faq-q" for="f2">
           হিমসাগর আম কি বাচ্চাদের খাওয়ানো যাবে?
-          <i class="faq-ico">▼</i>
+          <i class="faq-ico">∨</i>
         </label>
-        <div class="faq-a">
-          অবশ্যই! আমাদের আম সম্পূর্ণ প্রাকৃতিক এবং কেমিক্যাল মুক্ত হওয়ায়
+        <div class="faq-ans">
+          অবশ্যই! আমাদের আম সম্পূর্ণ প্রাকৃতিক এবং কেমিক্যাল মুক্ত।
           শিশু থেকে বৃদ্ধ সবাই নিরাপদে খেতে পারবেন।
         </div>
       </div>
@@ -728,10 +909,10 @@
         <input class="faq-cb" type="checkbox" id="f3"/>
         <label class="faq-q" for="f3">
           হিমসাগর আম কি দীর্ঘদিন ভালো থাকে?
-          <i class="faq-ico">▼</i>
+          <i class="faq-ico">∨</i>
         </label>
-        <div class="faq-a">
-          গাছে পাকা আম পাঠানোর পর ৩-৫ দিন ঘরের স্বাভাবিক তাপমাত্রায়
+        <div class="faq-ans">
+          গাছে পাকা আম পাঠানোর পর ৩-৫ দিন স্বাভাবিক তাপমাত্রায়
           এবং ফ্রিজে রাখলে ৭-১০ দিন পর্যন্ত ভালো থাকে।
         </div>
       </div>
@@ -740,109 +921,102 @@
         <input class="faq-cb" type="checkbox" id="f4"/>
         <label class="faq-q" for="f4">
           আপনাদের আমের বিশেষত্ব কী?
-          <i class="faq-ico">▼</i>
+          <i class="faq-ico">∨</i>
         </label>
-        <div class="faq-a">
-          রাজশাহীর চাঁপাইনবাবগঞ্জের নির্দিষ্ট বাগান থেকে সংগ্রহ করা হয়।
-          ভোরে পাড়া তাজা আম, হাতে বাছাই করা, নিরাপদ প্যাকেজিংয়ে পাঠানো।
-          কোনো মিডলম্যান নেই — সরাসরি আপনার কাছে।
+        <div class="faq-ans">
+          চাঁপাইনবাবগঞ্জের নির্দিষ্ট বাগান থেকে সংগ্রহ, হাতে বাছাই করা,
+          নিরাপদ প্যাকেজিং। কোনো মিডলম্যান নেই — সরাসরি আপনার কাছে।
         </div>
       </div>
 
     </div>
 
-    <a href="#order" class="btn btn--sm">অর্ডার করুন</a>
+    <a href="#order" class="BTN BTN-c">অর্ডার করুন</a>
   </div>
 </section>
 
 
-<!-- ═══════════════════════════════════════════════
+<!-- ══════════════════════════════════════
      ORDER FORM
-═══════════════════════════════════════════════ -->
+══════════════════════════════════════ -->
 <section class="order-sec" id="order">
-  <div class="wrap">
+  <div class="W">
 
     <h2 class="order-h">প্যাকেজ বেছে <span class="g">অর্ডার করুন</span></h2>
 
-    <p class="prod-label">Your Products</p>
+    <p class="prod-lbl">Your Products</p>
 
-    <!-- Product rows -->
     <div class="prod-card">
+      <!-- Product row 1 -->
       <div class="prod-row" data-id="p1" data-price="550" data-name="হিমসাগর আম — ২ কেজি">
-        <div class="p-check on" onclick="toggleP('p1')">✓</div>
-        <div class="p-img">🥭</div>
-        <div class="p-name">হিমসাগর আম - ২ KG</div>
+        <div class="p-ck on" id="ck-p1" onclick="toggleP('p1')">✓</div>
+        <div class="p-img p-img-m"></div>
+        <div class="p-name">হিমসাগর<br/>আম - ২ KG</div>
         <div class="qty">
-          <button class="q-btn" onclick="chgQ('p1',-1)">−</button>
-          <div class="q-val" id="qv-p1">1</div>
-          <button class="q-btn" onclick="chgQ('p1',1)">+</button>
+          <button class="q-b" onclick="chgQ('p1',-1)">−</button>
+          <div class="q-v" id="qv-p1">1</div>
+          <button class="q-b" onclick="chgQ('p1',1)">+</button>
         </div>
-        <div class="p-price" id="pp-p1">৳৫৫০</div>
+        <div class="p-pr" id="pp-p1">550৳</div>
       </div>
+      <!-- Product row 2 -->
       <div class="prod-row" data-id="p2" data-price="1250" data-name="হিমসাগর আম — ৫ কেজি">
-        <div class="p-check on" onclick="toggleP('p2')">✓</div>
-        <div class="p-img">📦</div>
-        <div class="p-name">হিমসাগর আম - ৫ KG</div>
+        <div class="p-ck on" id="ck-p2" onclick="toggleP('p2')">✓</div>
+        <div class="p-img p-img-b"></div>
+        <div class="p-name">হিমসাগর<br/>আম - ৫ KG</div>
         <div class="qty">
-          <button class="q-btn" onclick="chgQ('p2',-1)">−</button>
-          <div class="q-val" id="qv-p2">1</div>
-          <button class="q-btn" onclick="chgQ('p2',1)">+</button>
+          <button class="q-b" onclick="chgQ('p2',-1)">−</button>
+          <div class="q-v" id="qv-p2">1</div>
+          <button class="q-b" onclick="chgQ('p2',1)">+</button>
         </div>
-        <div class="p-price" id="pp-p2">৳১,২৫০</div>
+        <div class="p-pr" id="pp-p2">1,250৳</div>
       </div>
     </div>
 
     <!-- Customer info -->
-    <p class="f-title">আপনার তথ্য</p>
-
-    <div class="f-group">
-      <label class="f-label" for="nm">Full Name <span class="req">*</span></label>
-      <input class="f-input" id="nm" type="text" placeholder="আপনার পূর্ণ নাম লিখুন"/>
+    <p class="f-ttl">আপনার তথ্য</p>
+    <div class="f-g">
+      <label class="f-lbl" for="nm">Full Name <span class="req">*</span></label>
+      <input class="f-inp" id="nm" type="text" placeholder=""/>
     </div>
-    <div class="f-group">
-      <label class="f-label" for="ad">Address <span class="req">*</span></label>
-      <input class="f-input" id="ad" type="text" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন"/>
+    <div class="f-g">
+      <label class="f-lbl" for="ad">Address <span class="req">*</span></label>
+      <input class="f-inp" id="ad" type="text" placeholder=""/>
     </div>
-    <div class="f-group">
-      <label class="f-label" for="ph">Phone Number (Whatsapp) <span class="req">*</span></label>
-      <input class="f-input" id="ph" type="tel" placeholder="01XXXXXXXXX"/>
+    <div class="f-g">
+      <label class="f-lbl" for="ph">Phone Number (Whatsapp) <span class="req">*</span></label>
+      <input class="f-inp" id="ph" type="tel" placeholder=""/>
     </div>
 
     <!-- Shipping -->
-    <p class="ship-title">Shipping</p>
+    <p class="ship-ttl">Shipping</p>
     <div class="ship-box">
       <span>সারাদেশে ডেলিভারি চার্জ:</span>
-      <strong>১০০৳</strong>
+      <strong>100৳</strong>
     </div>
 
     <!-- Order summary -->
-    <p class="sum-title">আপনার অর্ডারের তথ্য</p>
+    <p class="sum-ttl">আপনার অর্ডারের তথ্য</p>
     <table class="sum-tbl">
       <thead>
         <tr>
-          <th style="text-align:left">Product</th>
+          <th>Product</th>
           <th style="text-align:right">Subtotal</th>
         </tr>
       </thead>
       <tbody id="sb"></tbody>
       <tbody>
-        <tr class="s-sub"><td>Subtotal</td><td id="st">৳১,৮০০</td></tr>
-        <tr class="s-ship"><td>Shipping Charge</td><td id="sc">১০০৳</td></tr>
-        <tr class="s-tot"><td><strong>Total</strong></td><td id="tt"><strong>১,৯০০৳</strong></td></tr>
+        <tr class="s-sub"><td>Subtotal</td><td id="st">1,800৳</td></tr>
+        <tr class="s-ship"><td>Shipping Charge</td><td id="sc">100৳</td></tr>
+        <tr class="s-tot"><td><strong>Total</strong></td><td id="tt"><strong>1,900৳</strong></td></tr>
       </tbody>
     </table>
 
-    <!-- COD -->
     <p class="cod-lbl">ক্যাশ অন ডেলিভারি (COD)</p>
-    <div class="cod-box">
-      প্রডাক্ট হাতে পেয়ে মূল্য পরিশোধ করবো, ইন-শা-আল্লাহ।
-    </div>
+    <div class="cod-box">প্রডাক্ট হাতে পেয়ে মূল্য পরিশোধ করবো, ইন-শা-আল্লাহ।</div>
 
     <p class="place-note">অর্ডারটি কনফার্ম করতে নিচের বাটনিতে ক্লিক করুন 👇</p>
-
-    <button class="btn-place" id="placeBtn" onclick="placeOrder()">
-      অর্ডারটি প্লেস করুন  ১,৯০০৳
-    </button>
+    <button class="btn-place" id="placeBtn" onclick="placeOrder()">অর্ডারটি প্লেস করুন  1,900৳</button>
 
     <div class="trust-row">
       <span>❤️ ১০০% প্রাকৃতিক</span>
@@ -853,37 +1027,29 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════════ -->
 <script>
 (function(){
-  var SHIP = 100;
-  var WA   = '8801700000000'; // ← Replace with real WhatsApp number
-
-  var S = {
-    p1:{ on:true,  q:1, price:550,  name:'হিমসাগর আম — ২ কেজি', em:'🥭' },
-    p2:{ on:true,  q:1, price:1250, name:'হিমসাগর আম — ৫ কেজি', em:'📦' }
+  var SHIP=100, WA='8801700000000';
+  var S={
+    p1:{on:true,q:1,price:550,  name:'হিমসাগর আম — ২ কেজি', cls:'s-th-m'},
+    p2:{on:true,q:1,price:1250, name:'হিমসাগর আম — ৫ কেজি', cls:'s-th-b'}
   };
 
-  function bn(n){
-    return String(n).replace(/[0-9]/g,function(d){return '০১২৩৪৫৬৭৮৯'[+d]});
-  }
-  function fmt(n){ return '৳'+bn(n.toLocaleString('en')); }
+  function fmt(n){ return n.toLocaleString('en')+'৳'; }
 
   window.toggleP=function(id){
     S[id].on=!S[id].on;
-    var el=document.querySelector('[data-id="'+id+'"] .p-check');
-    el.classList.toggle('on',S[id].on);
-    el.textContent=S[id].on?'✓':'';
+    var ck=document.getElementById('ck-'+id);
+    ck.classList.toggle('on',S[id].on);
+    ck.textContent=S[id].on?'✓':'';
     render();
   };
 
   window.chgQ=function(id,d){
     var n=S[id].q+d;
-    if(n<1)n=1;if(n>99)n=99;
+    if(n<1)n=1; if(n>99)n=99;
     S[id].q=n;
-    document.getElementById('qv-'+id).textContent=bn(n);
+    document.getElementById('qv-'+id).textContent=n;
     document.getElementById('pp-'+id).textContent=fmt(S[id].price*n);
     render();
   };
@@ -893,18 +1059,18 @@
     tbody.innerHTML='';
     var any=false;
     for(var id in S){
-      var p=S[id];if(!p.on)continue;any=true;
+      var p=S[id]; if(!p.on) continue; any=true;
       var lt=p.price*p.q; sub+=lt;
       var tr=document.createElement('tr');
       tr.className='s-row';
       tr.innerHTML=
         '<td>'+
-          '<div class="s-prod-wrap">'+
+          '<div class="s-prod-w">'+
             '<button class="s-rm" onclick="toggleP(\''+id+'\')">✕</button>'+
-            '<div class="s-thumb">'+p.em+'</div>'+
-            '<div class="s-info">'+
-              '<div class="s-name">'+p.name+'</div>'+
-              '<div class="s-qty">× '+bn(p.q)+'</div>'+
+            '<div class="s-th '+p.cls+'"></div>'+
+            '<div>'+
+              '<div class="s-nm">'+p.name+'</div>'+
+              '<div class="s-qt">× '+p.q+'</div>'+
             '</div>'+
           '</div>'+
         '</td>'+
@@ -912,13 +1078,13 @@
       tbody.appendChild(tr);
     }
     if(!any){
-      var et=document.createElement('tr');
-      et.innerHTML='<td colspan="2"><div class="s-empty">কোনো পণ্য নির্বাচিত নেই</div></td>';
-      tbody.appendChild(et);
+      var e=document.createElement('tr');
+      e.innerHTML='<td colspan="2"><div class="s-empty">কোনো পণ্য নির্বাচিত নেই</div></td>';
+      tbody.appendChild(e);
     }
     var tot=sub+SHIP;
     document.getElementById('st').textContent=fmt(sub);
-    document.getElementById('sc').textContent=bn(SHIP)+'৳';
+    document.getElementById('sc').textContent=fmt(SHIP);
     document.getElementById('tt').innerHTML='<strong>'+fmt(tot)+'</strong>';
     document.getElementById('placeBtn').textContent='অর্ডারটি প্লেস করুন  '+fmt(tot);
   }
@@ -927,28 +1093,24 @@
     var nm=document.getElementById('nm').value.trim();
     var ad=document.getElementById('ad').value.trim();
     var ph=document.getElementById('ph').value.trim();
-    if(!nm){alert('আপনার নাম লিখুন');document.getElementById('nm').focus();return;}
-    if(!ad){alert('আপনার ঠিকানা লিখুন');document.getElementById('ad').focus();return;}
-    if(!ph){alert('মোবাইল নম্বর লিখুন');document.getElementById('ph').focus();return;}
-
+    if(!nm){alert('আপনার নাম লিখুন'); document.getElementById('nm').focus(); return;}
+    if(!ad){alert('আপনার ঠিকানা লিখুন'); document.getElementById('ad').focus(); return;}
+    if(!ph){alert('মোবাইল নম্বর লিখুন'); document.getElementById('ph').focus(); return;}
     var lines=['*হিমসাগর আম অর্ডার — Pure Food Mart*',''];
     var sub=0;
     for(var id in S){
-      var p=S[id];if(!p.on)continue;
-      var lt=p.price*p.q;sub+=lt;
-      lines.push('• '+p.name+' × '+p.q+' = ৳'+lt.toLocaleString('en'));
+      var p=S[id]; if(!p.on) continue;
+      var lt=p.price*p.q; sub+=lt;
+      lines.push('• '+p.name+' × '+p.q+' = '+fmt(lt));
     }
-    lines.push('','Subtotal: ৳'+sub.toLocaleString('en'));
-    lines.push('Shipping: ৳'+SHIP);
-    lines.push('*Total: ৳'+(sub+SHIP).toLocaleString('en')+'*');
+    lines.push('','Subtotal: '+fmt(sub),'Shipping: '+fmt(SHIP));
+    lines.push('*Total: '+fmt(sub+SHIP)+'*');
     lines.push('','নাম: '+nm,'ঠিকানা: '+ad,'মোবাইল: '+ph,'Payment: Cash on Delivery');
-
     window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(lines.join('\n')),'_blank');
   };
 
   render();
 })();
 </script>
-
 </body>
 </html>
