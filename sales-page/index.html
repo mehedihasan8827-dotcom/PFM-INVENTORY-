@@ -1,733 +1,748 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>রাজশাহীর প্রিমিয়াম হিমসাগর আম — Pure Food Mart</title>
-  <meta name="description" content="রাজশাহীর সেরা হিমসাগর আম। সরাসরি বাগান থেকে আপনার দরজায়। ১০০% প্রাকৃতিক, কার্বাইড মুক্ত। এখনই অর্ডার করুন।" />
-  <meta property="og:title" content="রাজশাহীর প্রিমিয়াম হিমসাগর আম — Pure Food Mart" />
-  <meta property="og:description" content="মিষ্টি, রসালো হিমসাগর আম। সরাসরি বাগান থেকে। ক্যাশ অন ডেলিভারি।" />
-  <meta property="og:type" content="product" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "হিমসাগর আম — Pure Food Mart",
-    "brand": { "@type": "Brand", "name": "Pure Food Mart" },
-    "offers": [
-      { "@type": "Offer", "price": "550", "priceCurrency": "BDT", "name": "২ কেজি প্যাক" },
-      { "@type": "Offer", "price": "1250", "priceCurrency": "BDT", "name": "৫ কেজি প্যাক" }
-    ],
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "500" }
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="রাজশাহীর সেরা হিমসাগর আম। সরাসরি বাগান থেকে আপনার দরজায়। ১০০% প্রাকৃতিক।"/>
+  <meta property="og:title" content="রাজশাহীর প্রিমিয়াম হিমসাগর আম — Pure Food Mart"/>
+  <meta property="og:description" content="মিষ্টি, রসালো হিমসাগর আম। সরাসরি বাগান থেকে। ক্যাশ অন ডেলিভারি।"/>
+  <meta property="og:type" content="product"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@700;800;900&display=swap" rel="stylesheet"/>
 
   <style>
-    /* ===== TOKENS ===== */
-    :root {
-      --bg:        #F0F0EC;
-      --white:     #FFFFFF;
-      --yellow:    #FFD100;
-      --green:     #1E7B34;
-      --green-dk:  #155726;
-      --text:      #1A1A1A;
-      --muted:     #666666;
-      --border:    #D0D0D0;
-      --input-bg:  #FFFFFF;
-      --gray-box:  #E4E4E0;
-      --red:       #D32F2F;
-      --font:      'Hind Siliguri', sans-serif;
-      --radius:    8px;
+    /* ─── TOKENS ─────────────────────────────────── */
+    :root{
+      --green:   #1E7B34;
+      --yellow:  #FFD100;
+      --white:   #FFFFFF;
+      --bg:      #F0F0EC;
+      --text:    #1A1A1A;
+      --muted:   #666666;
+      --border:  #D4D4D4;
+      --red:     #D32F2F;
+      --font:    'Hind Siliguri','Noto Sans Bengali',sans-serif;
+      --r:       8px;
     }
 
-    /* ===== RESET ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    button { font-family: var(--font); cursor: pointer; border: none; }
-    input, textarea, select { font-family: var(--font); }
+    /* ─── RESET ──────────────────────────────────── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    button,input,textarea{font-family:var(--font)}
 
-    /* ===== LAYOUT ===== */
-    .container { width: 100%; max-width: 600px; margin: 0 auto; padding: 0 20px; }
-    .section { padding: 40px 0; }
-    .section--white { background: var(--white); }
-    .section--gray { background: var(--bg); }
-    .text-center { text-align: center; }
+    /* ─── LAYOUT ─────────────────────────────────── */
+    .wrap{width:100%;max-width:540px;margin:0 auto;padding:0 18px}
+    .sec{padding:44px 0}
+    .sec--white{background:#fff}
+    .sec--gray{background:var(--bg)}
 
-    /* ===== HEADING PATTERN (black + green) ===== */
-    .sec-title { font-size: 1.75rem; font-weight: 700; line-height: 1.2; margin-bottom: 24px; text-align: center; }
-    .sec-title .green { color: var(--green); }
+    /* ─── SECTION HEADING (black + green) ────────── */
+    .sh{font-size:1.85rem;font-weight:700;line-height:1.2;margin-bottom:24px;text-align:center;font-family:var(--font)}
+    .sh .g{color:var(--green)}
 
-    /* ===== CTA BUTTON ===== */
-    .btn-order {
-      display: block;
-      width: 100%;
-      background: var(--yellow);
-      color: var(--text);
-      font-size: 1.15rem;
-      font-weight: 700;
-      padding: 16px 20px;
-      border-radius: var(--radius);
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      transition: opacity 0.15s;
+    /* ─── CTA BUTTON ─────────────────────────────── */
+    .btn{
+      display:block;
+      background:var(--yellow);
+      color:var(--text);
+      font-family:var(--font);
+      font-size:1.15rem;
+      font-weight:700;
+      padding:15px 36px;
+      border-radius:var(--r);
+      text-align:center;
+      border:none;
+      cursor:pointer;
+      transition:opacity .15s;
+      text-decoration:none;
     }
-    .btn-order:hover { opacity: 0.88; }
-    .btn-order--centered {
-      max-width: 260px;
-      margin: 0 auto;
-      display: block;
+    .btn:hover{opacity:.87}
+    .btn--sm{max-width:240px;margin:0 auto}
+
+    /* ═══════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════ */
+    .hero{
+      position:relative;
+      min-height:100svh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:60px 18px 52px;
+      text-align:center;
+      overflow:hidden;
     }
 
-    /* ===================================================
-       SECTION 1: HERO
-    =================================================== */
-    .hero {
-      position: relative;
-      min-height: 100svh;
+    /* SVG forest background */
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+    .hero-bg svg{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* Overlay gradient on top of SVG */
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      z-index:1;
       background:
-        linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.65) 100%),
-        linear-gradient(135deg, #0A2010 0%, #1A4020 30%, #2D6030 60%, #1A3818 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px 50px;
-      text-align: center;
-      overflow: hidden;
+        linear-gradient(to bottom,
+          rgba(4,12,4,.55) 0%,
+          rgba(6,16,6,.30) 35%,
+          rgba(4,12,4,.45) 70%,
+          rgba(2,8,2,.70) 100%
+        );
     }
 
-    /* Decorative palm-tree like shapes */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(30,70,20,0.6) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 80% 20%, rgba(20,50,15,0.5) 0%, transparent 60%),
-        radial-gradient(ellipse 80% 50% at 50% 110%, rgba(10,30,10,0.8) 0%, transparent 50%);
-      pointer-events: none;
+    .hero-inner{position:relative;z-index:2;max-width:420px;margin:0 auto}
+
+    /* Mango SVG logo */
+    .hero-logo{margin-bottom:14px;display:flex;justify-content:center}
+    .hero-logo svg{width:64px;height:64px;filter:drop-shadow(0 3px 12px rgba(0,0,0,.6))}
+
+    /* Heading — 3 colored lines with dark stroke */
+    .hero-h1{
+      font-size:clamp(2.2rem,9vw,3rem);
+      font-weight:800;
+      line-height:1.1;
+      margin-bottom:14px;
+      font-family:'Noto Sans Bengali','Hind Siliguri',sans-serif;
+    }
+    .hero-h1 .line-green{
+      display:block;
+      color:#5EF07A;
+      -webkit-text-stroke:1.5px #041004;
+      text-shadow:0 2px 10px rgba(0,0,0,.7);
+    }
+    .hero-h1 .line-orange{
+      color:#F5A623;
+      -webkit-text-stroke:1.5px #2A0D00;
+      text-shadow:0 2px 10px rgba(0,0,0,.7);
+    }
+    .hero-h1 .line-white{
+      color:#FFFFFF;
+      -webkit-text-stroke:1.5px #050505;
+      text-shadow:0 2px 10px rgba(0,0,0,.8);
     }
 
-    .hero-inner { position: relative; z-index: 1; max-width: 480px; margin: 0 auto; }
+    .hero-stars{color:#FFD100;font-size:1.5rem;letter-spacing:4px;margin-bottom:6px}
 
-    .hero-logo { font-size: 3.5rem; margin-bottom: 12px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5)); }
+    .hero-tree-emoji{font-size:1.6rem;margin-bottom:14px;display:block}
 
-    .hero-title {
-      font-size: clamp(2rem, 8vw, 2.8rem);
-      font-weight: 700;
-      color: #FFFFFF;
-      line-height: 1.2;
-      margin-bottom: 14px;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    /* Info box (cream) */
+    .hero-box{
+      background:#FFF8E7;
+      border-radius:12px;
+      padding:13px 20px;
+      margin:0 auto 18px;
+      max-width:340px;
+      box-shadow:0 2px 16px rgba(0,0,0,.25);
     }
-    .hero-title .green { color: #4ADE6A; }
+    .hero-box strong{display:block;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:3px}
+    .hero-box span{font-size:.88rem;color:#444;line-height:1.5}
 
-    .hero-stars {
-      color: #FFD100;
-      font-size: 1.4rem;
-      letter-spacing: 3px;
-      margin-bottom: 20px;
+    .hero-desc{color:rgba(255,255,255,.90);font-size:.9rem;line-height:1.7;margin-bottom:10px}
+    .hero-desc strong{color:#fff}
+
+    .hero-arrow{color:#fff;font-size:1.6rem;display:block;margin:8px 0 20px;
+      animation:bounce 1.6s ease infinite}
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+    .hero .btn{max-width:240px;margin:0 auto;font-size:1.2rem;padding:16px 28px;border-radius:10px}
+
+    /* ═══════════════════════════════════════════════
+       WHY US
+    ═══════════════════════════════════════════════ */
+    .why-photo{
+      width:100%;
+      border-radius:14px;
+      overflow:hidden;
+      margin:0 0 22px;
+      aspect-ratio:4/3;
+      background:linear-gradient(135deg,#C8F0A0,#5BA830,#2D5016);
+      display:flex;align-items:center;justify-content:center;
+      font-size:5rem;
     }
-
-    .hero-info-box {
-      background: #FFF8E7;
-      border-radius: 12px;
-      padding: 14px 20px;
-      margin-bottom: 18px;
-      display: inline-block;
-      max-width: 340px;
+    .why-body{font-size:.96rem;color:var(--text);text-align:center;line-height:1.85;margin-bottom:8px}
+    .why-expert{
+      text-align:center;
+      font-size:1.55rem;
+      font-weight:700;
+      color:var(--green);
+      font-style:italic;
+      margin:26px 0 10px;
     }
-    .hero-info-box strong {
-      display: block;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
+    .why-expert-body{font-size:.93rem;color:var(--muted);text-align:center;line-height:1.75;margin-bottom:28px}
+
+    /* ═══════════════════════════════════════════════
+       REVIEWS
+    ═══════════════════════════════════════════════ */
+    .reviews-sec{background:#fff;padding:44px 0;border-top:1px solid #EBEBEB}
+
+    .review-list{margin:20px 0 32px}
+
+    .review-item{
+      display:flex;gap:14px;align-items:flex-start;
+      padding:18px 0;
+      border-bottom:1px solid #EBEBEB;
     }
-    .hero-info-box span { font-size: 0.9rem; color: #444; }
+    .review-item:first-child{border-top:1px solid #EBEBEB}
 
-    .hero-desc {
-      color: rgba(255,255,255,0.88);
-      font-size: 0.95rem;
-      margin-bottom: 8px;
-      line-height: 1.65;
-    }
-
-    .hero-arrow { color: #fff; font-size: 1.5rem; margin: 10px 0 18px; display: block; animation: bounce 1.5s ease infinite; }
-    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
-
-    .hero .btn-order { max-width: 260px; margin: 0 auto; font-size: 1.2rem; padding: 18px 24px; border-radius: 10px; }
-
-    /* ===================================================
-       SECTION 2: WHY US
-    =================================================== */
-    .why-section { background: var(--white); padding: 48px 0; }
-
-    .why-photo {
-      width: 100%;
-      border-radius: 14px;
-      overflow: hidden;
-      margin: 20px 0 24px;
-      background: linear-gradient(135deg, #C8F0A0 0%, #7ABF40 50%, #2D5016 100%);
-      aspect-ratio: 4/3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5rem;
-    }
-
-    .why-body { font-size: 0.97rem; color: var(--text); text-align: center; line-height: 1.8; margin-bottom: 20px; }
-
-    .why-expert {
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--green);
-      font-style: italic;
-      margin: 28px 0 12px;
+    .r-avatar{
+      width:54px;height:54px;border-radius:50%;flex-shrink:0;
+      background:linear-gradient(135deg,#2D7A3A,#5EAC4A);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.2rem;font-weight:700;color:#fff;
+      overflow:hidden;
     }
 
-    .why-expert-text { font-size: 0.95rem; color: var(--muted); text-align: center; line-height: 1.7; }
+    .r-body{flex:1;min-width:0}
 
-    /* ===================================================
-       SECTION 3: REVIEWS
-    =================================================== */
-    .reviews-section { background: var(--white); padding: 48px 0; border-top: 1px solid #E8E8E8; }
-
-    .review-list { margin: 24px 0; }
-
-    .review-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 18px 0;
-      border-bottom: 1px solid #EBEBEB;
+    .r-head{
+      display:flex;align-items:flex-start;
+      justify-content:space-between;
+      gap:6px;
+      margin-bottom:5px;
     }
-    .review-item:last-child { border-bottom: none; }
+    .r-meta{}
+    .r-name{font-weight:700;font-size:1rem;color:var(--text)}
+    .r-city{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:3px;margin-top:1px}
+    .r-stars{color:#FFD100;font-size:.9rem;letter-spacing:1px;flex-shrink:0;padding-top:2px}
+    .r-text{font-size:.9rem;color:#333;line-height:1.7}
 
-    .review-avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--green), #4CAF50);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #fff;
-    }
+    /* ═══════════════════════════════════════════════
+       FAQ
+    ═══════════════════════════════════════════════ */
+    .faq-sec{background:var(--bg);padding:44px 0}
+    .faq-sub{text-align:center;color:var(--muted);font-size:.88rem;margin-top:-18px;margin-bottom:28px}
 
-    .review-content { flex: 1; }
+    .faq-list{display:flex;flex-direction:column;gap:8px;margin-bottom:32px}
 
-    .review-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-bottom: 4px;
+    .faq-item{background:#fff;border:1px solid #D8D8D8;border-radius:var(--r);overflow:hidden}
+
+    .faq-cb{display:none}
+
+    .faq-q{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:15px 18px;
+      font-size:.96rem;font-weight:600;color:var(--text);
+      cursor:pointer;user-select:none;gap:10px;
+      transition:color .2s;
     }
 
-    .review-name { font-weight: 700; font-size: 1rem; color: var(--text); }
-
-    .review-city { font-size: 0.8rem; color: var(--muted); margin-left: 6px; }
-
-    .review-stars { color: #FFD100; font-size: 0.85rem; letter-spacing: 1px; flex-shrink: 0; }
-
-    .review-text { font-size: 0.92rem; color: #333; line-height: 1.65; }
-
-    /* ===================================================
-       SECTION 4: FAQ
-    =================================================== */
-    .faq-section { background: var(--bg); padding: 48px 0; }
-
-    .faq-subtitle { text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: -18px; margin-bottom: 28px; }
-
-    .faq-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px; }
-
-    .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-
-    .faq-toggle { display: none; }
-
-    .faq-question {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 18px;
-      font-size: 0.97rem;
-      font-weight: 600;
-      color: var(--text);
-      cursor: pointer;
-      user-select: none;
-      gap: 12px;
+    .faq-ico{
+      font-size:1.1rem;color:var(--muted);
+      transition:transform .3s;flex-shrink:0;
+      font-style:normal;
     }
+    .faq-cb:checked ~ .faq-q .faq-ico{transform:rotate(180deg)}
+    .faq-cb:checked ~ .faq-q{color:var(--green)}
 
-    .faq-chevron { font-size: 1rem; color: var(--muted); transition: transform 0.25s; flex-shrink: 0; }
-    .faq-toggle:checked ~ .faq-question .faq-chevron { transform: rotate(180deg); }
-    .faq-toggle:checked ~ .faq-question { color: var(--green); }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      font-size: 0.9rem;
-      color: #444;
-      line-height: 1.7;
-      transition: max-height 0.35s ease, padding 0.25s;
+    .faq-a{
+      max-height:0;overflow:hidden;
+      font-size:.89rem;color:#444;line-height:1.75;
+      transition:max-height .35s ease,padding .25s;
     }
-    .faq-toggle:checked ~ .faq-answer { max-height: 400px; padding: 0 18px 16px; }
+    .faq-cb:checked ~ .faq-a{max-height:400px;padding:0 18px 16px}
 
-    /* ===================================================
-       SECTION 5: ORDER FORM
-    =================================================== */
-    .order-section { background: var(--bg); padding: 0 0 60px; }
+    /* ═══════════════════════════════════════════════
+       ORDER SECTION
+    ═══════════════════════════════════════════════ */
+    .order-sec{background:var(--bg);padding:0 0 60px}
 
-    .order-heading {
-      font-size: 1.9rem;
-      font-weight: 700;
-      text-align: center;
-      padding: 32px 20px 24px;
-      line-height: 1.25;
+    .order-h{
+      font-size:1.85rem;font-weight:700;text-align:center;
+      padding:32px 18px 22px;line-height:1.25;
+      font-family:var(--font);
     }
-    .order-heading .green { color: var(--green); }
+    .order-h .g{color:var(--green)}
 
     /* Products label */
-    .products-label { font-size: 0.9rem; font-weight: 700; color: var(--green); margin-bottom: 12px; }
+    .prod-label{font-size:.88rem;font-weight:700;color:var(--green);margin-bottom:10px}
 
-    /* Product rows */
-    .product-rows { border: 1px solid var(--border); border-radius: var(--radius); background: var(--white); overflow: hidden; margin-bottom: 28px; }
-
-    .product-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 16px;
-      border-bottom: 1px solid #EBEBEB;
-    }
-    .product-row:last-child { border-bottom: none; }
-
-    .product-check {
-      width: 24px;
-      height: 24px;
-      border: 2px solid var(--border);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background: var(--white);
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .product-check.active { background: var(--green); border-color: var(--green); }
-    .product-check.active::after { content: '✓'; color: #fff; font-size: 0.85rem; font-weight: 700; }
-
-    .product-img {
-      width: 62px;
-      height: 62px;
-      border-radius: 8px;
-      object-fit: cover;
-      flex-shrink: 0;
-      background: linear-gradient(135deg, #FFE066, #FF8C00);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      overflow: hidden;
+    /* Product rows card */
+    .prod-card{
+      background:#fff;
+      border:1px solid #D0D0D0;
+      border-radius:var(--r);
+      overflow:hidden;
+      margin-bottom:28px;
     }
 
-    .product-name { flex: 1; font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+    .prod-row{
+      display:grid;
+      grid-template-columns:28px 68px 1fr auto auto;
+      align-items:center;
+      gap:10px;
+      padding:13px 14px;
+      border-bottom:1px solid #EBEBEB;
+    }
+    .prod-row:last-child{border-bottom:none}
 
-    .qty-stepper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-      flex-shrink: 0;
+    /* Checkbox */
+    .p-check{
+      width:24px;height:24px;border-radius:4px;
+      border:2px solid #BBBBBB;
+      background:#fff;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;flex-shrink:0;transition:all .15s;
+      font-size:.85rem;font-weight:700;color:transparent;
     }
-    .qty-btn {
-      width: 36px;
-      height: 28px;
-      background: #F5F5F5;
-      border: none;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #444;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.1s;
-    }
-    .qty-btn:hover { background: #E8E8E8; }
-    .qty-value {
-      width: 36px;
-      height: 32px;
-      text-align: center;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .p-check.on{background:var(--green);border-color:var(--green);color:#fff}
+
+    /* Product image */
+    .p-img{
+      width:68px;height:68px;border-radius:8px;flex-shrink:0;
+      background:linear-gradient(135deg,#FFE066,#FF8C00);
+      display:flex;align-items:center;justify-content:center;
+      font-size:2rem;overflow:hidden;
     }
 
-    .product-price { font-size: 0.97rem; font-weight: 600; color: var(--text); flex-shrink: 0; min-width: 54px; text-align: right; }
+    .p-name{font-size:.92rem;font-weight:600;color:var(--text);line-height:1.35}
 
-    /* Customer info form */
-    .form-section-title { font-size: 1.2rem; font-weight: 700; color: var(--green); margin-bottom: 16px; }
-
-    .form-group { margin-bottom: 18px; }
-    .form-label { display: block; font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-    .form-label .req { color: var(--red); margin-left: 2px; }
-    .form-input {
-      display: block;
-      width: 100%;
-      padding: 14px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: 6px;
-      font-size: 1rem;
-      font-family: var(--font);
-      color: var(--text);
-      background: var(--input-bg);
-      transition: border-color 0.15s;
-      outline: none;
+    /* Qty stepper */
+    .qty{
+      display:flex;flex-direction:column;align-items:center;
+      border:1px solid #CCCCCC;border-radius:6px;overflow:hidden;
+      flex-shrink:0;
     }
-    .form-input:focus { border-color: var(--green); }
-
-    /* Shipping box */
-    .shipping-title { font-size: 1.1rem; font-weight: 700; color: var(--green); margin: 24px 0 10px; }
-    .shipping-box {
-      background: var(--gray-box);
-      border-radius: 6px;
-      padding: 13px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.92rem;
-      color: var(--text);
-      margin-bottom: 28px;
+    .q-btn{
+      width:34px;height:27px;background:#F2F2F2;border:none;
+      font-size:1rem;font-weight:700;color:#555;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;transition:background .1s;
+    }
+    .q-btn:hover{background:#E5E5E5}
+    .q-val{
+      width:34px;height:30px;
+      text-align:center;font-size:.93rem;font-weight:700;
+      border-top:1px solid #CCCCCC;border-bottom:1px solid #CCCCCC;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--text);
     }
 
-    /* Order summary */
-    .summary-title { font-size: 1.2rem; font-weight: 700; color: var(--green); margin-bottom: 14px; }
+    .p-price{font-size:.93rem;font-weight:600;color:var(--text);min-width:52px;text-align:right;flex-shrink:0}
 
-    .summary-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
-    .summary-table th {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--muted);
-      text-align: left;
-      padding-bottom: 8px;
-      border-bottom: 1px dashed var(--border);
+    /* Form */
+    .f-title{font-size:1.15rem;font-weight:700;color:var(--green);margin-bottom:16px}
+    .f-group{margin-bottom:16px}
+    .f-label{display:block;font-size:.93rem;font-weight:600;color:var(--text);margin-bottom:6px}
+    .f-label .req{color:var(--red);margin-left:2px}
+    .f-input{
+      display:block;width:100%;
+      padding:14px 13px;
+      border:1.5px solid #CCCCCC;border-radius:6px;
+      font-size:1rem;font-family:var(--font);color:var(--text);
+      background:#fff;outline:none;transition:border-color .15s;
     }
-    .summary-table th:last-child { text-align: right; }
+    .f-input:focus{border-color:var(--green)}
 
-    .summary-row td {
-      padding: 12px 0;
-      border-bottom: 1px dashed #EBEBEB;
-      vertical-align: middle;
-    }
-    .summary-row:last-child td { border-bottom: none; }
-
-    .summary-product-wrap { display: flex; align-items: center; gap: 10px; }
-
-    .summary-remove {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      border: 1.5px solid var(--border);
-      background: transparent;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-    .summary-remove:hover { border-color: var(--red); color: var(--red); }
-
-    .summary-img {
-      width: 48px;
-      height: 48px;
-      border-radius: 6px;
-      background: linear-gradient(135deg, #FFE066, #FF8C00);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      flex-shrink: 0;
+    /* Shipping */
+    .ship-title{font-size:1.05rem;font-weight:700;color:var(--green);margin:22px 0 10px}
+    .ship-box{
+      background:#E6E6E2;border-radius:6px;
+      padding:12px 16px;display:flex;justify-content:space-between;align-items:center;
+      font-size:.9rem;color:var(--text);margin-bottom:28px;
     }
 
-    .summary-name { font-size: 0.88rem; font-weight: 600; color: var(--green); }
-    .summary-qty { font-size: 0.8rem; color: var(--muted); }
-    .summary-price { text-align: right; font-size: 0.95rem; font-weight: 700; color: var(--green); }
+    /* Summary */
+    .sum-title{font-size:1.15rem;font-weight:700;color:var(--green);margin-bottom:14px}
 
-    .summary-subtotal td { font-size: 0.9rem; color: var(--muted); padding: 8px 0; border-bottom: 1px dashed #EBEBEB; }
-    .summary-subtotal td:last-child { text-align: right; color: var(--green); font-weight: 600; }
+    .sum-tbl{width:100%;border-collapse:collapse;margin-bottom:24px}
+    .sum-tbl th{
+      font-size:.8rem;font-weight:600;color:var(--muted);
+      padding-bottom:8px;
+      border-bottom:1px solid #D0D0D0;
+    }
+    .sum-tbl th:last-child{text-align:right}
 
-    .summary-shipping td { font-size: 0.9rem; color: var(--muted); padding: 8px 0; border-bottom: 1px dashed #EBEBEB; }
-    .summary-shipping td:last-child { text-align: right; color: var(--green); font-weight: 600; }
+    .s-row td{padding:11px 0;border-bottom:1px dashed #DEDEDE;vertical-align:middle}
 
-    .summary-total td { font-size: 1rem; font-weight: 700; color: var(--text); padding: 10px 0; }
-    .summary-total td:last-child { text-align: right; color: var(--green); font-size: 1.1rem; }
+    .s-prod-wrap{display:flex;align-items:center;gap:9px}
+
+    .s-rm{
+      width:22px;height:22px;border-radius:50%;border:1.5px solid #C0C0C0;
+      background:transparent;font-size:.75rem;color:#888;
+      display:flex;align-items:center;justify-content:center;cursor:pointer;
+      flex-shrink:0;transition:all .15s;
+    }
+    .s-rm:hover{border-color:var(--red);color:var(--red)}
+
+    .s-thumb{
+      width:46px;height:46px;border-radius:6px;
+      background:linear-gradient(135deg,#FFE066,#FF8C00);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.4rem;flex-shrink:0;
+    }
+
+    .s-info{}
+    .s-name{font-size:.86rem;font-weight:600;color:var(--green);line-height:1.3}
+    .s-qty{font-size:.78rem;color:var(--muted)}
+    .s-amt{text-align:right;font-size:.93rem;font-weight:700;color:var(--green)}
+
+    .s-sub td,.s-ship td{font-size:.88rem;color:var(--muted);padding:7px 0;border-bottom:1px dashed #DEDEDE}
+    .s-sub td:last-child,.s-ship td:last-child{text-align:right;color:var(--green);font-weight:600}
+
+    .s-tot td{font-size:1rem;font-weight:700;color:var(--text);padding:10px 0}
+    .s-tot td:last-child{text-align:right;color:var(--green);font-size:1.1rem}
+
+    .s-empty{text-align:center;color:var(--muted);font-size:.88rem;padding:18px 0}
 
     /* COD */
-    .cod-label { font-size: 0.97rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
-    .cod-box {
-      background: var(--gray-box);
-      border-radius: 6px;
-      padding: 12px 16px;
-      font-size: 0.88rem;
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 20px;
+    .cod-lbl{font-size:.96rem;font-weight:600;color:var(--text);margin-bottom:8px}
+    .cod-box{
+      background:#E6E6E2;border-radius:6px;padding:12px 16px;
+      font-size:.87rem;color:#555;line-height:1.65;margin-bottom:20px;
     }
 
-    .place-order-note { font-size: 0.9rem; font-weight: 600; color: var(--green); margin-bottom: 10px; text-align: center; }
+    .place-note{font-size:.88rem;font-weight:600;color:var(--green);text-align:center;margin-bottom:10px}
 
-    .btn-place-order {
-      display: block;
-      width: 100%;
-      background: var(--yellow);
-      color: var(--text);
-      font-size: 1.15rem;
-      font-weight: 700;
-      padding: 18px 20px;
-      border-radius: var(--radius);
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      transition: opacity 0.15s;
+    .btn-place{
+      display:block;width:100%;
+      background:var(--yellow);color:var(--text);
+      font-size:1.1rem;font-weight:700;
+      padding:17px 16px;border-radius:var(--r);border:none;
+      cursor:pointer;text-align:center;transition:opacity .15s;
+      font-family:var(--font);
     }
-    .btn-place-order:hover { opacity: 0.88; }
+    .btn-place:hover{opacity:.88}
 
-    .trust-footer { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 14px; font-size: 0.83rem; color: var(--muted); }
-    .trust-footer span { display: flex; align-items: center; gap: 5px; }
+    .trust-row{
+      display:flex;justify-content:center;gap:22px;
+      margin-top:13px;font-size:.82rem;color:var(--muted);
+    }
+    .trust-row span{display:flex;align-items:center;gap:5px}
 
-    /* Empty state */
-    .summary-empty { text-align: center; color: var(--muted); padding: 20px 0; font-size: 0.9rem; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 480px) {
-      .container { padding: 0 14px; }
-      .hero { padding: 50px 14px 44px; }
-      .hero-title { font-size: 1.85rem; }
-      .sec-title { font-size: 1.5rem; }
-      .order-heading { font-size: 1.6rem; padding: 28px 14px 20px; }
-      .product-row { gap: 10px; padding: 12px 12px; }
-      .product-name { font-size: 0.88rem; }
+    /* ─── RESPONSIVE ──────────────────────────────── */
+    @media(max-width:480px){
+      .wrap{padding:0 14px}
+      .hero{padding:50px 14px 44px}
+      .hero-h1{font-size:2rem}
+      .sh{font-size:1.55rem}
+      .order-h{font-size:1.6rem;padding:26px 14px 18px}
+      .prod-row{gap:8px;padding:11px 10px;grid-template-columns:24px 60px 1fr auto auto}
+      .p-img{width:60px;height:60px;font-size:1.7rem}
+      .p-name{font-size:.85rem}
     }
   </style>
 </head>
 <body>
 
-<!-- =============================================
-     SECTION 1: HERO
-============================================= -->
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-logo">🥭</div>
 
-    <h1 class="hero-title">
-      রাজশাহীর<br />
-      প্রিমিয়াম <span class="green">হিমসাগর আম</span>
+  <!-- SVG Forest Background -->
+  <div class="hero-bg" aria-hidden="true">
+    <svg viewBox="0 0 414 896" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"  stop-color="#050E04"/>
+          <stop offset="40%" stop-color="#0C1E0A"/>
+          <stop offset="75%" stop-color="#162E12"/>
+          <stop offset="100%" stop-color="#060E05"/>
+        </linearGradient>
+        <radialGradient id="glow" cx="50%" cy="38%" r="55%">
+          <stop offset="0%"   stop-color="#1F4018" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#060E05" stop-opacity="1"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Base sky -->
+      <rect width="414" height="896" fill="url(#sky)"/>
+      <rect width="414" height="896" fill="url(#glow)"/>
+
+      <!-- Ground -->
+      <rect x="0" y="680" width="414" height="216" fill="#070E06"/>
+
+      <!-- Pathway (lighter strip going to vanishing point) -->
+      <path d="M180,680 L207,500 L234,680 Z" fill="#1A2E14" opacity=".5"/>
+      <path d="M190,680 L207,540 L224,680 Z" fill="#213A19" opacity=".4"/>
+
+      <!-- Person silhouette in distance -->
+      <ellipse cx="207" cy="508" rx="6" ry="14" fill="#0A1508"/>
+      <path d="M201,516 L207,534 L213,516" stroke="#0A1508" stroke-width="4" fill="none"/>
+      <path d="M204,524 L199,540 M210,524 L215,540" stroke="#0A1508" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+      <!-- LEFT TREES -->
+      <!-- L1 closest foreground tall -->
+      <path d="M-10,896 Q2,750 18,630 Q22,580 28,520" stroke="#040C03" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M28,520 Q-30,488 -55,468" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M28,520 Q-10,490 -25,474" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M28,520 Q15,485 8,468" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M28,520 Q45,486 58,472" stroke="#060F05" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M28,520 Q65,500 80,492" stroke="#060F05" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M28,520 Q48,510 62,508" stroke="#060F05" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+      <!-- L2 -->
+      <path d="M42,896 Q55,780 65,690 Q70,640 74,585" stroke="#060E05" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path d="M74,585 Q30,560 10,548" stroke="#081208" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M74,585 Q50,555 38,545" stroke="#081208" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M74,585 Q92,553 105,542" stroke="#081208" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M74,585 Q105,568 118,562" stroke="#081208" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+      <!-- L3 -->
+      <path d="M85,896 Q96,800 104,730 Q108,694 112,654" stroke="#070D06" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M112,654 Q76,634 60,626" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M112,654 Q90,628 80,620" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M112,654 Q130,624 140,614" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M112,654 Q145,642 158,636" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+      <!-- L4 mid-distance -->
+      <path d="M118,896 Q126,820 132,768 Q136,740 140,710" stroke="#080E07" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M140,710 Q108,694 94,688" stroke="#0B160C" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M140,710 Q158,690 165,684" stroke="#0B160C" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+      <!-- L5 far -->
+      <path d="M148,896 Q152,838 156,800 Q158,780 160,756" stroke="#0A1209" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M160,756 Q138,744 128,740" stroke="#0D190F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M160,756 Q172,742 178,738" stroke="#0D190F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+      <!-- RIGHT TREES (mirror) -->
+      <!-- R1 closest -->
+      <path d="M424,896 Q412,750 396,630 Q392,580 386,520" stroke="#040C03" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M386,520 Q446,488 469,468" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M386,520 Q424,490 439,474" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M386,520 Q399,485 406,468" stroke="#050E04" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M386,520 Q369,486 356,472" stroke="#060F05" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M386,520 Q349,500 334,492" stroke="#060F05" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M386,520 Q366,510 352,508" stroke="#060F05" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+      <!-- R2 -->
+      <path d="M372,896 Q359,780 349,690 Q344,640 340,585" stroke="#060E05" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path d="M340,585 Q384,560 404,548" stroke="#081208" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M340,585 Q364,555 376,545" stroke="#081208" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M340,585 Q322,553 309,542" stroke="#081208" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M340,585 Q309,568 296,562" stroke="#081208" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+      <!-- R3 -->
+      <path d="M329,896 Q318,800 310,730 Q306,694 302,654" stroke="#070D06" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M302,654 Q338,634 354,626" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M302,654 Q324,628 334,620" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M302,654 Q284,624 274,614" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M302,654 Q269,642 256,636" stroke="#09140A" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+      <!-- R4 -->
+      <path d="M296,896 Q288,820 282,768 Q278,740 274,710" stroke="#080E07" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M274,710 Q306,694 320,688" stroke="#0B160C" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M274,710 Q256,690 249,684" stroke="#0B160C" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+      <!-- R5 far -->
+      <path d="M266,896 Q262,838 258,800 Q256,780 254,756" stroke="#0A1209" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M254,756 Q276,744 286,740" stroke="#0D190F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M254,756 Q242,742 236,738" stroke="#0D190F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+      <!-- Ground foliage at bottom -->
+      <rect x="0" y="830" width="414" height="66" fill="#040B03" opacity=".8"/>
+    </svg>
+  </div>
+
+  <!-- Dark overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Content -->
+  <div class="hero-inner">
+
+    <!-- Mango icon SVG -->
+    <div class="hero-logo">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <!-- Leaf stem -->
+        <path d="M32,6 Q36,2 40,4" stroke="#2D7A3A" stroke-width="2" fill="none"/>
+        <!-- Leaf -->
+        <ellipse cx="40" cy="5" rx="7" ry="4" fill="#3DAA4A" transform="rotate(-30 40 5)"/>
+        <path d="M35,7 Q40,5 44,4" stroke="#2D7A3A" stroke-width="1" fill="none"/>
+        <!-- Mango body (heart/kidney shape) -->
+        <path d="M32,10 Q48,8 54,22 Q60,36 52,48 Q44,60 32,58 Q20,60 12,48 Q4,36 10,22 Q16,8 32,10 Z" fill="#F5A623"/>
+        <!-- Mango shading -->
+        <path d="M32,10 Q44,10 50,22 Q56,34 50,46 Q44,56 36,58" fill="#E8962A" opacity=".5"/>
+        <!-- Mango highlight -->
+        <ellipse cx="24" cy="26" rx="8" ry="12" fill="#FFD100" opacity=".35" transform="rotate(-20 24 26)"/>
+        <!-- Red blush -->
+        <ellipse cx="44" cy="22" rx="8" ry="10" fill="#E05A3A" opacity=".3" transform="rotate(20 44 22)"/>
+      </svg>
+    </div>
+
+    <h1 class="hero-h1">
+      <span class="line-green">রাজশাহীর</span>
+      <span class="line-orange">প্রিমিয়াম</span> <span class="line-white">হিমসাগর আম</span>
     </h1>
 
     <div class="hero-stars">★★★★★</div>
 
-    <div class="hero-info-box">
+    <span class="hero-tree-emoji">🌴</span>
+
+    <div class="hero-box">
       <strong>চাঁপাইনবাবগঞ্জের ঐতিহ্য!</strong>
-      <span>বাগান থেকে সরাসরি আপনার দরজায়</span>
+      <span>Pure Food Mart-এর বিশেষজ্ঞ দলের তত্ত্বাবধানে</span>
     </div>
 
     <p class="hero-desc">
-      কোনো কৃত্রিমতা, কার্বাইড ছাড়া প্রকৃতির এই দান আমরা<br />
-      শুধু প্রক্রিয়াকরণ শেষে প্যাকেজিং করে আপনার ঠিকানায়<br />
+      কোনো কৃত্রিমতা, কার্বাইড ছাড়া প্রকৃতির এই দান আমরা<br/>
+      শুধু প্রক্রিয়াকরণ শেষে প্যাকেজিং করে আপনার ঠিকানায়<br/>
       পাঠিয়ে দিবো। <strong>এটি আমাদের ওয়াদা 💛</strong>
     </p>
 
     <span class="hero-arrow">↓</span>
 
-    <a href="#order" class="btn-order">অর্ডার করুন</a>
+    <a href="#order" class="btn">অর্ডার করুন</a>
   </div>
 </section>
 
 
-<!-- =============================================
-     SECTION 2: WHY US
-============================================= -->
-<section class="why-section">
-  <div class="container">
-    <h2 class="sec-title">কেনো আমাদের <span class="green">আম সেরা?</span></h2>
+<!-- ═══════════════════════════════════════════════
+     WHY US
+═══════════════════════════════════════════════ -->
+<section class="sec sec--white">
+  <div class="wrap">
+    <h2 class="sh">কেনো আমাদের <span class="g">আম সেরা?</span></h2>
 
     <div class="why-photo">🌳</div>
 
     <p class="why-body">
       রাজশাহীর চাঁপাইনবাবগঞ্জ, বাংলাদেশের একটি ঐতিহ্যবাহী অঞ্চল,
-      যেখানে প্রাকৃতিকভাবে জন্ম নেয় অসংখ্য আমগাছ। এখানকার মাটি,
+      যেখানে প্রাকৃতিকভাবে জন্ম নেয় অসংখ্য আম গাছ। এখানকার মাটি,
       আবহাওয়া এবং পরিবেশ হিমসাগর আমকে করে তোলে স্বাদে ও গুণে অনন্য।
-      প্রজন্মের পর প্রজন্ম ধরে এখানকার অভিজ্ঞ কারিগররা ভোরের সতেজ
+      প্রজন্মের পর প্রজন্ম ধরে এখানকার অভিজ্ঞ কৃষকরা ভোরের সতেজ
       আম সংগ্রহ করে তৈরি করেন এই <strong>প্রিমিয়াম হিমসাগর আম।</strong>
     </p>
 
-    <h3 class="why-expert">পুষ্টিগুণে ভরপুর</h3>
-    <p class="why-expert-text">
+    <h3 class="why-expert">পুষ্টিবিদের দৃষ্টিতে</h3>
+    <p class="why-expert-body">
       প্রাকৃতিক খাবারের মধ্যে লুকিয়ে থাকে আসল পুষ্টি।
       রাজশাহীর হিমসাগর আম সেই পুষ্টির একটি উৎকৃষ্ট উৎস,
       যা স্বাদ ও স্বাস্থ্যের সুন্দর সমন্বয়।
     </p>
 
-    <br />
-    <a href="#order" class="btn-order btn-order--centered">অর্ডার করুন</a>
+    <a href="#order" class="btn btn--sm">অর্ডার করুন</a>
   </div>
 </section>
 
 
-<!-- =============================================
-     SECTION 3: REVIEWS
-============================================= -->
-<section class="reviews-section">
-  <div class="container">
-    <a href="#order" class="btn-order btn-order--centered" style="margin-bottom:36px;">অর্ডার করুন</a>
+<!-- ═══════════════════════════════════════════════
+     REVIEWS
+═══════════════════════════════════════════════ -->
+<section class="reviews-sec">
+  <div class="wrap">
+    <a href="#order" class="btn btn--sm" style="margin-bottom:32px">অর্ডার করুন</a>
 
-    <h2 class="sec-title">গ্রাহকদের <span class="green">অভিজ্ঞতা</span></h2>
+    <h2 class="sh">গ্রাহকদের <span class="g">অভিজ্ঞতা</span></h2>
 
     <div class="review-list">
 
       <div class="review-item">
-        <div class="review-avatar">র</div>
-        <div class="review-content">
-          <div class="review-header">
-            <div>
-              <span class="review-name">রাহেলা বেগম</span>
-              <span class="review-city">📍 ঢাকা</span>
+        <div class="r-avatar">র</div>
+        <div class="r-body">
+          <div class="r-head">
+            <div class="r-meta">
+              <div class="r-name">রাহেলা বেগম</div>
+              <div class="r-city"><span>📍</span> ঢাকা</div>
             </div>
-            <div class="review-stars">★★★★★</div>
+            <div class="r-stars">★★★★★</div>
           </div>
-          <p class="review-text">
-            আমার বাচ্চা এই আম খেতে খুব পছন্দ করেছে। সাধারণত ও বাইরের
-            মিষ্টি জিনিস খেতে চায় না, কিন্তু আপনাদের এই আম ও নিজে থেকেই
-            খেতে চায়। আমিও নিশ্চিতে দিতে পারছি। বাচ্চাদের জন্য দারুণ একটা খাবার।
-          </p>
+          <p class="r-text">আমার বাচ্চা এই আম খেতে খুব পছন্দ করেছে। সাধারণত ও বাইরের মিষ্টি জিনিস খেতে চায় না, কিন্তু আপনাদের এই আম ও নিজে থেকেই খেতে চায়। বাচ্চাদের জন্য দারুণ একটা খাবার।</p>
         </div>
       </div>
 
       <div class="review-item">
-        <div class="review-avatar">স</div>
-        <div class="review-content">
-          <div class="review-header">
-            <div>
-              <span class="review-name">সাইফ সরদার</span>
-              <span class="review-city">📍 চট্টগ্রাম</span>
+        <div class="r-avatar">স</div>
+        <div class="r-body">
+          <div class="r-head">
+            <div class="r-meta">
+              <div class="r-name">সাইফ সরদার</div>
+              <div class="r-city"><span>📍</span> চট্টগ্রাম</div>
             </div>
-            <div class="review-stars">★★★★★</div>
+            <div class="r-stars">★★★★★</div>
           </div>
-          <p class="review-text">
-            হিমসাগর আমের স্বাদটা একদম ছোটবেলার কথা মনে করিয়ে দিলো।
-            আমটা খুব ফ্রেশ আর কোনো চিনির দানা নেই। পায়েস রান্নার পর
-            স্বাদটা জাস্ট অসাধারণ হয়েছে। ধন্যবাদ Pure Food Mart কে
-            এতো খাঁটি একটা জিনিস দেওয়ার জন্য।
-          </p>
+          <p class="r-text">হিমসাগর আমের স্বাদটা একদম ছোটবেলার কথা মনে করিয়ে দিলো। আমটা খুব ফ্রেশ আর কোনো কার্বাইডের গন্ধ নেই। Pure Food Mart কে ধন্যবাদ এতো খাঁটি একটা জিনিস দেওয়ার জন্য।</p>
         </div>
       </div>
 
       <div class="review-item">
-        <div class="review-avatar">আ</div>
-        <div class="review-content">
-          <div class="review-header">
-            <div>
-              <span class="review-name">আহসান জুয়েল</span>
-              <span class="review-city">📍 রাজশাহী</span>
+        <div class="r-avatar">আ</div>
+        <div class="r-body">
+          <div class="r-head">
+            <div class="r-meta">
+              <div class="r-name">আহসান জুয়েল</div>
+              <div class="r-city"><span>📍</span> রাজশাহী</div>
             </div>
-            <div class="review-stars">★★★★★</div>
+            <div class="r-stars">★★★★★</div>
           </div>
-          <p class="review-text">
-            হিমসাগর আমের আসল স্বাদটা অনেকদিন পর পেলাম। কোনো রকম
-            ভেজাল বা কড়া মিষ্টি নেই, একদম নাচারাল ফ্লেভার। যারা খাঁটি
-            হিমসাগর আম খুঁজছেন তারা নিশ্চিন্তে নিতে পারেন। বিশেষ করে
-            পরিবারের সাথে এর স্বাদটা পুরো ঘর মৌ মৌ করে।
-          </p>
+          <p class="r-text">হিমসাগর আমের আসল স্বাদটা অনেকদিন পর পেলাম। কোনো রকম ভেজাল নেই, একদম নাচারাল ফ্লেভার। যারা খাঁটি হিমসাগর আম খুঁজছেন তারা নিশ্চিন্তে নিতে পারেন।</p>
         </div>
       </div>
 
     </div>
 
-    <a href="#order" class="btn-order btn-order--centered">অর্ডার করুন</a>
+    <a href="#order" class="btn btn--sm">অর্ডার করুন</a>
   </div>
 </section>
 
 
-<!-- =============================================
-     SECTION 4: FAQ
-============================================= -->
-<section class="faq-section">
-  <div class="container">
-    <h2 class="sec-title">সাধারণ <span class="green">জিজ্ঞাসা</span></h2>
-    <p class="faq-subtitle">আপনার প্রশ্নের উত্তর</p>
+<!-- ═══════════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════════ -->
+<section class="faq-sec">
+  <div class="wrap">
+    <h2 class="sh">সাধারণ <span class="g">জিজ্ঞাসা</span></h2>
+    <p class="faq-sub">আপনার প্রশ্নের উত্তর</p>
 
     <div class="faq-list">
 
       <div class="faq-item">
-        <input type="checkbox" class="faq-toggle" id="f1" checked />
-        <label class="faq-question" for="f1">
-          আম কি কার্বাইড বা রাসায়নিক দিয়ে পাকানো?
-          <span class="faq-chevron">▼</span>
+        <input class="faq-cb" type="checkbox" id="f1" checked/>
+        <label class="faq-q" for="f1">
+          আমে কি চিনি বা রং মেশানো থাকে?
+          <i class="faq-ico">▼</i>
         </label>
-        <div class="faq-answer">
+        <div class="faq-a">
           একদমই না। আমাদের আম ১০০% গাছে পাকানো হিমসাগর।
-          কোনো কৃত্রিম রিপেনিং এজেন্ট বা কার্বাইড ব্যবহার করা হয় না।
-          এটি আমাদের প্রতিশ্রুতি।
+          কোনো কৃত্রিম রং, চিনি বা রিপেনিং এজেন্ট ব্যবহার করা হয় না। এটি আমাদের প্রতিশ্রুতি।
         </div>
       </div>
 
       <div class="faq-item">
-        <input type="checkbox" class="faq-toggle" id="f2" />
-        <label class="faq-question" for="f2">
-          আম কি বাচ্চাদের খাওয়ানো যাবে?
-          <span class="faq-chevron">▼</span>
+        <input class="faq-cb" type="checkbox" id="f2"/>
+        <label class="faq-q" for="f2">
+          হিমসাগর আম কি বাচ্চাদের খাওয়ানো যাবে?
+          <i class="faq-ico">▼</i>
         </label>
-        <div class="faq-answer">
+        <div class="faq-a">
           অবশ্যই! আমাদের আম সম্পূর্ণ প্রাকৃতিক এবং কেমিক্যাল মুক্ত হওয়ায়
           শিশু থেকে বৃদ্ধ সবাই নিরাপদে খেতে পারবেন।
         </div>
       </div>
 
       <div class="faq-item">
-        <input type="checkbox" class="faq-toggle" id="f3" />
-        <label class="faq-question" for="f3">
-          ডেলিভারি কত দিনে পাবো?
-          <span class="faq-chevron">▼</span>
+        <input class="faq-cb" type="checkbox" id="f3"/>
+        <label class="faq-q" for="f3">
+          হিমসাগর আম কি দীর্ঘদিন ভালো থাকে?
+          <i class="faq-ico">▼</i>
         </label>
-        <div class="faq-answer">
-          ঢাকায় ২৪–৪৮ ঘণ্টার মধ্যে। সারা বাংলাদেশে ২–৩ কার্যদিবস।
-          অর্ডার কনফার্মের পর ট্র্যাকিং নম্বর SMS-এ পাঠানো হবে।
+        <div class="faq-a">
+          গাছে পাকা আম পাঠানোর পর ৩-৫ দিন ঘরের স্বাভাবিক তাপমাত্রায়
+          এবং ফ্রিজে রাখলে ৭-১০ দিন পর্যন্ত ভালো থাকে।
         </div>
       </div>
 
       <div class="faq-item">
-        <input type="checkbox" class="faq-toggle" id="f4" />
-        <label class="faq-question" for="f4">
-          আমাদের আমের বিশেষত্ব কী?
-          <span class="faq-chevron">▼</span>
+        <input class="faq-cb" type="checkbox" id="f4"/>
+        <label class="faq-q" for="f4">
+          আপনাদের আমের বিশেষত্ব কী?
+          <i class="faq-ico">▼</i>
         </label>
-        <div class="faq-answer">
+        <div class="faq-a">
           রাজশাহীর চাঁপাইনবাবগঞ্জের নির্দিষ্ট বাগান থেকে সংগ্রহ করা হয়।
           ভোরে পাড়া তাজা আম, হাতে বাছাই করা, নিরাপদ প্যাকেজিংয়ে পাঠানো।
           কোনো মিডলম্যান নেই — সরাসরি আপনার কাছে।
@@ -736,117 +751,100 @@
 
     </div>
 
-    <a href="#order" class="btn-order btn-order--centered">অর্ডার করুন</a>
+    <a href="#order" class="btn btn--sm">অর্ডার করুন</a>
   </div>
 </section>
 
 
-<!-- =============================================
-     SECTION 5: ORDER FORM
-============================================= -->
-<section class="order-section" id="order">
-  <div class="container">
+<!-- ═══════════════════════════════════════════════
+     ORDER FORM
+═══════════════════════════════════════════════ -->
+<section class="order-sec" id="order">
+  <div class="wrap">
 
-    <h2 class="order-heading">প্যাকেজ বেছে <span class="green">অর্ডার করুন</span></h2>
+    <h2 class="order-h">প্যাকেজ বেছে <span class="g">অর্ডার করুন</span></h2>
 
-    <p class="products-label">Your Products</p>
+    <p class="prod-label">Your Products</p>
 
-    <!-- Product Rows -->
-    <div class="product-rows" id="productRows">
-
-      <div class="product-row" data-id="p1" data-price="550" data-name="হিমসাগর আম — ২ কেজি">
-        <div class="product-check active" onclick="toggleProduct('p1')"></div>
-        <div class="product-img">🥭</div>
-        <div class="product-name">হিমসাগর আম — ২ কেজি</div>
-        <div class="qty-stepper">
-          <button class="qty-btn" onclick="changeQty('p1', -1)">−</button>
-          <div class="qty-value" id="qty-p1">1</div>
-          <button class="qty-btn" onclick="changeQty('p1', 1)">+</button>
+    <!-- Product rows -->
+    <div class="prod-card">
+      <div class="prod-row" data-id="p1" data-price="550" data-name="হিমসাগর আম — ২ কেজি">
+        <div class="p-check on" onclick="toggleP('p1')">✓</div>
+        <div class="p-img">🥭</div>
+        <div class="p-name">হিমসাগর আম - ২ KG</div>
+        <div class="qty">
+          <button class="q-btn" onclick="chgQ('p1',-1)">−</button>
+          <div class="q-val" id="qv-p1">1</div>
+          <button class="q-btn" onclick="chgQ('p1',1)">+</button>
         </div>
-        <div class="product-price" id="price-p1">৳৫৫০</div>
+        <div class="p-price" id="pp-p1">৳৫৫০</div>
       </div>
-
-      <div class="product-row" data-id="p2" data-price="1250" data-name="হিমসাগর আম — ৫ কেজি">
-        <div class="product-check active" onclick="toggleProduct('p2')"></div>
-        <div class="product-img">📦</div>
-        <div class="product-name">হিমসাগর আম — ৫ কেজি</div>
-        <div class="qty-stepper">
-          <button class="qty-btn" onclick="changeQty('p2', -1)">−</button>
-          <div class="qty-value" id="qty-p2">1</div>
-          <button class="qty-btn" onclick="changeQty('p2', 1)">+</button>
+      <div class="prod-row" data-id="p2" data-price="1250" data-name="হিমসাগর আম — ৫ কেজি">
+        <div class="p-check on" onclick="toggleP('p2')">✓</div>
+        <div class="p-img">📦</div>
+        <div class="p-name">হিমসাগর আম - ৫ KG</div>
+        <div class="qty">
+          <button class="q-btn" onclick="chgQ('p2',-1)">−</button>
+          <div class="q-val" id="qv-p2">1</div>
+          <button class="q-btn" onclick="chgQ('p2',1)">+</button>
         </div>
-        <div class="product-price" id="price-p2">৳১,২৫০</div>
+        <div class="p-price" id="pp-p2">৳১,২৫০</div>
       </div>
-
     </div>
 
-    <!-- Customer Info -->
-    <p class="form-section-title">আপনার তথ্য</p>
+    <!-- Customer info -->
+    <p class="f-title">আপনার তথ্য</p>
 
-    <div class="form-group">
-      <label class="form-label" for="fullName">Full Name <span class="req">*</span></label>
-      <input class="form-input" type="text" id="fullName" placeholder="আপনার পূর্ণ নাম লিখুন" />
+    <div class="f-group">
+      <label class="f-label" for="nm">Full Name <span class="req">*</span></label>
+      <input class="f-input" id="nm" type="text" placeholder="আপনার পূর্ণ নাম লিখুন"/>
     </div>
-
-    <div class="form-group">
-      <label class="form-label" for="address">Address <span class="req">*</span></label>
-      <input class="form-input" type="text" id="address" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন" />
+    <div class="f-group">
+      <label class="f-label" for="ad">Address <span class="req">*</span></label>
+      <input class="f-input" id="ad" type="text" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন"/>
     </div>
-
-    <div class="form-group">
-      <label class="form-label" for="phone">Phone Number (Whatsapp) <span class="req">*</span></label>
-      <input class="form-input" type="tel" id="phone" placeholder="01XXXXXXXXX" />
+    <div class="f-group">
+      <label class="f-label" for="ph">Phone Number (Whatsapp) <span class="req">*</span></label>
+      <input class="f-input" id="ph" type="tel" placeholder="01XXXXXXXXX"/>
     </div>
 
     <!-- Shipping -->
-    <p class="shipping-title">Shipping</p>
-    <div class="shipping-box">
+    <p class="ship-title">Shipping</p>
+    <div class="ship-box">
       <span>সারাদেশে ডেলিভারি চার্জ:</span>
       <strong>১০০৳</strong>
     </div>
 
-    <!-- Order Summary -->
-    <p class="summary-title">আপনার অর্ডারের তথ্য</p>
-
-    <table class="summary-table">
+    <!-- Order summary -->
+    <p class="sum-title">আপনার অর্ডারের তথ্য</p>
+    <table class="sum-tbl">
       <thead>
         <tr>
-          <th>Product</th>
-          <th>Subtotal</th>
+          <th style="text-align:left">Product</th>
+          <th style="text-align:right">Subtotal</th>
         </tr>
       </thead>
-      <tbody id="summaryBody">
-        <!-- Rendered by JS -->
-      </tbody>
+      <tbody id="sb"></tbody>
       <tbody>
-        <tr class="summary-subtotal">
-          <td>Subtotal</td>
-          <td id="summarySubtotal">৳১,৮০০</td>
-        </tr>
-        <tr class="summary-shipping">
-          <td>Shipping Charge</td>
-          <td id="summaryShipping">১০০৳</td>
-        </tr>
-        <tr class="summary-total">
-          <td><strong>Total</strong></td>
-          <td id="summaryTotal"><strong>১,৯০০৳</strong></td>
-        </tr>
+        <tr class="s-sub"><td>Subtotal</td><td id="st">৳১,৮০০</td></tr>
+        <tr class="s-ship"><td>Shipping Charge</td><td id="sc">১০০৳</td></tr>
+        <tr class="s-tot"><td><strong>Total</strong></td><td id="tt"><strong>১,৯০০৳</strong></td></tr>
       </tbody>
     </table>
 
     <!-- COD -->
-    <p class="cod-label">ক্যাশ অন ডেলিভারি (COD)</p>
+    <p class="cod-lbl">ক্যাশ অন ডেলিভারি (COD)</p>
     <div class="cod-box">
       প্রডাক্ট হাতে পেয়ে মূল্য পরিশোধ করবো, ইন-শা-আল্লাহ।
     </div>
 
-    <p class="place-order-note">অর্ডারটি কনফার্ম করতে নিচের বাটনিতে ক্লিক করুন 👇</p>
+    <p class="place-note">অর্ডারটি কনফার্ম করতে নিচের বাটনিতে ক্লিক করুন 👇</p>
 
-    <button class="btn-place-order" id="placeOrderBtn" onclick="placeOrder()">
+    <button class="btn-place" id="placeBtn" onclick="placeOrder()">
       অর্ডারটি প্লেস করুন  ১,৯০০৳
     </button>
 
-    <div class="trust-footer">
+    <div class="trust-row">
       <span>❤️ ১০০% প্রাকৃতিক</span>
       <span>🚚 ক্যাশ অন ডেলিভারি</span>
     </div>
@@ -855,132 +853,100 @@
 </section>
 
 
-<!-- =============================================
+<!-- ═══════════════════════════════════════════════
      JAVASCRIPT
-============================================= -->
+═══════════════════════════════════════════════ -->
 <script>
-(function () {
-  var SHIPPING = 100;
-  var WA_NUMBER = '8801700000000'; // ← Replace with actual number
+(function(){
+  var SHIP = 100;
+  var WA   = '8801700000000'; // ← Replace with real WhatsApp number
 
-  // State
-  var state = {
-    p1: { active: true, qty: 1, price: 550, name: 'হিমসাগর আম — ২ কেজি', emoji: '🥭' },
-    p2: { active: true, qty: 1, price: 1250, name: 'হিমসাগর আম — ৫ কেজি', emoji: '📦' }
+  var S = {
+    p1:{ on:true,  q:1, price:550,  name:'হিমসাগর আম — ২ কেজি', em:'🥭' },
+    p2:{ on:true,  q:1, price:1250, name:'হিমসাগর আম — ৫ কেজি', em:'📦' }
   };
 
-  function bn(n) {
-    // Bengali numeral conversion
-    return String(n).replace(/[0-9]/g, function(d) {
-      return '০১২৩৪৫৬৭৮৯'[+d];
-    });
+  function bn(n){
+    return String(n).replace(/[0-9]/g,function(d){return '০১২৩৪৫৬৭৮৯'[+d]});
   }
+  function fmt(n){ return '৳'+bn(n.toLocaleString('en')); }
 
-  function fmtPrice(n) {
-    return '৳' + bn(n.toLocaleString('en'));
-  }
-
-  window.toggleProduct = function(id) {
-    state[id].active = !state[id].active;
-    var el = document.querySelector('[data-id="' + id + '"] .product-check');
-    el.classList.toggle('active', state[id].active);
+  window.toggleP=function(id){
+    S[id].on=!S[id].on;
+    var el=document.querySelector('[data-id="'+id+'"] .p-check');
+    el.classList.toggle('on',S[id].on);
+    el.textContent=S[id].on?'✓':'';
     render();
   };
 
-  window.changeQty = function(id, delta) {
-    var next = state[id].qty + delta;
-    if (next < 1) next = 1;
-    if (next > 99) next = 99;
-    state[id].qty = next;
-    document.getElementById('qty-' + id).textContent = bn(next);
-    var rowPrice = state[id].active ? state[id].price * next : 0;
-    document.getElementById('price-' + id).textContent = fmtPrice(state[id].price * next);
+  window.chgQ=function(id,d){
+    var n=S[id].q+d;
+    if(n<1)n=1;if(n>99)n=99;
+    S[id].q=n;
+    document.getElementById('qv-'+id).textContent=bn(n);
+    document.getElementById('pp-'+id).textContent=fmt(S[id].price*n);
     render();
   };
 
-  function render() {
-    var subtotal = 0;
-    var tbody = document.getElementById('summaryBody');
-    tbody.innerHTML = '';
-
-    var hasActive = false;
-    for (var id in state) {
-      var p = state[id];
-      if (!p.active) continue;
-      hasActive = true;
-      var lineTotal = p.price * p.qty;
-      subtotal += lineTotal;
-
-      var tr = document.createElement('tr');
-      tr.className = 'summary-row';
-      tr.setAttribute('data-sid', id);
-      tr.innerHTML =
-        '<td>' +
-          '<div class="summary-product-wrap">' +
-            '<button class="summary-remove" onclick="toggleProduct(\'' + id + '\')">✕</button>' +
-            '<div class="summary-img">' + p.emoji + '</div>' +
-            '<div>' +
-              '<div class="summary-name">' + p.name + '</div>' +
-              '<div class="summary-qty">× ' + bn(p.qty) + '</div>' +
-            '</div>' +
-          '</div>' +
-        '</td>' +
-        '<td class="summary-price">' + fmtPrice(lineTotal) + '</td>';
+  function render(){
+    var sub=0, tbody=document.getElementById('sb');
+    tbody.innerHTML='';
+    var any=false;
+    for(var id in S){
+      var p=S[id];if(!p.on)continue;any=true;
+      var lt=p.price*p.q; sub+=lt;
+      var tr=document.createElement('tr');
+      tr.className='s-row';
+      tr.innerHTML=
+        '<td>'+
+          '<div class="s-prod-wrap">'+
+            '<button class="s-rm" onclick="toggleP(\''+id+'\')">✕</button>'+
+            '<div class="s-thumb">'+p.em+'</div>'+
+            '<div class="s-info">'+
+              '<div class="s-name">'+p.name+'</div>'+
+              '<div class="s-qty">× '+bn(p.q)+'</div>'+
+            '</div>'+
+          '</div>'+
+        '</td>'+
+        '<td class="s-amt">'+fmt(lt)+'</td>';
       tbody.appendChild(tr);
     }
-
-    if (!hasActive) {
-      var emptyTr = document.createElement('tr');
-      emptyTr.innerHTML = '<td colspan="2"><div class="summary-empty">কোনো পণ্য নির্বাচিত নেই</div></td>';
-      tbody.appendChild(emptyTr);
+    if(!any){
+      var et=document.createElement('tr');
+      et.innerHTML='<td colspan="2"><div class="s-empty">কোনো পণ্য নির্বাচিত নেই</div></td>';
+      tbody.appendChild(et);
     }
-
-    var total = subtotal + SHIPPING;
-    document.getElementById('summarySubtotal').textContent = fmtPrice(subtotal);
-    document.getElementById('summaryShipping').textContent = bn(SHIPPING) + '৳';
-    document.getElementById('summaryTotal').innerHTML = '<strong>' + fmtPrice(total) + '</strong>';
-    document.getElementById('placeOrderBtn').textContent = 'অর্ডারটি প্লেস করুন  ' + fmtPrice(total);
+    var tot=sub+SHIP;
+    document.getElementById('st').textContent=fmt(sub);
+    document.getElementById('sc').textContent=bn(SHIP)+'৳';
+    document.getElementById('tt').innerHTML='<strong>'+fmt(tot)+'</strong>';
+    document.getElementById('placeBtn').textContent='অর্ডারটি প্লেস করুন  '+fmt(tot);
   }
 
-  window.placeOrder = function() {
-    var name    = document.getElementById('fullName').value.trim();
-    var address = document.getElementById('address').value.trim();
-    var phone   = document.getElementById('phone').value.trim();
+  window.placeOrder=function(){
+    var nm=document.getElementById('nm').value.trim();
+    var ad=document.getElementById('ad').value.trim();
+    var ph=document.getElementById('ph').value.trim();
+    if(!nm){alert('আপনার নাম লিখুন');document.getElementById('nm').focus();return;}
+    if(!ad){alert('আপনার ঠিকানা লিখুন');document.getElementById('ad').focus();return;}
+    if(!ph){alert('মোবাইল নম্বর লিখুন');document.getElementById('ph').focus();return;}
 
-    if (!name)    { alert('আপনার নাম লিখুন'); document.getElementById('fullName').focus(); return; }
-    if (!address) { alert('আপনার ঠিকানা লিখুন'); document.getElementById('address').focus(); return; }
-    if (!phone)   { alert('মোবাইল নম্বর লিখুন'); document.getElementById('phone').focus(); return; }
-
-    var lines = ['*হিমসাগর আম অর্ডার — Pure Food Mart*', ''];
-    var subtotal = 0;
-    for (var id in state) {
-      var p = state[id];
-      if (!p.active) continue;
-      var lt = p.price * p.qty;
-      subtotal += lt;
-      lines.push('• ' + p.name + ' × ' + p.qty + ' = ৳' + lt.toLocaleString('en'));
+    var lines=['*হিমসাগর আম অর্ডার — Pure Food Mart*',''];
+    var sub=0;
+    for(var id in S){
+      var p=S[id];if(!p.on)continue;
+      var lt=p.price*p.q;sub+=lt;
+      lines.push('• '+p.name+' × '+p.q+' = ৳'+lt.toLocaleString('en'));
     }
-    lines.push('');
-    lines.push('Subtotal: ৳' + subtotal.toLocaleString('en'));
-    lines.push('Shipping: ৳' + SHIPPING);
-    lines.push('*Total: ৳' + (subtotal + SHIPPING).toLocaleString('en') + '*');
-    lines.push('');
-    lines.push('নাম: ' + name);
-    lines.push('ঠিকানা: ' + address);
-    lines.push('মোবাইল: ' + phone);
-    lines.push('পেমেন্ট: Cash on Delivery');
+    lines.push('','Subtotal: ৳'+sub.toLocaleString('en'));
+    lines.push('Shipping: ৳'+SHIP);
+    lines.push('*Total: ৳'+(sub+SHIP).toLocaleString('en')+'*');
+    lines.push('','নাম: '+nm,'ঠিকানা: '+ad,'মোবাইল: '+ph,'Payment: Cash on Delivery');
 
-    var msg = encodeURIComponent(lines.join('\n'));
-    window.open('https://wa.me/' + WA_NUMBER + '?text=' + msg, '_blank');
+    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(lines.join('\n')),'_blank');
   };
 
-  // Initial render
   render();
-
-  // Update individual row prices on initial load
-  for (var id in state) {
-    document.getElementById('price-' + id).textContent = fmtPrice(state[id].price * state[id].qty);
-  }
 })();
 </script>
 
