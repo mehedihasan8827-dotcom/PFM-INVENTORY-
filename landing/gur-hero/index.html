@@ -13,22 +13,25 @@
 <!-- ═══ ২) CSS — সব স্টাইল .gh এর ভেতরে সীমাবদ্ধ, পেজের বাকি অংশে প্রভাব ফেলবে না ═══ -->
 <style>
 .gh{
-  /* রং */
-  --gh-bg-1:#fffaf1;
-  --gh-bg-2:#f5e8d2;
-  --gh-ink:#3a2a1d;
-  --gh-green-800:#165036;
-  --gh-green-700:#1f6644;
-  --gh-caramel-600:#b9561c;
-  --gh-gold-500:#e3a73c;
-  --gh-gold-300:#f6d58c;
-  --gh-fill-green:linear-gradient(180deg,#22704a 0%,#155036 55%,#0c3323 100%);
-  --gh-fill-caramel:linear-gradient(180deg,#dd7d2e 0%,#b8531a 48%,#82330e 100%);
+  /* রং — মিনিমাল প্রিমিয়াম প্যালেট */
+  --gh-bg:#faf9f6;          /* হালকা অফ-হোয়াইট ব্যাকগ্রাউন্ড */
+  --gh-surface:#ffffff;     /* কার্ড ও ব্যাজ */
+  --gh-line:#e7e4dc;        /* চিকন বর্ডার */
+  --gh-ink:#2f3a33;         /* মূল লেখা */
+  --gh-ink-soft:#6d736c;    /* হালকা লেখা */
+  --gh-green:#174a33;
+  --gh-caramel:#a8501c;
+  --gh-fill-green:linear-gradient(180deg,#1f6142 0%,#164832 55%,#0f3424 100%);
+  --gh-fill-caramel:linear-gradient(180deg,#c9702e 0%,#a84f1b 50%,#7d340f 100%);
   /* কোন লাইনে কোন রং — অদলবদল করতে শুধু এখানে বদলান */
   --gh-promise-fill:var(--gh-fill-green);
-  --gh-promise-color:var(--gh-green-800);
+  --gh-promise-color:var(--gh-green);
   --gh-product-fill:var(--gh-fill-caramel);
-  --gh-product-color:var(--gh-caramel-600);
+  --gh-product-color:var(--gh-caramel);
+  /* ছবি — অনুপাত ও ফোকাস */
+  --gh-media-ratio:4 / 3;          /* মোবাইলে ছবির অনুপাত (চারকোনা চাইলে 1 / 1) */
+  --gh-media-ratio-wide:16 / 7;    /* ট্যাবলেট ও ডেস্কটপে ছবির অনুপাত */
+  --gh-media-focus:50% 50%;        /* ছবির কোন অংশ মাঝে থাকবে (যেমন 50% 70% = একটু নিচের অংশ) */
   /* ফন্ট */
   --gh-font-display:'Baloo Da 2','Hind Siliguri','Noto Sans Bengali',sans-serif;
   --gh-font-product:'Galada','Baloo Da 2','Noto Sans Bengali',cursive;
@@ -38,44 +41,54 @@
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  padding:clamp(44px,8vw,88px) 16px clamp(48px,8vw,92px);
+  padding:16px 16px clamp(28px,5vw,48px);
   color:var(--gh-ink);
   font-family:var(--gh-font-text);
   text-align:center;
   -webkit-font-smoothing:antialiased;
-  background:
-    radial-gradient(55% 45% at 50% 0%,rgba(246,213,140,.38),transparent 70%),
-    radial-gradient(35% 45% at 0% 100%,rgba(140,193,82,.12),transparent 70%),
-    radial-gradient(35% 45% at 100% 100%,rgba(213,114,39,.10),transparent 70%),
-    linear-gradient(180deg,var(--gh-bg-1),var(--gh-bg-2));
-}
-/* হালকা কাগজের টেক্সচার */
-.gh::before{
-  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.55;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .3 0 0 0 0 .18 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background:var(--gh-bg);
 }
 .gh *,.gh *::before,.gh *::after{box-sizing:border-box}
-.gh :where(h1,p,ul,li){margin:0;padding:0;list-style:none;letter-spacing:normal;text-transform:none}
+.gh :where(h1,p,ul,li,figure){margin:0;padding:0;list-style:none;letter-spacing:normal;text-transform:none}
+
+/* — ছবি — */
+.gh__media{
+  position:relative;width:100%;max-width:1120px;margin:0 auto;
+  aspect-ratio:var(--gh-media-ratio);
+  border-radius:20px;overflow:hidden;
+  background:#efede7;
+  box-shadow:0 1px 2px rgba(30,32,24,.06),0 24px 48px -32px rgba(30,32,24,.5);
+}
+.gh__media-img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:var(--gh-media-focus)}
+.gh__media-img[src=""]{display:none}
+.gh__media-empty{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px;
+  background:linear-gradient(160deg,#f2f0eb,#e6e2d9);color:var(--gh-ink-soft);font-size:.88rem;line-height:1.5;
+}
+.gh__media-empty svg{width:38px;height:38px;margin-bottom:4px;opacity:.55}
+.gh__media-empty strong{font-size:1.05rem;font-weight:700;color:var(--gh-ink)}
 
 .gh__inner{max-width:880px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
 
-/* — উপরের অলংকার — */
-.gh__ornament{display:flex;align-items:center;gap:12px;margin-bottom:6px}
-.gh__rule{position:relative;width:clamp(44px,15cqi,128px);height:1px;background:linear-gradient(90deg,transparent,var(--gh-gold-500))}
-.gh__rule::after{content:"";position:absolute;right:-3px;top:-2.5px;width:6px;height:6px;background:var(--gh-gold-500);transform:rotate(45deg)}
-.gh__rule--end{transform:scaleX(-1)}
-.gh__sprout{display:block;width:40px;height:auto}
+/* — পাতার ব্যাজ (ছবির নিচের কিনারায় অর্ধেক বসানো) — */
+.gh__badge{
+  position:relative;z-index:1;display:grid;place-items:center;
+  width:58px;height:58px;border-radius:50%;
+  background:var(--gh-surface);border:1px solid var(--gh-line);
+  box-shadow:0 12px 26px -16px rgba(23,74,51,.55);
+}
+.gh__badge svg{display:block;width:30px;height:auto}
+.gh__media + .gh__inner .gh__badge{margin-top:-29px}
 
 /* — শিরোনাম — */
-.gh__title{font-weight:400}
+.gh__title{margin-top:14px;font-weight:400}
 .gh__eyebrow{
   display:block;
   font-family:var(--gh-font-text);font-weight:600;
   font-size:1.15rem;font-size:clamp(1.12rem,4.9cqi,1.6rem);
-  line-height:1.55;color:var(--gh-green-800);
+  line-height:1.55;color:var(--gh-ink);
 }
-.gh__eyebrow em{position:relative;z-index:0;font-style:normal;font-weight:700;color:var(--gh-caramel-600);padding:0 .1em}
-.gh__eyebrow em::before{content:"";position:absolute;z-index:-1;left:-.12em;right:-.12em;top:58%;bottom:6%;border-radius:.3em;background:rgba(246,213,140,.7);transform:skewX(-10deg)}
+.gh__eyebrow em{font-style:normal;font-weight:700;color:var(--gh-caramel)}
 .gh__promise,.gh__product{display:block}
 .gh__promise{
   font-family:var(--gh-font-display);font-weight:800;color:var(--gh-promise-color);
@@ -86,6 +99,7 @@
   font-family:var(--gh-font-product);font-weight:400;color:var(--gh-product-color);
   font-size:3.9rem;font-size:clamp(3.8rem,22cqi,8.9rem);
   line-height:1.15;margin-top:-.02em;padding:0 .08em;
+  filter:drop-shadow(0 6px 10px rgba(125,52,15,.1));
 }
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
   .gh__promise,.gh__product{-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
@@ -95,7 +109,6 @@
     background-size:260% 100%,100% 100%;background-position:130% 0,0 0;background-repeat:no-repeat;
   }
 }
-.gh__promise,.gh__product{filter:drop-shadow(0 1px 0 rgba(255,255,255,.8)) drop-shadow(0 6px 10px rgba(122,48,12,.13))}
 
 .gh__swash{display:block;width:clamp(150px,44cqi,280px);height:auto;margin-top:4px}
 
@@ -103,29 +116,45 @@
 .gh__features{width:100%;max-width:440px;margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .gh__feature{
   display:flex;flex-direction:column;align-items:center;gap:9px;
-  padding:14px 4px 13px;border-radius:18px;
-  background:rgba(255,255,255,.72);border:1px solid rgba(22,80,54,.1);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 10px 22px -16px rgba(80,45,15,.45);
+  padding:14px 4px 13px;border-radius:16px;
+  background:var(--gh-surface);border:1px solid var(--gh-line);
+  box-shadow:0 10px 22px -20px rgba(30,32,24,.5);
   font-weight:600;font-size:.95rem;line-height:1.35;color:var(--gh-ink);
 }
 .gh__label>span{display:block}
-.gh__icon{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--gh-green-700);background:linear-gradient(145deg,#f0f7ea,#dbead0);box-shadow:inset 0 0 0 1px rgba(31,102,68,.14)}
+.gh__icon{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--gh-green);background:#f2f6f0;box-shadow:inset 0 0 0 1px rgba(23,74,51,.12)}
 .gh__icon svg{display:block;width:22px;height:22px}
 
 /* — আস্থা ব্যাজ — */
 .gh__trust{
   margin-top:24px;display:inline-flex;align-items:center;gap:10px;
   padding:9px 16px 9px 14px;border-radius:999px;
-  background:#fff;border:1px solid rgba(227,167,60,.42);
-  box-shadow:0 16px 34px -20px rgba(122,48,12,.5),0 2px 6px -2px rgba(122,48,12,.12);
+  background:var(--gh-surface);border:1px solid var(--gh-line);
+  box-shadow:0 14px 30px -22px rgba(30,32,24,.55);
 }
 .gh__stars{display:block;width:88px;height:auto;overflow:visible}
-.gh__divider{width:1px;align-self:stretch;background:linear-gradient(transparent,rgba(58,42,29,.28),transparent)}
+.gh__divider{width:1px;align-self:stretch;background:linear-gradient(transparent,rgba(47,58,51,.22),transparent)}
 .gh__trust-text{font-weight:600;font-size:.95rem;line-height:1.3;color:var(--gh-ink);white-space:nowrap}
-.gh__count{display:inline-grid;margin-right:.15em;font-family:var(--gh-font-display);font-weight:800;font-size:1.3em;color:var(--gh-green-800)}
+.gh__count{display:inline-grid;margin-right:.15em;font-family:var(--gh-font-display);font-weight:800;font-size:1.3em;color:var(--gh-green)}
 .gh__count>*{grid-area:1/1}
 .gh__count-ghost{visibility:hidden}
 .gh__count-live{justify-self:end}
+
+/* — নিচে স্ক্রলের ইশারা — */
+.gh .gh__scroll,.gh .gh__scroll:hover,.gh .gh__scroll:focus{
+  margin-top:30px;display:inline-flex;flex-direction:column;align-items:center;gap:8px;
+  padding:6px 12px;border:0;border-radius:14px;background:none;box-shadow:none;cursor:pointer;
+  color:var(--gh-ink-soft);font:600 .82rem/1.4 var(--gh-font-text);letter-spacing:.01em;text-transform:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.gh .gh__scroll:focus-visible{outline:2px solid var(--gh-green);outline-offset:3px}
+.gh__scroll-icon{
+  display:grid;place-items:center;width:38px;height:38px;border-radius:50%;
+  background:var(--gh-surface);border:1px solid var(--gh-line);color:var(--gh-green);
+  transition:border-color .2s ease,transform .2s ease;
+}
+.gh__scroll:hover .gh__scroll-icon{border-color:rgba(23,74,51,.4);transform:translateY(2px)}
+.gh__scroll-icon svg{display:block;width:18px;height:18px}
 
 /* খুব ছোট ফোন (৩২০px) — কার্ড একটু আঁটসাঁট, ব্যাজ দুই লাইনে */
 @container gh (max-width:320px){
@@ -134,8 +163,9 @@
   .gh__trust{flex-direction:column;gap:4px;padding:12px 22px;border-radius:22px}
   .gh__divider{display:none}
 }
-/* ট্যাবলেট / ডেস্কটপ — বৈশিষ্ট্যগুলো এক সারিতে পিল আকারে */
+/* ট্যাবলেট / ডেস্কটপ — চওড়া ছবি, বৈশিষ্ট্যগুলো এক সারিতে পিল আকারে */
 @container gh (min-width:620px){
+  .gh__media{aspect-ratio:var(--gh-media-ratio-wide);border-radius:28px}
   .gh__features{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:none}
   .gh__feature{flex-direction:row;gap:10px;padding:6px 18px 6px 6px;border-radius:999px;font-size:1.05rem}
   .gh__label>span{display:inline}
@@ -146,24 +176,31 @@
   .gh__trust-text{font-size:1.05rem}
 }
 @container gh (min-width:900px){
-  .gh__sprout{width:44px}
+  .gh__badge{width:66px;height:66px}
+  .gh__badge svg{width:34px}
+  .gh__media + .gh__inner .gh__badge{margin-top:-33px}
   .gh__features{margin-top:32px}
   .gh__trust{margin-top:30px}
+  .gh .gh__scroll{margin-top:36px}
 }
 
 /* — অ্যানিমেশন (যারা কম মোশন পছন্দ করেন তাদের জন্য বন্ধ) — */
 @keyframes gh-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes gh-draw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 @keyframes gh-shine{from{background-position:130% 0,0 0}to{background-position:-30% 0,0 0}}
-@keyframes gh-pop{0%{opacity:0;transform:scale(.3)}65%{opacity:1;transform:scale(1.18)}100%{opacity:1;transform:scale(1)}}
+@keyframes gh-pop{0%{opacity:0;transform:scale(.3)}65%{opacity:1;transform:scale(1.15)}100%{opacity:1;transform:scale(1)}}
+@keyframes gh-nudge{0%,100%{transform:translateY(-3px);opacity:.45}50%{transform:translateY(3px);opacity:1}}
 @media (prefers-reduced-motion:no-preference){
-  .gh__ornament,.gh__eyebrow,.gh__promise,.gh__product,.gh__features,.gh__trust{animation:gh-rise .7s cubic-bezier(.22,.8,.3,1) both}
-  .gh__eyebrow{animation-delay:.08s}
-  .gh__promise{animation-delay:.16s}
-  .gh__product{animation:gh-rise .7s cubic-bezier(.22,.8,.3,1) .26s both,gh-shine 1.5s ease-in-out 1.1s both}
+  .gh__eyebrow,.gh__promise,.gh__product,.gh__features,.gh__trust,.gh .gh__scroll{animation:gh-rise .7s cubic-bezier(.22,.8,.3,1) both}
+  .gh__badge{animation:gh-pop .55s cubic-bezier(.3,.7,.4,1.3) .05s both}
+  .gh__eyebrow{animation-delay:.1s}
+  .gh__promise{animation-delay:.18s}
+  .gh__product{animation:gh-rise .7s cubic-bezier(.22,.8,.3,1) .28s both,gh-shine 1.5s ease-in-out 1.1s both}
   .gh__swash{animation:gh-draw .9s cubic-bezier(.65,0,.35,1) .55s both}
   .gh__features{animation-delay:.42s}
   .gh__trust{animation-delay:.52s}
+  .gh .gh__scroll{animation-delay:.68s}
+  .gh__scroll-icon svg{animation:gh-nudge 1.8s ease-in-out 1.4s infinite}
   .gh__star{transform-box:fill-box;transform-origin:center;animation:gh-pop .45s cubic-bezier(.3,.7,.4,1.3) both}
   .gh__star:nth-of-type(1){animation-delay:.75s}
   .gh__star:nth-of-type(2){animation-delay:.83s}
@@ -177,11 +214,24 @@
 
 <!-- ═══ ৩) HTML — হিরো সেকশনের যেখানে লেখাটি বসবে ═══ -->
 <section class="gh" aria-labelledby="gh-title">
+
+  <!-- ছবি না চাইলে <figure> থেকে </figure> পর্যন্ত পুরো অংশটি মুছে দিন -->
+  <figure class="gh__media">
+    <div class="gh__media-empty" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="9.5" r="1.8"/><path d="M21 15.5l-5-5-9 9.5"/></svg>
+      <strong>পণ্যের ছবি এখানে বসবে</strong>
+      <span>কোডে src="" এর ভেতরে ছবির লিংক দিন</span>
+      <span>সেরা সাইজ: ১৬০০ × ১০০০ px</span>
+    </div>
+    <!-- ▼▼▼ WordPress মিডিয়া থেকে কপি করা ছবির লিংক নিচের src="" এর দুই কোটেশনের মাঝে পেস্ট করুন ▼▼▼ -->
+    <img class="gh__media-img" src="" alt="দেশী অমৃত জাতের খাঁটি আখের গুড়" loading="eager" fetchpriority="high" decoding="async">
+    <!-- ▲▲▲ উদাহরণ: src="https://yoursite.com/wp-content/uploads/2026/10/gur.jpg" ▲▲▲ -->
+  </figure>
+
   <div class="gh__inner">
 
-    <div class="gh__ornament" aria-hidden="true">
-      <span class="gh__rule"></span>
-      <svg class="gh__sprout" viewBox="0 0 48 40" fill="none">
+    <div class="gh__badge" aria-hidden="true">
+      <svg viewBox="0 0 48 40" fill="none">
         <defs>
           <linearGradient id="gh-leaf-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8cc152"/><stop offset="1" stop-color="#2f7d3a"/></linearGradient>
           <linearGradient id="gh-leaf-b" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5d063"/><stop offset="1" stop-color="#3f8f3a"/></linearGradient>
@@ -191,7 +241,6 @@
         <path d="M24.4 21.2C26.4 10.4 34 3.6 45 3.2c-.6 11.8-8.4 18.6-20.6 18z" fill="url(#gh-leaf-b)"/>
         <path d="M22 21.2C17.6 16 12.6 12 7.4 10.2M26.2 19.4c4-5.6 9-10 14.6-12.4" stroke="#fff" stroke-opacity=".45" stroke-width="1" stroke-linecap="round"/>
       </svg>
-      <span class="gh__rule gh__rule--end"></span>
     </div>
 
     <h1 class="gh__title" id="gh-title">
@@ -201,7 +250,7 @@
     </h1>
 
     <svg class="gh__swash" viewBox="0 0 300 26" fill="none" aria-hidden="true">
-      <defs><linearGradient id="gh-gold" x1="0" x2="1"><stop offset="0" stop-color="#c98a1e"/><stop offset=".55" stop-color="#f3c96e"/><stop offset="1" stop-color="#e3a73c"/></linearGradient></defs>
+      <defs><linearGradient id="gh-gold" x1="0" x2="1"><stop offset="0" stop-color="#b98a2e"/><stop offset=".55" stop-color="#e6c57c"/><stop offset="1" stop-color="#c99a3e"/></linearGradient></defs>
       <path d="M5 15Q150 1 296 7.5L295.5 9.6Q150 6.5 9 20.5Q1 19 5 15Z" fill="url(#gh-gold)"/>
       <path d="M52 22.5Q160 12.5 262 15" stroke="url(#gh-gold)" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>
     </svg>
@@ -224,7 +273,7 @@
     <div class="gh__trust">
       <svg class="gh__stars" viewBox="0 0 124 22" role="img" aria-label="৫-এ ৫ তারকা রেটিং">
         <defs>
-          <linearGradient id="gh-star" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd36b"/><stop offset="1" stop-color="#e79a1c"/></linearGradient>
+          <linearGradient id="gh-star" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2c45a"/><stop offset="1" stop-color="#d4952a"/></linearGradient>
           <path id="gh-star-shape" d="M11 1.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L11 16.1l-5.9 3.1 1.2-6.5L1.5 8.1l6.6-.9z"/>
         </defs>
         <g><use class="gh__star" href="#gh-star-shape" fill="url(#gh-star)"/></g>
@@ -237,15 +286,31 @@
       <p class="gh__trust-text"><span class="gh__count"><span class="gh__count-ghost" aria-hidden="true">২৩,০০০+</span><span class="gh__count-live" data-gh-count="23000" data-gh-suffix="+">২৩,০০০+</span></span> পরিবারের আস্থা</p>
     </div>
 
+    <button class="gh__scroll" type="button">
+      <span>আরও জানতে নিচে স্ক্রল করুন</span>
+      <span class="gh__scroll-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"/></svg></span>
+    </button>
+
   </div>
 </section>
 
-<!-- ═══ ৪) JS (ঐচ্ছিক) — ২৩,০০০+ সংখ্যাটি গুনে গুনে বাড়বে ═══ -->
+<!-- ═══ ৪) JS — সংখ্যা গোনা ও নিচে স্ক্রল ═══ -->
 <script>
 (function () {
+  var reduceMotion = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  // তীর চিহ্নে চাপ দিলে হিরো সেকশনের ঠিক পরের অংশে মসৃণভাবে নামবে
+  Array.prototype.forEach.call(document.querySelectorAll('.gh .gh__scroll'), function (btn) {
+    btn.addEventListener('click', function () {
+      var section = btn.closest('.gh');
+      var top = section.getBoundingClientRect().bottom + window.pageYOffset;
+      window.scrollTo({ top: top, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  });
+
+  // ২৩,০০০+ সংখ্যাটি বাংলা অঙ্কে গুনে গুনে বাড়বে
   var nodes = document.querySelectorAll('.gh [data-gh-count]');
-  if (!nodes.length || !window.requestAnimationFrame) return;
-  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!nodes.length || reduceMotion || !window.requestAnimationFrame) return;
   var bnDigits = '০১২৩৪৫৬৭৮৯';
   function format(n, suffix) {
     return n.toLocaleString('en-IN').replace(/\d/g, function (d) { return bnDigits[d]; }) + suffix;
