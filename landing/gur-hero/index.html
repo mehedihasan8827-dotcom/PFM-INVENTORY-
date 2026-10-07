@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>আখের গুড় — হিরো সেকশন</title>
+
+<!-- ═══ ১) ফন্ট — <head>-এ বসান ═══ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@800&family=Galada&family=Hind+Siliguri:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- ═══ ২) CSS — সব স্টাইল .gh এর ভেতরে সীমাবদ্ধ, পেজের বাকি অংশে প্রভাব ফেলবে না ═══ -->
+<style>
+.gh{
+  /* রং */
+  --gh-bg-1:#fffaf1;
+  --gh-bg-2:#f5e8d2;
+  --gh-ink:#3a2a1d;
+  --gh-green-800:#165036;
+  --gh-green-700:#1f6644;
+  --gh-caramel-600:#b9561c;
+  --gh-gold-500:#e3a73c;
+  --gh-gold-300:#f6d58c;
+  --gh-fill-green:linear-gradient(180deg,#22704a 0%,#155036 55%,#0c3323 100%);
+  --gh-fill-caramel:linear-gradient(180deg,#dd7d2e 0%,#b8531a 48%,#82330e 100%);
+  /* কোন লাইনে কোন রং — অদলবদল করতে শুধু এখানে বদলান */
+  --gh-promise-fill:var(--gh-fill-green);
+  --gh-promise-color:var(--gh-green-800);
+  --gh-product-fill:var(--gh-fill-caramel);
+  --gh-product-color:var(--gh-caramel-600);
+  /* ফন্ট */
+  --gh-font-display:'Baloo Da 2','Hind Siliguri','Noto Sans Bengali',sans-serif;
+  --gh-font-product:'Galada','Baloo Da 2','Noto Sans Bengali',cursive;
+  --gh-font-text:'Hind Siliguri','Noto Sans Bengali',sans-serif;
+
+  container:gh / inline-size;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:clamp(44px,8vw,88px) 16px clamp(48px,8vw,92px);
+  color:var(--gh-ink);
+  font-family:var(--gh-font-text);
+  text-align:center;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(55% 45% at 50% 0%,rgba(246,213,140,.38),transparent 70%),
+    radial-gradient(35% 45% at 0% 100%,rgba(140,193,82,.12),transparent 70%),
+    radial-gradient(35% 45% at 100% 100%,rgba(213,114,39,.10),transparent 70%),
+    linear-gradient(180deg,var(--gh-bg-1),var(--gh-bg-2));
+}
+/* হালকা কাগজের টেক্সচার */
+.gh::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.55;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .3 0 0 0 0 .18 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.gh *,.gh *::before,.gh *::after{box-sizing:border-box}
+.gh :where(h1,p,ul,li){margin:0;padding:0;list-style:none;letter-spacing:normal;text-transform:none}
+
+.gh__inner{max-width:880px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+
+/* — উপরের অলংকার — */
+.gh__ornament{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.gh__rule{position:relative;width:clamp(44px,15cqi,128px);height:1px;background:linear-gradient(90deg,transparent,var(--gh-gold-500))}
+.gh__rule::after{content:"";position:absolute;right:-3px;top:-2.5px;width:6px;height:6px;background:var(--gh-gold-500);transform:rotate(45deg)}
+.gh__rule--end{transform:scaleX(-1)}
+.gh__sprout{display:block;width:40px;height:auto}
+
+/* — শিরোনাম — */
+.gh__title{font-weight:400}
+.gh__eyebrow{
+  display:block;
+  font-family:var(--gh-font-text);font-weight:600;
+  font-size:1.15rem;font-size:clamp(1.12rem,4.9cqi,1.6rem);
+  line-height:1.55;color:var(--gh-green-800);
+}
+.gh__eyebrow em{position:relative;z-index:0;font-style:normal;font-weight:700;color:var(--gh-caramel-600);padding:0 .1em}
+.gh__eyebrow em::before{content:"";position:absolute;z-index:-1;left:-.12em;right:-.12em;top:58%;bottom:6%;border-radius:.3em;background:rgba(246,213,140,.7);transform:skewX(-10deg)}
+.gh__promise,.gh__product{display:block}
+.gh__promise{
+  font-family:var(--gh-font-display);font-weight:800;color:var(--gh-promise-color);
+  font-size:2.4rem;font-size:clamp(2.3rem,12.4cqi,4.9rem);
+  line-height:1.2;margin-top:.04em;
+}
+.gh__product{
+  font-family:var(--gh-font-product);font-weight:400;color:var(--gh-product-color);
+  font-size:3.9rem;font-size:clamp(3.8rem,22cqi,8.9rem);
+  line-height:1.15;margin-top:-.02em;padding:0 .08em;
+}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .gh__promise,.gh__product{-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+  .gh__promise{background-image:var(--gh-promise-fill)}
+  .gh__product{
+    background-image:linear-gradient(105deg,transparent 45%,rgba(255,236,196,.8) 50%,transparent 55%),var(--gh-product-fill);
+    background-size:260% 100%,100% 100%;background-position:130% 0,0 0;background-repeat:no-repeat;
+  }
+}
+.gh__promise,.gh__product{filter:drop-shadow(0 1px 0 rgba(255,255,255,.8)) drop-shadow(0 6px 10px rgba(122,48,12,.13))}
+
+.gh__swash{display:block;width:clamp(150px,44cqi,280px);height:auto;margin-top:4px}
+
+/* — বৈশিষ্ট্য (মোবাইল: ৩ কলামের কার্ড) — */
+.gh__features{width:100%;max-width:440px;margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.gh__feature{
+  display:flex;flex-direction:column;align-items:center;gap:9px;
+  padding:14px 4px 13px;border-radius:18px;
+  background:rgba(255,255,255,.72);border:1px solid rgba(22,80,54,.1);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 10px 22px -16px rgba(80,45,15,.45);
+  font-weight:600;font-size:.95rem;line-height:1.35;color:var(--gh-ink);
+}
+.gh__label>span{display:block}
+.gh__icon{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--gh-green-700);background:linear-gradient(145deg,#f0f7ea,#dbead0);box-shadow:inset 0 0 0 1px rgba(31,102,68,.14)}
+.gh__icon svg{display:block;width:22px;height:22px}
+
+/* — আস্থা ব্যাজ — */
+.gh__trust{
+  margin-top:24px;display:inline-flex;align-items:center;gap:10px;
+  padding:9px 16px 9px 14px;border-radius:999px;
+  background:#fff;border:1px solid rgba(227,167,60,.42);
+  box-shadow:0 16px 34px -20px rgba(122,48,12,.5),0 2px 6px -2px rgba(122,48,12,.12);
+}
+.gh__stars{display:block;width:88px;height:auto;overflow:visible}
+.gh__divider{width:1px;align-self:stretch;background:linear-gradient(transparent,rgba(58,42,29,.28),transparent)}
+.gh__trust-text{font-weight:600;font-size:.95rem;line-height:1.3;color:var(--gh-ink);white-space:nowrap}
+.gh__count{display:inline-grid;margin-right:.15em;font-family:var(--gh-font-display);font-weight:800;font-size:1.3em;color:var(--gh-green-800)}
+.gh__count>*{grid-area:1/1}
+.gh__count-ghost{visibility:hidden}
+.gh__count-live{justify-self:end}
+
+/* খুব ছোট ফোন (৩২০px) — কার্ড একটু আঁটসাঁট, ব্যাজ দুই লাইনে */
+@container gh (max-width:320px){
+  .gh__features{gap:8px}
+  .gh__feature{padding-inline:2px;font-size:.84rem}
+  .gh__trust{flex-direction:column;gap:4px;padding:12px 22px;border-radius:22px}
+  .gh__divider{display:none}
+}
+/* ট্যাবলেট / ডেস্কটপ — বৈশিষ্ট্যগুলো এক সারিতে পিল আকারে */
+@container gh (min-width:620px){
+  .gh__features{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:none}
+  .gh__feature{flex-direction:row;gap:10px;padding:6px 18px 6px 6px;border-radius:999px;font-size:1.05rem}
+  .gh__label>span{display:inline}
+  .gh__icon{width:36px;height:36px}
+  .gh__icon svg{width:20px;height:20px}
+  .gh__trust{gap:14px;padding:10px 22px 10px 18px}
+  .gh__stars{width:112px}
+  .gh__trust-text{font-size:1.05rem}
+}
+@container gh (min-width:900px){
+  .gh__sprout{width:44px}
+  .gh__features{margin-top:32px}
+  .gh__trust{margin-top:30px}
+}
+
+/* — অ্যানিমেশন (যারা কম মোশন পছন্দ করেন তাদের জন্য বন্ধ) — */
+@keyframes gh-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes gh-draw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes gh-shine{from{background-position:130% 0,0 0}to{background-position:-30% 0,0 0}}
+@keyframes gh-pop{0%{opacity:0;transform:scale(.3)}65%{opacity:1;transform:scale(1.18)}100%{opacity:1;transform:scale(1)}}
+@media (prefers-reduced-motion:no-preference){
+  .gh__ornament,.gh__eyebrow,.gh__promise,.gh__product,.gh__features,.gh__trust{animation:gh-rise .7s cubic-bezier(.22,.8,.3,1) both}
+  .gh__eyebrow{animation-delay:.08s}
+  .gh__promise{animation-delay:.16s}
+  .gh__product{animation:gh-rise .7s cubic-bezier(.22,.8,.3,1) .26s both,gh-shine 1.5s ease-in-out 1.1s both}
+  .gh__swash{animation:gh-draw .9s cubic-bezier(.65,0,.35,1) .55s both}
+  .gh__features{animation-delay:.42s}
+  .gh__trust{animation-delay:.52s}
+  .gh__star{transform-box:fill-box;transform-origin:center;animation:gh-pop .45s cubic-bezier(.3,.7,.4,1.3) both}
+  .gh__star:nth-of-type(1){animation-delay:.75s}
+  .gh__star:nth-of-type(2){animation-delay:.83s}
+  .gh__star:nth-of-type(3){animation-delay:.91s}
+  .gh__star:nth-of-type(4){animation-delay:.99s}
+  .gh__star:nth-of-type(5){animation-delay:1.07s}
+}
+</style>
+</head>
+<body style="margin:0">
+
+<!-- ═══ ৩) HTML — হিরো সেকশনের যেখানে লেখাটি বসবে ═══ -->
+<section class="gh" aria-labelledby="gh-title">
+  <div class="gh__inner">
+
+    <div class="gh__ornament" aria-hidden="true">
+      <span class="gh__rule"></span>
+      <svg class="gh__sprout" viewBox="0 0 48 40" fill="none">
+        <defs>
+          <linearGradient id="gh-leaf-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8cc152"/><stop offset="1" stop-color="#2f7d3a"/></linearGradient>
+          <linearGradient id="gh-leaf-b" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5d063"/><stop offset="1" stop-color="#3f8f3a"/></linearGradient>
+        </defs>
+        <path d="M24 38V21" stroke="#2f6b3a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M23.6 23C21.8 13.6 14.6 7.4 3.6 7.2c1 10.6 8.2 16.6 20 15.8z" fill="url(#gh-leaf-a)"/>
+        <path d="M24.4 21.2C26.4 10.4 34 3.6 45 3.2c-.6 11.8-8.4 18.6-20.6 18z" fill="url(#gh-leaf-b)"/>
+        <path d="M22 21.2C17.6 16 12.6 12 7.4 10.2M26.2 19.4c4-5.6 9-10 14.6-12.4" stroke="#fff" stroke-opacity=".45" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      <span class="gh__rule gh__rule--end"></span>
+    </div>
+
+    <h1 class="gh__title" id="gh-title">
+      <span class="gh__eyebrow">সবচেয়ে জনপ্রিয় দেশী <em>অমৃত</em> জাতের</span>
+      <span class="gh__promise">সম্পূর্ণ ভেজালমুক্ত</span>
+      <span class="gh__product">আখের গুড়</span>
+    </h1>
+
+    <svg class="gh__swash" viewBox="0 0 300 26" fill="none" aria-hidden="true">
+      <defs><linearGradient id="gh-gold" x1="0" x2="1"><stop offset="0" stop-color="#c98a1e"/><stop offset=".55" stop-color="#f3c96e"/><stop offset="1" stop-color="#e3a73c"/></linearGradient></defs>
+      <path d="M5 15Q150 1 296 7.5L295.5 9.6Q150 6.5 9 20.5Q1 19 5 15Z" fill="url(#gh-gold)"/>
+      <path d="M52 22.5Q160 12.5 262 15" stroke="url(#gh-gold)" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>
+    </svg>
+
+    <ul class="gh__features">
+      <li class="gh__feature">
+        <span class="gh__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><defs><mask id="gh-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#fff"/><path d="M4 4l16 16" stroke="#000" stroke-width="4.2"/></mask></defs><path mask="url(#gh-cut)" d="M12 2.6c-3 3.9-6.4 7.4-6.4 11.4a6.4 6.4 0 0 0 12.8 0c0-4-3.4-7.5-6.4-11.4z"/><path d="M4 4l16 16"/></svg></span>
+        <span class="gh__label"><span>হাইড্রোজ</span> <span>ছাড়া</span></span>
+      </li>
+      <li class="gh__feature">
+        <span class="gh__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><g mask="url(#gh-cut)"><path d="M9.2 2.8h5.6M10.3 2.8v5.9L5.3 17a2.3 2.3 0 0 0 2 3.4h9.4a2.3 2.3 0 0 0 2-3.4l-5-8.3V2.8"/><path d="M7.6 14.6h8.8"/></g><path d="M4 4l16 16"/></svg></span>
+        <span class="gh__label"><span>কেমিক্যাল</span> <span>ছাড়া</span></span>
+      </li>
+      <li class="gh__feature">
+        <span class="gh__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7.5h8"/><path d="M9 7.5c0 1.3-1 1.9-2.4 2.9A6.4 6.4 0 0 0 4 15.4C4 19.2 7.6 21 12 21s8-1.8 8-5.6a6.4 6.4 0 0 0-2.6-5c-1.4-1-2.4-1.6-2.4-2.9"/><path d="M4.6 14h14.8"/><path d="M10 2.8c-.7.8.7 1.6 0 2.6M14 2.8c-.7.8.7 1.6 0 2.6"/></svg></span>
+        <span class="gh__label"><span>ঐতিহ্যবাহী</span> <span>পদ্ধতিতে তৈরি</span></span>
+      </li>
+    </ul>
+
+    <div class="gh__trust">
+      <svg class="gh__stars" viewBox="0 0 124 22" role="img" aria-label="৫-এ ৫ তারকা রেটিং">
+        <defs>
+          <linearGradient id="gh-star" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd36b"/><stop offset="1" stop-color="#e79a1c"/></linearGradient>
+          <path id="gh-star-shape" d="M11 1.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L11 16.1l-5.9 3.1 1.2-6.5L1.5 8.1l6.6-.9z"/>
+        </defs>
+        <g><use class="gh__star" href="#gh-star-shape" fill="url(#gh-star)"/></g>
+        <g transform="translate(25.5 0)"><use class="gh__star" href="#gh-star-shape" fill="url(#gh-star)"/></g>
+        <g transform="translate(51 0)"><use class="gh__star" href="#gh-star-shape" fill="url(#gh-star)"/></g>
+        <g transform="translate(76.5 0)"><use class="gh__star" href="#gh-star-shape" fill="url(#gh-star)"/></g>
+        <g transform="translate(102 0)"><use class="gh__star" href="#gh-star-shape" fill="url(#gh-star)"/></g>
+      </svg>
+      <span class="gh__divider" aria-hidden="true"></span>
+      <p class="gh__trust-text"><span class="gh__count"><span class="gh__count-ghost" aria-hidden="true">২৩,০০০+</span><span class="gh__count-live" data-gh-count="23000" data-gh-suffix="+">২৩,০০০+</span></span> পরিবারের আস্থা</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ ৪) JS (ঐচ্ছিক) — ২৩,০০০+ সংখ্যাটি গুনে গুনে বাড়বে ═══ -->
+<script>
+(function () {
+  var nodes = document.querySelectorAll('.gh [data-gh-count]');
+  if (!nodes.length || !window.requestAnimationFrame) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var bnDigits = '০১২৩৪৫৬৭৮৯';
+  function format(n, suffix) {
+    return n.toLocaleString('en-IN').replace(/\d/g, function (d) { return bnDigits[d]; }) + suffix;
+  }
+  function run(el) {
+    var target = +el.getAttribute('data-gh-count');
+    var suffix = el.getAttribute('data-gh-suffix') || '';
+    var start = null, duration = 1600;
+    el.textContent = format(0, suffix);
+    function tick(now) {
+      if (start === null) start = now;
+      var p = Math.min(1, (now - start) / duration);
+      el.textContent = format(Math.round(target * (1 - Math.pow(1 - p, 3))), suffix);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    setTimeout(function () { requestAnimationFrame(tick); }, 600);
+  }
+  Array.prototype.forEach.call(nodes, function (el) {
+    if (!('IntersectionObserver' in window)) return run(el);
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { io.disconnect(); run(el); }
+    }, { threshold: 0.6 });
+    io.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
