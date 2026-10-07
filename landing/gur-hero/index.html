@@ -8,7 +8,7 @@
 <!-- ═══ ১) ফন্ট — <head>-এ বসান ═══ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@800&family=Galada&family=Hind+Siliguri:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600;700&display=swap" rel="stylesheet">
 
 <!-- ═══ ২) CSS — সব স্টাইল .gh এর ভেতরে সীমাবদ্ধ, পেজের বাকি অংশে প্রভাব ফেলবে না ═══ -->
 <style>
@@ -33,9 +33,7 @@
   --gh-media-ratio-wide:16 / 7;    /* ট্যাবলেট ও ডেস্কটপে ছবির অনুপাত */
   --gh-media-focus:50% 50%;        /* ছবির কোন অংশ মাঝে থাকবে (যেমন 50% 70% = একটু নিচের অংশ) */
   /* ফন্ট */
-  --gh-font-display:'Baloo Da 2','Hind Siliguri','Noto Sans Bengali',sans-serif;
-  --gh-font-product:'Galada','Baloo Da 2','Noto Sans Bengali',cursive;
-  --gh-font-text:'Hind Siliguri','Noto Sans Bengali',sans-serif;
+  --gh-font:'Hind Siliguri','Noto Sans Bengali',sans-serif;
 
   container:gh / inline-size;
   position:relative;
@@ -43,7 +41,7 @@
   overflow:hidden;
   padding:16px 16px clamp(28px,5vw,48px);
   color:var(--gh-ink);
-  font-family:var(--gh-font-text);
+  font-family:var(--gh-font);
   text-align:center;
   -webkit-font-smoothing:antialiased;
   background:var(--gh-bg);
@@ -73,33 +71,31 @@
 /* — পাতার ব্যাজ (ছবির নিচের কিনারায় অর্ধেক বসানো) — */
 .gh__badge{
   position:relative;z-index:1;display:grid;place-items:center;
-  width:58px;height:58px;border-radius:50%;
+  width:50px;height:50px;border-radius:50%;
   background:var(--gh-surface);border:1px solid var(--gh-line);
   box-shadow:0 12px 26px -16px rgba(23,74,51,.55);
 }
-.gh__badge svg{display:block;width:30px;height:auto}
-.gh__media + .gh__inner .gh__badge{margin-top:-29px}
+.gh__badge svg{display:block;width:26px;height:auto}
+.gh__media + .gh__inner .gh__badge{margin-top:-25px}
 
 /* — শিরোনাম — */
-.gh__title{margin-top:14px;font-weight:400}
+.gh__title{margin-top:10px;font-weight:400}
 .gh__eyebrow{
-  display:block;
-  font-family:var(--gh-font-text);font-weight:600;
-  font-size:1.15rem;font-size:clamp(1.12rem,4.9cqi,1.6rem);
-  line-height:1.55;color:var(--gh-ink);
+  display:block;font-weight:600;
+  font-size:1.05rem;font-size:clamp(.95rem,4.75cqi,1.6rem);
+  line-height:1.5;color:var(--gh-ink);
 }
 .gh__eyebrow em{font-style:normal;font-weight:700;color:var(--gh-caramel)}
 .gh__promise,.gh__product{display:block}
 .gh__promise{
-  font-family:var(--gh-font-display);font-weight:800;color:var(--gh-promise-color);
-  font-size:2.4rem;font-size:clamp(2.3rem,12.4cqi,4.9rem);
-  line-height:1.2;margin-top:.04em;
+  font-weight:700;color:var(--gh-promise-color);
+  font-size:2.1rem;font-size:clamp(1.65rem,9.5cqi,3.4rem);
+  line-height:1.3;margin-top:.1em;
 }
 .gh__product{
-  font-family:var(--gh-font-product);font-weight:400;color:var(--gh-product-color);
-  font-size:3.9rem;font-size:clamp(3.8rem,22cqi,8.9rem);
-  line-height:1.15;margin-top:-.02em;padding:0 .08em;
-  filter:drop-shadow(0 6px 10px rgba(125,52,15,.1));
+  font-weight:700;color:var(--gh-product-color);
+  font-size:3.25rem;font-size:clamp(2.6rem,14.8cqi,5.3rem);
+  line-height:1.2;margin-top:-.06em;
 }
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
   .gh__promise,.gh__product{-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
@@ -110,24 +106,28 @@
   }
 }
 
-.gh__swash{display:block;width:clamp(150px,44cqi,280px);height:auto;margin-top:4px}
+.gh__swash{display:block;width:clamp(120px,40cqi,240px);height:auto;margin-top:2px}
 
 /* — বৈশিষ্ট্য (মোবাইল: ৩ কলামের কার্ড) — */
-.gh__features{width:100%;max-width:440px;margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.gh__feature{
-  display:flex;flex-direction:column;align-items:center;gap:9px;
-  padding:14px 4px 13px;border-radius:16px;
-  background:var(--gh-surface);border:1px solid var(--gh-line);
-  box-shadow:0 10px 22px -20px rgba(30,32,24,.5);
-  font-weight:600;font-size:.95rem;line-height:1.35;color:var(--gh-ink);
+.gh__features{
+  width:100%;max-width:400px;margin-top:20px;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  background:var(--gh-surface);border:1px solid var(--gh-line);border-radius:18px;
+  box-shadow:0 12px 26px -22px rgba(30,32,24,.5);
 }
+.gh__feature{
+  position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;
+  padding:14px 4px 12px;
+  font-weight:600;font-size:.9rem;line-height:1.35;color:var(--gh-ink);
+}
+.gh__feature + .gh__feature::before{content:"";position:absolute;left:0;top:20%;bottom:20%;width:1px;background:var(--gh-line)}
 .gh__label>span{display:block}
-.gh__icon{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--gh-green);background:#f2f6f0;box-shadow:inset 0 0 0 1px rgba(23,74,51,.12)}
-.gh__icon svg{display:block;width:22px;height:22px}
+.gh__icon{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--gh-green);background:#f2f6f0;box-shadow:inset 0 0 0 1px rgba(23,74,51,.12)}
+.gh__icon svg{display:block;width:19px;height:19px}
 
 /* — আস্থা ব্যাজ — */
 .gh__trust{
-  margin-top:24px;display:inline-flex;align-items:center;gap:10px;
+  margin-top:16px;display:inline-flex;align-items:center;gap:10px;
   padding:9px 16px 9px 14px;border-radius:999px;
   background:var(--gh-surface);border:1px solid var(--gh-line);
   box-shadow:0 14px 30px -22px rgba(30,32,24,.55);
@@ -135,21 +135,21 @@
 .gh__stars{display:block;width:88px;height:auto;overflow:visible}
 .gh__divider{width:1px;align-self:stretch;background:linear-gradient(transparent,rgba(47,58,51,.22),transparent)}
 .gh__trust-text{font-weight:600;font-size:.95rem;line-height:1.3;color:var(--gh-ink);white-space:nowrap}
-.gh__count{display:inline-grid;margin-right:.15em;font-family:var(--gh-font-display);font-weight:800;font-size:1.3em;color:var(--gh-green)}
+.gh__count{display:inline-grid;margin-right:.15em;font-weight:700;font-size:1.25em;color:var(--gh-green)}
 .gh__count>*{grid-area:1/1}
 .gh__count-ghost{visibility:hidden}
 .gh__count-live{justify-self:end}
 
 /* — নিচে স্ক্রলের ইশারা — */
 .gh .gh__scroll,.gh .gh__scroll:hover,.gh .gh__scroll:focus{
-  margin-top:30px;display:inline-flex;flex-direction:column;align-items:center;gap:8px;
+  margin-top:20px;display:inline-flex;flex-direction:column;align-items:center;gap:6px;
   padding:6px 12px;border:0;border-radius:14px;background:none;box-shadow:none;cursor:pointer;
-  color:var(--gh-ink-soft);font:600 .82rem/1.4 var(--gh-font-text);letter-spacing:.01em;text-transform:none;
+  color:var(--gh-ink-soft);font:600 .875rem/1.4 var(--gh-font);letter-spacing:normal;text-transform:none;
   -webkit-tap-highlight-color:transparent;
 }
 .gh .gh__scroll:focus-visible{outline:2px solid var(--gh-green);outline-offset:3px}
 .gh__scroll-icon{
-  display:grid;place-items:center;width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;width:40px;height:40px;border-radius:50%;
   background:var(--gh-surface);border:1px solid var(--gh-line);color:var(--gh-green);
   transition:border-color .2s ease,transform .2s ease;
 }
@@ -158,7 +158,6 @@
 
 /* খুব ছোট ফোন (৩২০px) — কার্ড একটু আঁটসাঁট, ব্যাজ দুই লাইনে */
 @container gh (max-width:320px){
-  .gh__features{gap:8px}
   .gh__feature{padding-inline:2px;font-size:.84rem}
   .gh__trust{flex-direction:column;gap:4px;padding:12px 22px;border-radius:22px}
   .gh__divider{display:none}
@@ -166,8 +165,8 @@
 /* ট্যাবলেট / ডেস্কটপ — চওড়া ছবি, বৈশিষ্ট্যগুলো এক সারিতে পিল আকারে */
 @container gh (min-width:620px){
   .gh__media{aspect-ratio:var(--gh-media-ratio-wide);border-radius:28px}
-  .gh__features{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:none}
-  .gh__feature{flex-direction:row;gap:10px;padding:6px 18px 6px 6px;border-radius:999px;font-size:1.05rem}
+  .gh__features{display:inline-flex;width:auto;max-width:none;border-radius:999px;padding:6px}
+  .gh__feature{flex-direction:row;gap:10px;padding:4px 18px 4px 6px;font-size:1rem}
   .gh__label>span{display:inline}
   .gh__icon{width:36px;height:36px}
   .gh__icon svg{width:20px;height:20px}
@@ -176,12 +175,13 @@
   .gh__trust-text{font-size:1.05rem}
 }
 @container gh (min-width:900px){
-  .gh__badge{width:66px;height:66px}
-  .gh__badge svg{width:34px}
-  .gh__media + .gh__inner .gh__badge{margin-top:-33px}
-  .gh__features{margin-top:32px}
-  .gh__trust{margin-top:30px}
-  .gh .gh__scroll{margin-top:36px}
+  .gh__badge{width:62px;height:62px}
+  .gh__badge svg{width:32px}
+  .gh__media + .gh__inner .gh__badge{margin-top:-31px}
+  .gh__title{margin-top:14px}
+  .gh__features{margin-top:28px}
+  .gh__trust{margin-top:20px}
+  .gh .gh__scroll{margin-top:30px}
 }
 
 /* — অ্যানিমেশন (যারা কম মোশন পছন্দ করেন তাদের জন্য বন্ধ) — */
