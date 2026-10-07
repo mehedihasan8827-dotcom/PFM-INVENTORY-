@@ -1,0 +1,200 @@
+<!--
+════════════════════════════════════════════════════════════════
+  আখের গুড় — "বাজারের গুড় কিনে ঠকছেন?" সেকশন (Elementor HTML Widget-এর জন্য তৈরি)
+════════════════════════════════════════════════════════════════
+  ব্যবহার:
+   ১) Elementor-এ হিরো সেকশনের ঠিক নিচে একটা Container রাখুন, তার ভেতরে শুধু একটি "HTML" widget।
+      (আগের পুরনো সাবধান সেকশনের কোড থাকলে সেই widget-এর পুরো কোড মুছে এটা দিন।)
+   ২) এই পুরো কোডটি (প্রথম লাইন থেকে শেষ লাইন পর্যন্ত) HTML widget-এর বক্সে পেস্ট করুন।
+   ৩) Update চাপুন। কিছুই বদলাতে হবে না।
+  বাকি সব (ফন্ট, পুরো স্ক্রিন জুড়ে বসা, Elementor-এর ফাঁক সরানো, অ্যানিমেশন) আপনা-আপনি হবে।
+  কোনো কার্ডের রং বদলাতে চাইলে নিচের CSS-এর শুরুতে "চার সমস্যার চার রং" অংশটি দেখুন।
+════════════════════════════════════════════════════════════════
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ════ Elementor-এ পুরো স্ক্রিন জুড়ে বসানো ════ */
+#gp-pain{position:relative;display:block;box-sizing:border-box;width:var(--gp-vw,100vw);max-width:none;min-width:0;margin:0 0 0 calc(50% - var(--gp-vw,100vw) / 2);padding:0;border:0;float:none}
+body:has(#gp-pain){overflow-x:clip}
+/* যে Elementor কন্টেইনারে শুধু এই সেকশনটি আছে, তার উপর-নিচের ডিফল্ট ফাঁক বাদ */
+.e-con-full:has(> .elementor-widget-html:only-child #gp-pain),
+.e-con > .e-con-inner:has(> .elementor-widget-html:only-child #gp-pain),
+.elementor-widget-wrap:has(> .elementor-widget-html:only-child #gp-pain){padding-top:0;padding-bottom:0}
+
+#gp-pain .gp{
+  /* রং — হিরোর একই প্যালেট */
+  --gp-bg:#faf9f6;          /* হালকা অফ-হোয়াইট ব্যাকগ্রাউন্ড (হিরোর মতো) */
+  --gp-ink:#2f3a33;         /* মূল লেখা */
+  --gp-ink-soft:#6d736c;    /* হালকা লেখা */
+  --gp-green:#174a33;       /* শিরোনাম */
+  --gp-red:#a8392b;         /* "সাবধান" ও "ঠকছেন?" */
+  /* চার সমস্যার চার রং: আইকন / বোল্ড লেখা / কার্ডের হালকা রং / কার্ডের বর্ডার */
+  --gp-sugar:#4a6282;  --gp-sugar-text:#3a5070;  --gp-sugar-tint:#edf1f6;  --gp-sugar-line:#dce3ec;   /* চিনি — ঠান্ডা ধূসর-নীল, কৃত্রিম */
+  --gp-search:#ad7614; --gp-search-text:#86590c; --gp-search-tint:#fbf1dc; --gp-search-line:#efdfbb;  /* খাঁটি গুড় — গুড়ের নিজের সোনালি রং */
+  --gp-chem:#b23a2b;   --gp-chem-text:#9c2f22;   --gp-chem-tint:#fbebe7;   --gp-chem-line:#f0d5ce;    /* কেমিক্যাল — বিপদের লাল */
+  --gp-child:#2e7a4e;  --gp-child-text:#22603c;  --gp-child-tint:#e8f3ec;  --gp-child-line:#d0e5d8;   /* শিশুর পুষ্টি — স্বাস্থ্যের সবুজ */
+  /* ফন্ট */
+  --gp-font:'Hind Siliguri','Noto Sans Bengali',sans-serif;
+
+  container:gp / inline-size;
+  position:relative;
+  padding:52px 16px 56px;
+  color:var(--gp-ink);
+  font-family:var(--gp-font);
+  text-align:center;
+  -webkit-font-smoothing:antialiased;
+  background:var(--gp-bg);
+}
+#gp-pain .gp *,#gp-pain .gp *::before,#gp-pain .gp *::after{box-sizing:border-box}
+/* থিম/Elementor-এর টাইপোগ্রাফি যেন ভেতরে না ঢোকে — ডিজাইনের মূল মানগুলো স্থির করা */
+#gp-pain .gp{margin:0;font-size:16px;font-weight:400;font-style:normal;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;text-shadow:none;text-indent:0;white-space:normal;overflow-wrap:normal;word-break:normal;text-rendering:auto}
+#gp-pain .gp *{font-family:inherit;letter-spacing:inherit;word-spacing:inherit;text-transform:inherit;text-shadow:inherit}
+#gp-pain .gp :where(ul,li,div,span,b){font-size:inherit;line-height:inherit;font-weight:inherit;font-style:normal}
+#gp-pain .gp :where(h2){font-style:normal;text-align:inherit;text-decoration:none;border:0;background:none}
+#gp-pain .gp :where(li)::marker{content:none}
+#gp-pain .gp svg{fill:none;max-width:none;max-height:none;min-width:0;min-height:0}
+#gp-pain .gp :where(h2,p,ul,li){margin:0;padding:0;list-style:none;letter-spacing:normal;text-transform:none}
+#gp-pain .gp__inner{max-width:880px;margin:0 auto}
+
+/* — সাবধান — */
+#gp-pain .gp__eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14.4px;line-height:1.5;color:var(--gp-red)}
+#gp-pain .gp__eyebrow::before,#gp-pain .gp__eyebrow::after{content:"";width:22px;height:1px;background:currentColor;opacity:.35}
+#gp-pain .gp__eyebrow svg{display:block;width:15px;height:15px;margin-right:-2px}
+
+/* — শিরোনাম — */
+#gp-pain .gp__title{margin-top:8px;font-weight:700;font-size:28px;font-size:clamp(23.2px,7.7cqi,40.8px);line-height:1.35;color:var(--gp-green)}
+#gp-pain .gp__accent{position:relative;display:inline-block;color:var(--gp-red)}
+#gp-pain .gp__swash{position:absolute;left:-3%;width:106%;bottom:-.2em;height:.3em;display:block;overflow:visible}
+
+#gp-pain .gp__sub{margin:14px auto 0;max-width:24em;font-weight:500;font-size:15.2px;line-height:1.65;color:var(--gp-ink-soft);text-wrap:balance}
+
+/* — চার রঙের কার্ড, আইকন কার্ডের বাঁ কিনারায় পিন করা — */
+#gp-pain .gp__list{display:grid;gap:14px;max-width:560px;margin:28px auto 0;padding-left:22px;text-align:left}
+#gp-pain .gp__item{
+  position:relative;display:flex;align-items:center;min-height:84px;
+  padding:18px 18px 18px 38px;
+  border:1px solid var(--c-line);border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.6),rgba(255,255,255,0) 70%),var(--c-tint);
+}
+#gp-pain .gp__item--sugar{--c:var(--gp-sugar);--c-text:var(--gp-sugar-text);--c-tint:var(--gp-sugar-tint);--c-line:var(--gp-sugar-line)}
+#gp-pain .gp__item--search{--c:var(--gp-search);--c-text:var(--gp-search-text);--c-tint:var(--gp-search-tint);--c-line:var(--gp-search-line)}
+#gp-pain .gp__item--chem{--c:var(--gp-chem);--c-text:var(--gp-chem-text);--c-tint:var(--gp-chem-tint);--c-line:var(--gp-chem-line)}
+#gp-pain .gp__item--child{--c:var(--gp-child);--c-text:var(--gp-child-text);--c-tint:var(--gp-child-tint);--c-line:var(--gp-child-line)}
+#gp-pain .gp__icon{
+  position:absolute;left:-22px;top:calc(50% - 22px);
+  display:grid;place-items:center;width:44px;height:44px;border-radius:50%;
+  background:var(--c);color:#fff;
+  box-shadow:0 0 0 4px var(--gp-bg),0 12px 20px -12px var(--c);
+}
+#gp-pain .gp__icon svg{display:block;width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+#gp-pain .gp__icon .gp__fill{fill:var(--c)}
+#gp-pain .gp__text{flex:1;min-width:0;font-weight:500;font-size:16px;line-height:1.6;color:var(--gp-ink);text-wrap:pretty}
+#gp-pain .gp__text b{font-weight:700;color:var(--c-text)}
+
+/* খুব ছোট ফোন (৩২০px) */
+@container gp (max-width:340px){
+  #gp-pain .gp__item{padding:16px 14px 16px 38px}
+  #gp-pain .gp__text{font-size:15.2px}
+}
+/* ট্যাবলেট / ডেস্কটপ — ২ × ২ */
+@container gp (min-width:720px){
+  #gp-pain .gp__list{grid-template-columns:1fr 1fr;column-gap:44px;row-gap:18px;max-width:880px}
+  #gp-pain .gp__item{padding:26px 28px 26px 38px}
+  #gp-pain .gp__text{font-size:16.96px}
+  #gp-pain .gp__sub{font-size:16.8px;max-width:none}
+}
+@container gp (min-width:900px){
+  #gp-pain .gp{padding:80px 24px 88px}
+  #gp-pain .gp__list{margin-top:40px}
+}
+
+/* — অ্যানিমেশন: স্ক্রল করে এলে শুরু হয় (যারা কম মোশন পছন্দ করেন তাদের জন্য বন্ধ) — */
+@keyframes gp-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes gp-pop{0%{opacity:0;transform:scale(.4)}65%{opacity:1;transform:scale(1.12)}100%{opacity:1;transform:scale(1)}}
+@keyframes gp-draw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media (prefers-reduced-motion:no-preference){
+  #gp-pain .gp__item{animation:gp-rise .6s cubic-bezier(.22,.8,.3,1) both}
+  #gp-pain .gp__item:nth-child(2){animation-delay:.08s}
+  #gp-pain .gp__item:nth-child(3){animation-delay:.16s}
+  #gp-pain .gp__item:nth-child(4){animation-delay:.24s}
+  #gp-pain .gp__icon{animation:gp-pop .5s cubic-bezier(.3,.7,.4,1.3) .25s both}
+  #gp-pain .gp__item:nth-child(2) .gp__icon{animation-delay:.33s}
+  #gp-pain .gp__item:nth-child(3) .gp__icon{animation-delay:.41s}
+  #gp-pain .gp__item:nth-child(4) .gp__icon{animation-delay:.49s}
+  #gp-pain .gp__swash{animation:gp-draw .8s cubic-bezier(.65,0,.35,1) .15s both}
+  #gp-pain .gp--wait .gp__item,#gp-pain .gp--wait .gp__icon,#gp-pain .gp--wait .gp__swash{animation-play-state:paused}
+}
+</style>
+
+<div id="gp-pain">
+<section class="gp" aria-labelledby="gp-title">
+  <div class="gp__inner">
+
+    <p class="gp__eyebrow"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.6L15 14H1z" fill="currentColor"/><path d="M8 6v3.6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.7" r=".85" fill="#fff"/></svg>সাবধান</p>
+
+    <h2 class="gp__title" id="gp-title">বাজারের গুড় কিনে <span class="gp__accent">ঠকছেন?<svg class="gp__swash" viewBox="0 0 300 22" preserveAspectRatio="none" aria-hidden="true"><path d="M5 13Q150 -1 296 5.5L295.5 7.6Q150 4.5 9 18.5Q1 17 5 13Z" fill="currentColor" opacity=".85"/></svg></span></h2>
+
+    <p class="gp__sub">আপনি একা নন — হাজারো পরিবার এই সমস্যাগুলোর মুখোমুখি হচ্ছে প্রতিদিন</p>
+
+    <ul class="gp__list" role="list">
+      <li class="gp__item gp__item--sugar">
+        <span class="gp__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 12.5l4.2-2.1 4.2 2.1v4.8l-4.2 2.1-4.2-2.1z"/><path d="M3.5 12.5l4.2 2.1 4.2-2.1M7.7 14.6v4.8"/><path d="M12.1 12.5l4.2-2.1 4.2 2.1v4.8l-4.2 2.1-4.2-2.1z"/><path d="M12.1 12.5l4.2 2.1 4.2-2.1M16.3 14.6v4.8"/><path class="gp__fill" d="M7.8 6.3L12 4.2l4.2 2.1v4.8L12 13.2l-4.2-2.1z"/><path d="M7.8 6.3L12 8.4l4.2-2.1M12 8.4v4.8"/></svg></span>
+        <p class="gp__text">চিনির বিকল্প ভেবে গুড় কিনে <b>আবার চিনিই খাওয়াচ্ছেন</b> না তো?</p>
+      </li>
+      <li class="gp__item gp__item--search">
+        <span class="gp__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.6"/><path d="M15.3 15.3L20.4 20.4" stroke-width="2.1"/><path d="M8.7 9a1.85 1.85 0 1 1 2.75 1.6c-.6.33-.95.75-.95 1.4"/><circle cx="10.5" cy="13.9" r=".2" stroke-width="1.2"/></svg></span>
+        <p class="gp__text">বাজারে গুড়ের অভাব নেই, কিন্তু <b>ভেজালমুক্ত খাঁটি গুড়</b> খুঁজে পাওয়া কঠিন।</p>
+      </li>
+      <li class="gp__item gp__item--chem">
+        <span class="gp__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.3 3.4h5.4"/><path d="M10.4 3.4v5.4l-5.1 8.9a1.9 1.9 0 0 0 1.65 2.85h10.1a1.9 1.9 0 0 0 1.65-2.85l-5.1-8.9V3.4"/><path d="M7.5 14.6h9"/><circle cx="10.6" cy="17.4" r=".75"/><circle cx="13.9" cy="16.6" r=".5"/></svg></span>
+        <p class="gp__text">গুড়ের নামে সস্তায় <b>ফিটকিরি আর হাইড্রোজ</b> মেশানো চকচকে রঙ কিনছেন না তো?</p>
+      </li>
+      <li class="gp__item gp__item--child">
+        <span class="gp__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="7.5"/><path d="M12 5.5c-1.8 0-2.6 1.2-2 2.2.6 1 2.2.8 2.3-.4"/><circle cx="9.4" cy="12.8" r=".3" stroke-width="1.4"/><circle cx="14.6" cy="12.8" r=".3" stroke-width="1.4"/><path d="M9.8 15.8c1.2 1 3.2 1 4.4 0"/><path d="M4.5 13a1.6 1.6 0 0 0 0 3.2M19.5 13a1.6 1.6 0 0 1 0 3.2" stroke-width="1.3"/></svg></span>
+        <p class="gp__text">ছোট বাচ্চার মুখে যা তুলে দিচ্ছেন, তা কি <b>কেবল মিষ্টি নাকি পুষ্টিও</b> আছে?</p>
+      </li>
+    </ul>
+
+  </div>
+</section>
+</div>
+
+<script>
+(function () {
+
+  // পুরো স্ক্রিন জুড়ে বসানো: Elementor কন্টেইনারের প্যাডিং/বক্সড চওড়া থাকলেও সেকশন কিনারা থেকে কিনারা
+  var host = document.getElementById('gp-pain');
+  if (host) {
+    var fit = function () {
+      host.style.marginLeft = '';
+      host.style.setProperty('--gp-vw', document.documentElement.clientWidth + 'px');
+      var left = host.getBoundingClientRect().left;
+      if (Math.abs(left) > 0.25) host.style.marginLeft = (parseFloat(getComputedStyle(host).marginLeft) - left) + 'px';
+    };
+    var queued = 0;
+    var queue = function () { if (!queued) queued = requestAnimationFrame(function () { queued = 0; fit(); }); };
+    fit();
+    window.addEventListener('resize', queue);
+    window.addEventListener('load', queue);
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(queue);
+      ro.observe(document.documentElement);
+      if (host.parentElement) ro.observe(host.parentElement);
+    }
+  }
+  var reduceMotion = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+  Array.prototype.forEach.call(document.querySelectorAll('#gp-pain .gp'), function (section) {
+    var list = section.querySelector('.gp__list');
+    if (!list) return;
+    section.classList.add('gp--wait');
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { io.disconnect(); section.classList.remove('gp--wait'); }
+    }, { threshold: 0.2 });
+    io.observe(list);
+  });
+})();
+</script>
