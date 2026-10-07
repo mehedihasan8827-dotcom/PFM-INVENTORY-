@@ -141,20 +141,24 @@
 .gh__count-live{justify-self:end}
 
 /* — নিচে স্ক্রলের ইশারা — */
-.gh .gh__scroll,.gh .gh__scroll:hover,.gh .gh__scroll:focus{
-  margin-top:20px;display:inline-flex;flex-direction:column;align-items:center;gap:6px;
-  padding:6px 12px;border:0;border-radius:14px;background:none;box-shadow:none;cursor:pointer;
-  color:var(--gh-ink-soft);font:600 .875rem/1.4 var(--gh-font);letter-spacing:normal;text-transform:none;
+/* margin-top = আগের ২০px + সরানো লেখার লাইন (1.225rem) + ফাঁক ৬px — তাই বৃত্তটি ঠিক আগের জায়গাতেই থাকে */
+.gh .gh__scroll,.gh .gh__scroll:hover,.gh .gh__scroll:focus,.gh .gh__scroll:active{
+  margin-top:calc(26px + 1.225rem);display:inline-grid;place-items:center;width:52px;height:52px;min-width:0;min-height:0;
+  padding:0;border:0;border-radius:50%;background:none;box-shadow:none;cursor:pointer;
+  color:var(--gh-green);font:600 .875rem/1.4 var(--gh-font);letter-spacing:normal;text-transform:none;
   -webkit-tap-highlight-color:transparent;
 }
-.gh .gh__scroll:focus-visible{outline:2px solid var(--gh-green);outline-offset:3px}
+.gh .gh__scroll:focus-visible{outline:2px solid var(--gh-green);outline-offset:2px}
 .gh__scroll-icon{
-  display:grid;place-items:center;width:40px;height:40px;border-radius:50%;
+  position:relative;display:block;width:40px;height:40px;border-radius:50%;
   background:var(--gh-surface);border:1px solid var(--gh-line);color:var(--gh-green);
-  transition:border-color .2s ease,transform .2s ease;
+  box-shadow:0 10px 21px -13px rgba(23,74,51,.5);
+  transition:transform .25s cubic-bezier(.22,.8,.3,1);
 }
-.gh__scroll:hover .gh__scroll-icon{border-color:rgba(23,74,51,.4);transform:translateY(2px)}
-.gh__scroll-icon svg{display:block;width:18px;height:18px}
+.gh__scroll-icon::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid rgba(23,74,51,.34);opacity:0;transition:opacity .25s ease}
+.gh__scroll:hover .gh__scroll-icon{transform:translateY(2px)}
+.gh__scroll:hover .gh__scroll-icon::after{opacity:1}
+.gh__scroll-icon svg{display:block;width:100%;height:100%;fill:none}
 
 /* খুব ছোট ফোন (৩২০px) — কার্ড একটু আঁটসাঁট, ব্যাজ দুই লাইনে */
 @container gh (max-width:320px){
@@ -181,7 +185,7 @@
   .gh__title{margin-top:14px}
   .gh__features{margin-top:28px}
   .gh__trust{margin-top:20px}
-  .gh .gh__scroll{margin-top:30px}
+  .gh .gh__scroll,.gh .gh__scroll:hover,.gh .gh__scroll:focus,.gh .gh__scroll:active{margin-top:calc(36px + 1.225rem)}
 }
 
 /* — অ্যানিমেশন (যারা কম মোশন পছন্দ করেন তাদের জন্য বন্ধ) — */
@@ -189,7 +193,7 @@
 @keyframes gh-draw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 @keyframes gh-shine{from{background-position:130% 0,0 0}to{background-position:-30% 0,0 0}}
 @keyframes gh-pop{0%{opacity:0;transform:scale(.3)}65%{opacity:1;transform:scale(1.15)}100%{opacity:1;transform:scale(1)}}
-@keyframes gh-nudge{0%,100%{transform:translateY(-3px);opacity:.45}50%{transform:translateY(3px);opacity:1}}
+@keyframes gh-loop{0%{transform:none;opacity:1;animation-timing-function:cubic-bezier(.5,0,.75,.3)}16%{transform:translateY(26px);opacity:.4;animation-timing-function:steps(1,end)}16.5%{transform:translateY(-26px);opacity:.4;animation-timing-function:cubic-bezier(.22,.8,.3,1)}40%,100%{transform:none;opacity:1}}
 @media (prefers-reduced-motion:no-preference){
   .gh__eyebrow,.gh__promise,.gh__product,.gh__features,.gh__trust,.gh .gh__scroll{animation:gh-rise .7s cubic-bezier(.22,.8,.3,1) both}
   .gh__badge{animation:gh-pop .55s cubic-bezier(.3,.7,.4,1.3) .05s both}
@@ -200,7 +204,7 @@
   .gh__features{animation-delay:.42s}
   .gh__trust{animation-delay:.52s}
   .gh .gh__scroll{animation-delay:.68s}
-  .gh__scroll-icon svg{animation:gh-nudge 1.8s ease-in-out 1.4s infinite}
+  .gh__scroll-arrow{animation:gh-loop 3.6s 2.6s infinite}
   .gh__star{transform-box:fill-box;transform-origin:center;animation:gh-pop .45s cubic-bezier(.3,.7,.4,1.3) both}
   .gh__star:nth-of-type(1){animation-delay:.75s}
   .gh__star:nth-of-type(2){animation-delay:.83s}
@@ -286,9 +290,8 @@
       <p class="gh__trust-text"><span class="gh__count"><span class="gh__count-ghost" aria-hidden="true">২৩,০০০+</span><span class="gh__count-live" data-gh-count="23000" data-gh-suffix="+">২৩,০০০+</span></span> পরিবারের আস্থা</p>
     </div>
 
-    <button class="gh__scroll" type="button">
-      <span>আরও জানতে নিচে স্ক্রল করুন</span>
-      <span class="gh__scroll-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"/></svg></span>
+    <button class="gh__scroll" type="button" aria-label="নিচে আরও তথ্য দেখুন">
+      <span class="gh__scroll-icon" aria-hidden="true"><svg viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><defs><clipPath id="gh-cue-clip"><circle cx="19" cy="19" r="19"/></clipPath></defs><g clip-path="url(#gh-cue-clip)"><path class="gh__scroll-arrow" d="M19 12.25v13.25M15 21.5l4 4 4-4"/></g></svg></span>
     </button>
 
   </div>
