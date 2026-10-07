@@ -1,0 +1,300 @@
+<!-- =====================================================================
+  সেকশন : খাঁটি আখের গুড় চেনার উপায়
+  ব্যবহার : Elementor → "HTML" উইজেট ড্র্যাগ করুন → পুরো কোড পেস্ট করুন → Update
+  ফন্ট    : Hind Siliguri (Google Fonts)
+  নোট    : সব ক্লাস "khg-" দিয়ে শুরু, তাই থিম/অন্য সেকশনের সাথে কনফ্লিক্ট হবে না।
+===================================================================== -->
+
+<!-- Hind Siliguri ফন্ট (সাইটে আগে থেকেই লোড করা থাকলে এই ৩ লাইন মুছে দিতে পারেন) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ---------- রং ও সেটিংস (এখান থেকে সহজেই কালার বদলাতে পারবেন) ---------- */
+  .khg-sec {
+    --khg-green-top: #1f8443;
+    --khg-green-mid: #0f5a2d;
+    --khg-green-deep: #0a3d1f;
+    --khg-red: #a3231b;
+    --khg-text: #2f3a33;
+    --khg-card-bg: #ffffff;
+    --khg-border: #e2ece4;
+    --khg-note-bg: #fff7e6;
+    --khg-note-border: #f2cf8f;
+    --khg-note-text: #5c3d07;
+    --khg-note-label: #a35c00;
+    --khg-font: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 48px 14px;
+    font-family: var(--khg-font);
+    -webkit-font-smoothing: antialiased;
+  }
+  .khg-sec *,
+  .khg-sec *::before,
+  .khg-sec *::after { box-sizing: border-box; }
+
+  .khg-sec .khg-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  /* ---------- হেডিং বার ---------- */
+  .khg-sec .khg-head {
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 28px;
+    padding: 16px 22px;
+    border-radius: 16px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--khg-green-top) 0%, var(--khg-green-mid) 55%, var(--khg-green-deep) 100%);
+    box-shadow: 0 14px 28px -14px rgba(10, 61, 31, .65);
+  }
+  .khg-sec .khg-head::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .16) 0%, rgba(255, 255, 255, 0) 55%);
+    pointer-events: none;
+  }
+  .khg-sec .khg-title {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: var(--khg-font);
+    font-size: clamp(22px, 4.4vw, 34px);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0;
+    color: #ffffff;
+    text-transform: none;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, .18);
+  }
+
+  /* ---------- কার্ড গ্রিড ---------- */
+  .khg-sec .khg-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .khg-sec .khg-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 30px 22px 26px;
+    text-align: center;
+    background: var(--khg-card-bg);
+    border: 1px solid var(--khg-border);
+    border-radius: 18px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 10px 26px -14px rgba(15, 90, 45, .25);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, opacity .6s ease;
+  }
+  /* কার্ডের উপরে ছোট সবুজ এক্সেন্ট লাইন */
+  .khg-sec .khg-card::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    width: 64px;
+    height: 4px;
+    transform: translateX(-50%);
+    border-radius: 0 0 6px 6px;
+    background: linear-gradient(90deg, var(--khg-green-top), var(--khg-green-deep));
+  }
+
+  /* ---------- টিক আইকন ---------- */
+  .khg-sec .khg-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 54px;
+    height: 54px;
+    margin: 0 0 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, #1f7a43 0%, var(--khg-green-deep) 70%);
+    box-shadow: 0 0 0 7px rgba(31, 132, 67, .10), 0 8px 16px -6px rgba(10, 61, 31, .6);
+  }
+  .khg-sec .khg-icon svg {
+    display: block;
+    width: 26px;
+    height: 26px;
+  }
+
+  /* ---------- কার্ড টেক্সট ---------- */
+  .khg-sec .khg-card-title {
+    margin: 0 0 10px;
+    padding: 0;
+    font-family: var(--khg-font);
+    font-size: clamp(21px, 2.3vw, 25px);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0;
+    color: var(--khg-red);
+    text-transform: none;
+  }
+  .khg-sec .khg-card-text {
+    margin: 0;
+    padding: 0;
+    font-family: var(--khg-font);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--khg-text);
+  }
+
+  /* ---------- বি.দ্র. নোট ---------- */
+  .khg-sec .khg-note {
+    margin: 16px 0 0;
+    padding: 11px 16px;
+    font-family: var(--khg-font);
+    font-size: 15.5px;
+    font-weight: 500;
+    line-height: 1.75;
+    color: var(--khg-note-text);
+    background: var(--khg-note-bg);
+    border: 1px dashed var(--khg-note-border);
+    border-radius: 12px;
+  }
+  .khg-sec .khg-note strong {
+    font-weight: 700;
+    color: var(--khg-note-label);
+  }
+
+  /* ---------- হোভার (শুধু মাউসওয়ালা ডিভাইসে) ---------- */
+  @media (hover: hover) {
+    .khg-sec .khg-card:hover {
+      transform: translateY(-5px);
+      border-color: #bcd8c4;
+      box-shadow: 0 2px 4px rgba(16, 24, 40, .04), 0 22px 40px -18px rgba(15, 90, 45, .40);
+    }
+  }
+
+  /* ---------- স্ক্রল করলে কার্ড ভেসে ওঠার অ্যানিমেশন ---------- */
+  .khg-sec .khg-card.khg-reveal {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  .khg-sec .khg-card.khg-reveal.khg-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ---------- ট্যাবলেট ও ডেস্কটপ: ২ কলাম ---------- */
+  @media (min-width: 768px) {
+    .khg-sec { padding: 64px 20px; }
+    .khg-sec .khg-head { margin-bottom: 34px; padding: 18px 28px; }
+    .khg-sec .khg-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .khg-sec .khg-card { padding: 36px 32px 32px; }
+    .khg-sec .khg-icon { width: 58px; height: 58px; margin-bottom: 18px; }
+    .khg-sec .khg-icon svg { width: 28px; height: 28px; }
+    .khg-sec .khg-card-text { font-size: 18px; }
+    .khg-sec .khg-note { font-size: 16px; }
+  }
+
+  /* ---------- ছোট মোবাইল ---------- */
+  @media (max-width: 400px) {
+    .khg-sec { padding: 36px 10px; }
+    .khg-sec .khg-head { padding: 14px 14px; border-radius: 14px; margin-bottom: 22px; }
+    .khg-sec .khg-card { padding: 26px 16px 22px; border-radius: 16px; }
+    .khg-sec .khg-icon { width: 50px; height: 50px; margin-bottom: 14px; }
+    .khg-sec .khg-icon svg { width: 24px; height: 24px; }
+    .khg-sec .khg-card-text { font-size: 16.5px; line-height: 1.75; }
+    .khg-sec .khg-note { font-size: 15px; padding: 10px 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .khg-sec .khg-card,
+    .khg-sec .khg-card.khg-reveal { transition: none; opacity: 1; transform: none; }
+  }
+</style>
+
+<section class="khg-sec" aria-labelledby="khg-title">
+  <div class="khg-inner">
+
+    <div class="khg-head">
+      <h2 class="khg-title" id="khg-title">খাঁটি আখের গুড় চেনার উপায়</h2>
+    </div>
+
+    <div class="khg-grid">
+
+      <!-- কার্ড ১ : রং -->
+      <div class="khg-card">
+        <span class="khg-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+        </span>
+        <h3 class="khg-card-title">রং</h3>
+        <p class="khg-card-text">খাঁটি আখের গুড়ের রং তেমন উজ্জ্বল হবে না। সুতা তৈরির কারখানায় ব্যবহৃত কেমিক্যাল (হাইড্রোজ) মিশিয়ে গুড়ের রং উজ্জ্বল করা হয়।</p>
+      </div>
+
+      <!-- কার্ড ২ : ফেনা -->
+      <div class="khg-card">
+        <span class="khg-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+        </span>
+        <h3 class="khg-card-title">ফেনা</h3>
+        <p class="khg-card-text">দানাদার গুড় জ্বালের তারতম্যের জন্য জ্বাল কিছুটা কম হলে উপরে লিকুইড ক্রমে হালকা ফেনা ভেসে থাকে।</p>
+      </div>
+
+      <!-- কার্ড ৩ : কেমিক্যাল এর ঘ্রাণ -->
+      <div class="khg-card">
+        <span class="khg-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+        </span>
+        <h3 class="khg-card-title">কেমিক্যাল এর ঘ্রাণ</h3>
+        <p class="khg-card-text">হাইড্রোজ মিশ্রিত গুড়ে প্রায় ১ সপ্তাহ পর্যন্ত মৃদু আকারে কেমিক্যাল এর ঝাঁঝ / মৃদু ঘ্রাণ পাওয়া যায়।</p>
+      </div>
+
+      <!-- কার্ড ৪ : মিষ্টতা ও ঘ্রাণ -->
+      <div class="khg-card">
+        <span class="khg-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+        </span>
+        <h3 class="khg-card-title">মিষ্টতা ও ঘ্রাণ</h3>
+        <p class="khg-card-text">খাঁটি আখের গুড়ে অনেক সুন্দর ঘ্রাণ ছড়ায় এবং মিষ্টতা স্বাভাবিক হয়। অতিরিক্ত মিষ্টি হলে বুঝবেন চিনি মেশানো আছে।</p>
+        <p class="khg-note"><strong>বি.দ্র.</strong> ফেব্রুয়ারি থেকে এপ্রিল — এই সময়ের খাঁটি গুড়ে অন্য সময়ের তুলনায় বেশি মিষ্টতা পাওয়া যায়।</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  /* স্ক্রল করলে কার্ডগুলো একে একে ভেসে ওঠে। স্ক্রিপ্ট না চললেও কার্ড স্বাভাবিকভাবে দেখা যাবে। */
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var card = entry.target;
+        io.unobserve(card);
+        card.classList.add('khg-in');
+        setTimeout(function () {
+          card.classList.remove('khg-reveal', 'khg-in');
+          card.style.transitionDelay = '';
+        }, 1000);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.khg-sec:not([data-khg-ready])').forEach(function (sec) {
+      sec.setAttribute('data-khg-ready', '');
+      sec.querySelectorAll('.khg-card').forEach(function (card, i) {
+        /* যে কার্ড আগে থেকেই স্ক্রিনে আছে সেটাকে লুকানো হবে না */
+        if (card.getBoundingClientRect().top < window.innerHeight) return;
+        card.style.transitionDelay = (i % 2) * 120 + 'ms';
+        card.classList.add('khg-reveal');
+        io.observe(card);
+      });
+    });
+  })();
+</script>
